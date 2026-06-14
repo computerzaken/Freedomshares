@@ -109,7 +109,13 @@ function RS(me,comp,pool,avg){
   $('tab2').innerHTML=`<div class="card" style="margin-bottom:10px;"><h3 style="font-size:13px;margin-bottom:10px;">👥 Deelnemer toevoegen</h3><div style="display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:6px;align-items:end;"><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Naam</label><input id="nn" placeholder="Sara" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 9px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Inkomen/mnd</label><div style="position:relative;"><span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--g);font-size:11px;">€</span><input id="ni" type="number" placeholder="2500" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 7px 6px 18px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Bijdrage %</label><input id="np" type="number" placeholder="10" min="0" max="100" style="width:100%;padding:6px 7px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><button onclick="AM()" style="background:var(--g);color:#fff;padding:6px 10px;border-radius:7px;font-size:13px;font-weight:600;height:33px;border:none;cursor:pointer;">+</button></div></div><div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><h3 style="font-size:13px;">${all.length} deelnemers</h3><button onclick="DEMO_START()" style="font-size:9px;padding:2px 7px;border-radius:6px;border:1px solid var(--g);color:var(--g);background:none;cursor:pointer;">Laad voorbeeldleden</button><span style="font-size:11px;color:var(--mu);">Gem.ink: <strong style="color:var(--g);">€${avg.toLocaleString('nl-NL')}</strong></span></div><div style="display:flex;flex-direction:column;gap:4px;">${[...comp].sort((a,b)=>a.i-b.i).map(m=>{const cl=m;return`<div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:7px;align-items:center;padding:7px 9px;border-radius:9px;background:#f8f5f0;border:1px solid var(--br);"><div style="width:26px;height:26px;border-radius:50%;background:hsl(${m.i/30},40%,55%);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">${(m.n||'').split(' ').map(w=>w[0]).join('').slice(0,2)}</div><div><div style="font-size:12px;font-weight:500;">${m.n}</div><div style="font-size:10px;color:var(--mu);">€${m.i.toLocaleString('nl-NL')}/mnd</div></div><div style="text-align:right;"><div style="font-size:8px;color:var(--mu);">netto</div><div style="font-size:10px;font-weight:600;color:${cl.nt>=0?'#2d5a27':'#b85450'};">${cl.nt>=0?'+':''}€${Math.abs(cl.nt).toLocaleString('nl-NL')}</div></div><button ${m.me?'<span style="width:22px;"></span>':'<button onclick="RM('+m.id+')" style="width:22px;height:22px;border-radius:50%;background:var(--w);color:var(--mu);font-size:13px;border:1px solid var(--br);cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button>'}</div>`;}).join('')}</div></div>`;
 }
 function AM(){const n=($('nn')||{}).value||'',i=+($('ni')||{}).value||0,pv=$('np');const p=pv&&pv.value?+pv.value:undefined;if(!n.trim()||!i)return;mbrs.push({id:++nid,n:n.trim(),i,p});CS();}
-function RM(id){mbrs=mbrs.filter(m=>m.id!==id);CS();}
+function RM(id){
+  mbrs=mbrs.filter(m=>m.id!==id);
+  const removed=JSON.parse(localStorage.getItem('fs_removed')||'[]');
+  if(!removed.includes(id))removed.push(id);
+  localStorage.setItem('fs_removed',JSON.stringify(removed));
+  CS();
+}
 
 function CT(i){['ck0','ck1','ck2'].forEach((id,j)=>{const el=document.getElementById(id);if(el)el.style.display=i===j?'block':'none';});['ct0','ct1','ct2'].forEach((id,j)=>{const b=document.getElementById(id);if(!b)return;b.className='tb'+(i===j?' on':'');});if(i===1)RCW();if(i===2){window._sc=window._sc||[];ROS();}}
 
@@ -207,10 +213,13 @@ function START_APP(isDemo){
   const ub=document.getElementById('ubar');
   ub.style.display='flex';
   document.getElementById('ubar-name').textContent='👤 '+currentUser+(isDemo?' (demo)':'');
-  if(!isDemo){
-    const sv=localStorage.getItem('fs_inc_'+currentUser);
-    if(sv&&mI)mI.value=sv;
-  }
+  // Restore removed demo members from localStorage
+  const removed=JSON.parse(localStorage.getItem('fs_removed')||'[]');
+  mbrs=M.filter(m=>!removed.includes(m.id));
+  // Restore income
+  const sv=localStorage.getItem('fs_inc_'+currentUser);
+  if(sv&&mI)mI.value=sv;
+  if(isDemo&&mI&&!mI.value)mI.value='2500';
   CS();ST(0);LD();
 }
 
@@ -224,19 +233,16 @@ function JOIN(){
 
 function DEMO_START(){
   currentUser='Demo';
-  mbrs=[...M];
-  if(mI)mI.value='2500';
   START_APP(true);
 }
 
 function LOGOUT(){
   currentUser=null;
-  mbrs=[];
-  projs=[];
-  supporters=[];
-  fund=[];
-  fundpot=0;
+  mbrs=[...M];
+  projs=[];supporters=[];fund=[];fundpot=0;
   if(mI)mI.value='';
+  localStorage.removeItem('fs_user');
+  localStorage.removeItem('fs_removed');
   document.getElementById('wl').style.display='flex';
   document.getElementById('ubar').style.display='none';
 }
