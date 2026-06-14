@@ -1,7 +1,7 @@
 const SURL='https://gffzskbxjzgewztjhncz.supabase.co';
 const SKEY='sb_publishable_agTW0NWNmrewQJZuOGV6Lw_llciY6Yw';
 let _DB=null;
-
+window.addEventListener('load',()=>{_DB=supabase.createClient(SURL,SKEY);LD();});
 
 const $=id=>document.getElementById(id);
 const M=[{id:1,n:'Sophie',i:1200},{id:2,n:'Mohammed',i:1800},{id:3,n:'Lisa',i:2100},{id:4,n:'Ravi',i:2300},{id:5,n:'Emma',i:2800},{id:6,n:'Pieter',i:3400},{id:7,n:'Yasmine',i:4200},{id:8,n:'Jan',i:5800}];
@@ -74,7 +74,7 @@ const OSC=[
 const SC=[{id:'voeding',l:'Voeding & Drinken',e:'🥦',c:'#2d5a27'},{id:'kleding',l:'Kleding & Mode',e:'👕',c:'#1a7a6e'},{id:'tech',l:'Technologie',e:'💻',c:'#5b4fa8'},{id:'witgoed',l:'Witgoed & Elektronica',e:'🔌',c:'#c45e00'},{id:'wonen',l:'Wonen & Interieur',e:'🛋️',c:'#c17f24'},{id:'verzorging',l:'Lichaam & Verzorging',e:'🌿',c:'#2d5a27'},{id:'markt',l:'Boerenmarkt & Landwinkel',e:'🌾',c:'#c45e00'},{id:'financien',l:'Financiën',e:'💰',c:'#1a7a6e'},{id:'mobiliteit',l:'Mobiliteit',e:'🚲',c:'#5b4fa8'},{id:'energie',l:'Energie & Klimaat',e:'⚡',c:'#c17f24'},{id:'zorg',l:'Zorg & Welzijn',e:'🏥',c:'#b85450'},{id:'vrije_tijd',l:'Natuur & Vrije Tijd',e:'🎭',c:'#2d5a27'}];
 const QD={invest:{c:'#2d5a27',l:'Investeren',d:'Renteloos le.',di:['Initiatief starten','Renteloze lening','Deelnemen'],fi:['Geld vloeit terug','Geen rente, wel verantwoordelijkheid']},support:{c:'#1a7a6e',l:'Ondersteunen',d:'Persoonlijke.',di:['Persoonlijke voordracht','Groei ondersteunen','Geen criteria'],fi:['Gift, geen lening','Vertrouwen als basis']},crowd:{c:'#5b4fa8',l:'Crowdfunding',d:'Initiatieven.',di:['Criteria-selectie','Gelijke stem','Consent-besluitvorming'],fi:['Geld vrij bij haalbaarheid','Collectief beheer']},give:{c:'#c17f24',l:'Weggeven',d:'Zuivere gift.',di:['Geen verwachtingen','Onpersoonlijk','Trickledown'],fi:['Pure gift','Versterkt het systeem']}};
 const PS=['Idee','Actief','Afgerond'],STC={Idee:'#c17f24',Actief:'#2d5a27',Afgerond:'#6b7260'};
-var currentUser=null;var projs=[];var supporters=[];var fundpot=0;var fund=[];let mbrs=[],shops=[...SH_DATA];
+var currentUser=null;var projs=[];var supporters=[];let mbrs=[...M],shops=[...SH_DATA];
 var hf='Alle';let fx=false,nid=200,cws=0,cwa={},cwr=null,ks=0,ka={},km=[];
 
 function G(p){
@@ -87,15 +87,15 @@ function G(p){
 }
 
 function CS(){
-  if(mI&&mI.value&&currentUser)try{localStorage.setItem('fs_inc_'+currentUser,mI.value);}catch(e){}
-  const inc=+(mI&&mI.value)||0,pct=fx?(inc>0?(+(fa.value)||0)/inc:0):(+(ps.value)||0)/100;
+  if(currentUser&&mI&&mI.value)try{localStorage.setItem('fs_inc_'+currentUser,mI.value);}catch(e){}
+  const inc=+(mI.value)||0,pct=fx?(inc>0?(+(fa.value)||0)/inc:0):(+(ps.value)||0)/100;
   const mc=fx?(+(fa.value)||0):Math.round(inc*pct);
   if(!fx)$('pl').textContent=ps.value+'% = €'+mc.toLocaleString('nl-NL')+'/mnd';
   const all=[...mbrs,{id:0,n:'Jij',i:inc,me:true}];
-  const pool=all.reduce((s,m)=>s+Math.round(m.i*(m.p!==undefined?m.p/100:pct)),0),pp=all.length?Math.round(pool/all.length):0;
-  const comp=all.map(m=>({...m,cn:Math.round(m.i*(m.p!==undefined?m.p/100:pct)),rc:pp,nt:pp-Math.round(m.i*(m.p!==undefined?m.p/100:pct))}));
+  const pool=all.reduce((s,m)=>s+Math.round(m.i*pct),0),pp=all.length?Math.round(pool/all.length):0;
+  const comp=all.map(m=>({...m,cn:Math.round(m.i*pct),rc:pp,nt:pp-Math.round(m.i*pct)}));
   const me=comp.find(m=>m.me)||{cn:0,rc:0,nt:0};
-  const avg=all.filter(m=>m.i>0).length?Math.round(all.filter(m=>m.i>0).reduce((s,m)=>s+m.i,0)/all.filter(m=>m.i>0).length):0;
+  const avg=mbrs.length?Math.round(mbrs.reduce((s,m)=>s+m.i,0)/mbrs.length):0;
   $('st-l').textContent=mbrs.length+1;
   $('pst').innerHTML=[{l:'Leden',v:comp.length,c:'#5b4fa8'},{l:'Pool',v:'€'+pool.toLocaleString('nl-NL'),c:'#1a7a6e'},{l:'Per persoon',v:'€'+pp.toLocaleString('nl-NL'),c:'#2d5a27'},{l:'Gem.ink.',v:'€'+avg.toLocaleString('nl-NL'),c:'#c17f24'}].map(s=>`<div class="card" style="text-align:center;padding:8px 5px;"><div style="font-family:'Lora',serif;font-size:14px;font-weight:700;color:${s.c};">${s.v}</div><div style="font-size:9px;color:var(--mu);">${s.l}</div></div>`).join('');
   RS(me,comp,pool,avg);
@@ -106,14 +106,12 @@ function RS(me,comp,pool,avg){
   const nt=me.nt,na=Math.abs(nt),g=nt>=0?'#2d5a27':'#b85450';
   $('tab0').innerHTML=`<div class="card" style="margin-bottom:10px;"><div style="text-align:center;margin-bottom:11px;"><div style="font-size:22px;margin-bottom:3px;">${nt>=0?'🌱':'💛'}</div><h2 style="font-size:14px;color:${g};">${!me.i?'Vul je inkomen in':''}</h2></div><div style="display:flex;gap:6px;margin-bottom:9px;"><div style="flex:1;border-radius:10px;padding:10px 6px;text-align:center;background:var(--cl);"><div style="font-size:9px;color:var(--mu);margin-bottom:1px;">Jij geeft</div><div style="font-family:'Lora',serif;font-size:16px;font-weight:700;color:var(--co);">↑ €${me.cn.toLocaleString('nl-NL')}</div></div><div style="flex:1;border-radius:10px;padding:10px 6px;text-align:center;background:var(--gl);"><div style="font-size:9px;color:var(--mu);margin-bottom:1px;">Jij ontvangt</div><div style="font-family:'Lora',serif;font-size:16px;font-weight:700;color:var(--g);">↓ €${me.rc.toLocaleString('nl-NL')}</div></div></div><div style="border-radius:10px;padding:12px;text-align:center;background:${nt>=0?'var(--gl)':'var(--cl)'};"><div style="font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">Netto</div><div style="font-family:'Lora',serif;font-size:28px;font-weight:700;color:${g};">${nt>=0?'+':'−'}€${na.toLocaleString('nl-NL')}</div><div style="font-size:10px;color:var(--mu);margin-top:1px;">per maand</div></div></div>`;
   $('tab1').innerHTML=`<div class="card"><h3 style="font-size:13px;margin-bottom:8px;">Alle ${comp.length} deelnemers</h3><table style="width:100%;border-collapse:collapse;font-size:11px;"><thead><tr style="background:#f8f5f0;font-size:8px;text-transform:uppercase;color:var(--mu);">${['Naam','Inkomen','Bijdrage','Ontvangt','Netto'].map((h,i)=>`<th style="padding:3px 5px;text-align:${i?'right':'left'};">${h}</th>`).join('')}</tr></thead><tbody>${[...comp].sort((a,b)=>a.i-b.i).map(m=>`<tr style="background:${m.me?'var(--gl)':'transparent'};border-bottom:1px solid var(--br);"><td style="padding:5px 5px;font-weight:${m.me?600:400};color:${m.me?'#2d5a27':'var(--tx)'};">${m.n}${m.me?' ⬅':''}</td><td style="text-align:right;padding:5px;color:var(--mu);">€${m.i.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;color:var(--co);">−€${m.cn.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;color:var(--t);">+€${m.rc.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;font-weight:600;color:${m.nt>=0?'#2d5a27':'#b85450'};">${m.nt>=0?'+':''}€${Math.abs(m.nt).toLocaleString('nl-NL')}</td></tr>`).join('')}<tr style="border-top:2px solid var(--br);font-weight:700;"><td style="padding:5px;font-size:8px;color:var(--mu);">TOTAAL</td><td></td><td style="text-align:right;padding:5px;color:var(--co);">€${pool.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;color:var(--t);">€${pool.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;color:#2d5a27;">€0</td></tr></tbody></table></div>`;
-  $('tab2').innerHTML=`<div class="card" style="margin-bottom:10px;"><h3 style="font-size:13px;margin-bottom:10px;">👥 Deelnemer toevoegen</h3><div style="display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:6px;align-items:end;"><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Naam</label><input id="nn" placeholder="Sara" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 9px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Inkomen/mnd</label><div style="position:relative;"><span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--g);font-size:11px;">€</span><input id="ni" type="number" placeholder="2500" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 7px 6px 18px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Bijdrage %</label><input id="np" type="number" placeholder="10" min="0" max="100" style="width:100%;padding:6px 7px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><button onclick="AM()" style="background:var(--g);color:#fff;padding:6px 10px;border-radius:7px;font-size:13px;font-weight:600;height:33px;border:none;cursor:pointer;">+</button></div></div><div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><h3 style="font-size:13px;">${all.length} deelnemers</h3><button onclick="RELOAD_MBRS()" style="font-size:9px;padding:2px 7px;border-radius:6px;border:1px solid var(--g);color:var(--g);background:none;cursor:pointer;">Laad voorbeeldleden</button><span style="font-size:11px;color:var(--mu);">Gem.ink: <strong style="color:var(--g);">€${avg.toLocaleString('nl-NL')}</strong></span></div><div style="display:flex;flex-direction:column;gap:4px;">${[...comp].sort((a,b)=>a.i-b.i).map(m=>{const cl=m;return`<div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:7px;align-items:center;padding:7px 9px;border-radius:9px;background:#f8f5f0;border:1px solid var(--br);"><div style="width:26px;height:26px;border-radius:50%;background:hsl(${m.i/30},40%,55%);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">${(m.n||'').split(' ').map(w=>w[0]).join('').slice(0,2)}</div><div><div style="font-size:12px;font-weight:500;">${m.n}</div><div style="font-size:10px;color:var(--mu);">€${m.i.toLocaleString('nl-NL')}/mnd</div></div><div style="text-align:right;"><div style="font-size:8px;color:var(--mu);">netto</div><div style="font-size:10px;font-weight:600;color:${cl.nt>=0?'#2d5a27':'#b85450'};">${cl.nt>=0?'+':''}€${Math.abs(cl.nt).toLocaleString('nl-NL')}</div></div><button ${m.me?'<span style="width:22px;"></span>':'<button onclick="RM('+m.id+')" style="width:22px;height:22px;border-radius:50%;background:var(--w);color:var(--mu);font-size:13px;border:1px solid var(--br);cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button>'}</div>`;}).join('')}</div></div>`;
+  $('tab2').innerHTML=`<div class="card" style="margin-bottom:10px;"><h3 style="font-size:13px;margin-bottom:10px;">👥 Deelnemer toevoegen</h3><div style="display:grid;grid-template-columns:1fr 1fr auto;gap:6px;align-items:end;"><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Naam</label><input id="nn" placeholder="Sara" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 9px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Inkomen/mnd</label><div style="position:relative;"><span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--g);font-size:11px;">€</span><input id="ni" type="number" placeholder="2500" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 7px 6px 18px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div></div><button onclick="AM()" style="background:var(--g);color:#fff;padding:6px 10px;border-radius:7px;font-size:13px;font-weight:600;height:33px;border:none;cursor:pointer;">+</button></div></div><div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><h3 style="font-size:13px;">${mbrs.length} leden</h3><span style="font-size:11px;color:var(--mu);">Gem.ink: <strong style="color:var(--g);">€${avg.toLocaleString('nl-NL')}</strong></span></div><div style="display:flex;flex-direction:column;gap:4px;">${[...mbrs].sort((a,b)=>a.i-b.i).map(m=>{const cl=comp.find(c=>c.id===m.id)||{nt:0};return`<div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:7px;align-items:center;padding:7px 9px;border-radius:9px;background:#f8f5f0;border:1px solid var(--br);"><div style="width:26px;height:26px;border-radius:50%;background:hsl(${m.i/30},40%,55%);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">${(m.n||'').split(' ').map(w=>w[0]).join('').slice(0,2)}</div><div><div style="font-size:12px;font-weight:500;">${m.n}</div><div style="font-size:10px;color:var(--mu);">€${m.i.toLocaleString('nl-NL')}/mnd</div></div><div style="text-align:right;"><div style="font-size:8px;color:var(--mu);">netto</div><div style="font-size:10px;font-weight:600;color:${cl.nt>=0?'#2d5a27':'#b85450'};">${cl.nt>=0?'+':''}€${Math.abs(cl.nt).toLocaleString('nl-NL')}</div></div><button onclick="RM(${m.id})" style="width:22px;height:22px;border-radius:50%;background:var(--w);color:var(--mu);font-size:13px;border:1px solid var(--br);cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button></div>`;}).join('')}</div></div>`;
 }
-function AM(){const n=($('nn')||{}).value||'',i=+($('ni')||{}).value||0,pv=$('np');const p=pv&&pv.value?+pv.value:undefined;if(!n.trim()||!i)return;mbrs.push({id:++nid,n:n.trim(),i,p});CS();}
+function AM(){const n=($('nn')||{}).value||'',i=+($('ni')||{}).value||0;if(!n.trim()||!i)return;mbrs.push({id:++nid,n:n.trim(),i});CS();}
 function RM(id){
   mbrs=mbrs.filter(m=>m.id!==id);
-  const removed=JSON.parse(localStorage.getItem('fs_removed')||'[]');
-  if(!removed.includes(id))removed.push(id);
-  localStorage.setItem('fs_removed',JSON.stringify(removed));
+  try{const r=JSON.parse(localStorage.getItem('fs_removed')||'[]');if(!r.includes(id)){r.push(id);localStorage.setItem('fs_removed',JSON.stringify(r));}}catch(e){}
   CS();
 }
 
@@ -141,13 +139,9 @@ function OA(){$('sm').style.display='block';const I='width:100%;padding:6px 10px
 
 function AS(){const n=$('an').value.trim();if(!n)return;shops.unshift({n,c:$('ac').value,t:$('at_').value,s:$('as_').value,p:'',bio:null,fair:null,sust:null,lo:null,tg:[],d:$('ad').value.trim(),w:$('aw').value.trim()});$('sm').style.display='none';$('st-s').textContent=shops.length;SH();}
 
-async function SETPOT(){var v=prompt('Startbedrag (euro):');if(!v||isNaN(+v))return;await _DB.from('fund_pot').update({startbedrag:+v}).gt('id',0);fundpot=+v;RH();}
-async function SAVFUND(pid){var n=document.getElementById('fn'),b=document.getElementById('fb');if(!n||!n.value.trim()||!b||!+b.value){alert('Naam en bedrag vereist');return;}await _DB.from('fund').insert([{project_id:pid,naam:n.value.trim(),bedrag:+b.value}]);document.getElementById('fm').style.display='none';await LD();}
-function ADDFUND(pid){var sm=document.getElementById('fm');sm.style.display='block';var I='width:100%;padding:7px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);';sm.innerHTML='<div class="mb" onclick="if(event.target===this)document.getElementById(\'fm\').style.display=\'none\';"><div class="md"><h3 style="font-size:15px;margin-bottom:11px;">💰 Bijdragen</h3><div style="display:grid;gap:7px;"><input id="fn" placeholder="Jouw naam *" style="'+I+'"><input id="fb" type="number" placeholder="Bedrag in euro" min="1" style="'+I+'"><div style="display:flex;gap:6px;"><button onclick="SAVFUND('+pid+')" style="flex:1;background:var(--co);color:#fff;padding:9px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;">Toekennen</button><button onclick="document.getElementById(\'fm\').style.display=\'none\';" style="padding:9px 12px;border-radius:8px;border:1px solid var(--br);background:none;font-size:12px;color:var(--mu);cursor:pointer;">Annuleren</button></div></div></div></div>';}
-
 function RH(){
   const cnt=PS.reduce((a,s)=>({...a,[s]:projs.filter(p=>p.status===s).length}),{});
-  var _t=fund.reduce(function(a,x){return a+Number(x.bedrag);},0);var _v=Math.max(0,fundpot-_t);document.getElementById('hst').innerHTML=PS.map(function(s){return '<div class="card" style="text-align:center;padding:9px;"><div style="font-family:\'Lora\',serif;font-size:22px;font-weight:700;color:'+STC[s]+';">'+(cnt[s]||0)+'</div><div style="font-size:9px;color:var(--mu);">'+s+'</div></div>';}).join('')+'<div class="card" style="grid-column:1/-1;padding:9px;background:var(--cl);">'+'<div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px;">'+'<div style="display:flex;gap:10px;font-size:11px;flex-wrap:wrap;">'+'<span>💰 Pot <b style="color:var(--co);">€'+fundpot.toLocaleString('nl-NL')+'</b></span>'+'<span>📤 Toegezegd <b style="color:#b85450;">€'+_t.toLocaleString('nl-NL')+'</b></span>'+'<span>✅ Vrij <b style="color:#2d5a27;">€'+_v.toLocaleString('nl-NL')+'</b></span>'+'</div><button onclick="SETPOT()" style="font-size:10px;padding:3px 8px;border-radius:6px;border:1px solid var(--co);color:var(--co);background:none;cursor:pointer;">Instellen</button>'+'</div></div>';
+  document.getElementById('hst').innerHTML=PS.map(s=>`<div class="card" style="text-align:center;padding:9px;"><div style="font-family:'Lora',serif;font-size:22px;font-weight:700;color:${STC[s]};">${cnt[s]||0}</div><div style="font-size:10px;color:var(--mu);">${s}</div></div>`).join('');
   document.getElementById('hfi').innerHTML=['Alle',...PS].map(s=>{const ac=hf===s;return`<button class="pb" onclick="hf='${s}';RH();" style="${ac?'background:'+STC[s]+';border-color:'+STC[s]+';color:#fff;':''}">${s}</button>`;}).join('');
   const fil=projs.filter(p=>hf==='Alle'||p.status===hf);
   const M=p=>MATCH(p);
@@ -155,13 +149,13 @@ function RH(){
     const exp=window._exp&&window._exp.has(p.id);
     const mx=M(p);
     const nb=(p.needs||[]).map(v=>{const e=OSC.find(x=>x[0]===v)||[v,v,'#6b7260'];return'<span style="padding:1px 6px;border-radius:8px;font-size:9px;background:'+e[2]+'18;color:'+e[2]+';">'+e[1]+'</span>';}).join(' ');
-    return'<div style="background:var(--w);border-radius:12px;border:1px solid '+(exp?'var(--t)':'var(--br)')+';padding:11px 12px;margin-bottom:7px;"><div style="display:flex;align-items:flex-start;gap:7px;"><div style="flex:1;cursor:pointer;" onclick="window._exp=window._exp||new Set();window._exp.has('+p.id+')?window._exp.delete('+p.id+'):window._exp.add('+p.id+');RH();"><div style="display:flex;gap:4px;align-items:center;margin-bottom:2px;flex-wrap:wrap;"><strong style="font-size:13px;">'+p.name+'</strong>'+(p.ind?'<span style="font-size:11px;color:var(--mu);"> — '+p.ind+'</span>':'')+'<span style="padding:2px 6px;border-radius:10px;font-size:9px;font-weight:600;background:'+STC[p.status]+'18;color:'+STC[p.status]+';">'+p.status+'</span></div>'+(nb?'<div style="margin-top:2px;">'+nb+'</div>':'')+(mx.length&&!exp?'<p style="font-size:10px;color:var(--t);margin-top:2px;">🤝 '+mx.map(s=>s.name).join(', ')+'</p>':'')+'</div><button onclick="DELP('+p.id+')" style="background:none;border:none;font-size:15px;cursor:pointer;color:var(--mu);">×</button></div>'+(exp?'<div style="margin-top:9px;padding-top:9px;border-top:1px solid var(--br);">'+(p.desc?'<p style="font-size:12px;color:var(--mu);margin-bottom:7px;">'+p.desc+'</p>':'')+(mx.length?'<p style="font-size:11px;font-weight:600;margin-bottom:5px;">Passende ondersteuners:</p>'+mx.map(s=>'<div style="display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:8px;background:var(--gl);margin-bottom:3px;"><span style="flex:1;font-size:12px;">'+s.name+'</span></div>').join(''):'')+'<div style="display:flex;gap:4px;margin-top:7px;">'+PS.filter(s=>s!==p.status).map(s=>'<button onclick="UPDP('+p.id+',\''+s+'\')" style="padding:2px 7px;border-radius:8px;font-size:9px;font-weight:500;background:'+STC[s]+'18;color:'+STC[s]+';border:none;cursor:pointer;">→ '+s+'</button>').join('')+'</div>'+function(){var fb=fund.filter(function(x){return Number(x.project_id)===Number(p.id);});var ft=fb.reduce(function(a,x){return a+Number(x.bedrag);},0);var rows=fb.map(function(x){return '<div style="display:flex;justify-content:space-between;font-size:11px;padding:2px 5px;"><span>'+x.naam+'</span><b style="color:var(--co);">€'+Number(x.bedrag).toLocaleString('nl-NL')+'</b></div>';}).join('');return '<div style="margin-top:8px;padding:8px;background:var(--cl);border-radius:9px;">'+'<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">'+'<b style="font-size:11px;color:var(--co);">💰 €'+ft.toLocaleString('nl-NL')+' toegezegd</b>'+'<button onclick="ADDFUND('+p.id+')" style="font-size:10px;padding:3px 8px;border-radius:6px;background:var(--co);color:#fff;border:none;cursor:pointer;">+ Bijdragen</button>'+'</div>'+rows+'</div>';}()+'</div></div>':'')+'</div>';
+    return'<div style="background:var(--w);border-radius:12px;border:1px solid '+(exp?'var(--t)':'var(--br)')+';padding:11px 12px;margin-bottom:7px;"><div style="display:flex;align-items:flex-start;gap:7px;"><div style="flex:1;cursor:pointer;" onclick="window._exp=window._exp||new Set();window._exp.has('+p.id+')?window._exp.delete('+p.id+'):window._exp.add('+p.id+');RH();"><div style="display:flex;gap:4px;align-items:center;margin-bottom:2px;flex-wrap:wrap;"><strong style="font-size:13px;">'+p.name+'</strong>'+(p.ind?'<span style="font-size:11px;color:var(--mu);"> — '+p.ind+'</span>':'')+'<span style="padding:2px 6px;border-radius:10px;font-size:9px;font-weight:600;background:'+STC[p.status]+'18;color:'+STC[p.status]+';">'+p.status+'</span></div>'+(nb?'<div style="margin-top:2px;">'+nb+'</div>':'')+(mx.length&&!exp?'<p style="font-size:10px;color:var(--t);margin-top:2px;">🤝 '+mx.map(s=>s.name).join(', ')+'</p>':'')+'</div><button onclick="DELP('+p.id+')" style="background:none;border:none;font-size:15px;cursor:pointer;color:var(--mu);">×</button></div>'+(exp?'<div style="margin-top:9px;padding-top:9px;border-top:1px solid var(--br);">'+(p.desc?'<p style="font-size:12px;color:var(--mu);margin-bottom:7px;">'+p.desc+'</p>':'')+(mx.length?'<p style="font-size:11px;font-weight:600;margin-bottom:5px;">Passende ondersteuners:</p>'+mx.map(s=>'<div style="display:flex;align-items:center;gap:7px;padding:5px 8px;border-radius:8px;background:var(--gl);margin-bottom:3px;"><span style="flex:1;font-size:12px;">'+s.name+'</span></div>').join(''):'')+'<div style="display:flex;gap:4px;margin-top:7px;">'+PS.filter(s=>s!==p.status).map(s=>'<button onclick="UPDP('+p.id+',\''+s+'\')" style="padding:2px 7px;border-radius:8px;font-size:9px;font-weight:500;background:'+STC[s]+'18;color:'+STC[s]+';border:none;cursor:pointer;">→ '+s+'</button>').join('')+'</div></div>':'')+'</div>';
   }).join(''):'<div style="text-align:center;padding:28px 0;color:var(--mu);">Geen projecten.</div>';}
 
 function TH(){const f=document.getElementById('hf'),show=f.style.display==='none';f.style.display=show?'block':'none';if(!show)return;window._hn=[];f.innerHTML=`<div class="card" style="border:1px solid var(--co);"><h3 style="font-size:13px;margin-bottom:9px;">Nieuw project</h3><div style="display:grid;gap:7px;"><input id="pn" placeholder="Naam *" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);"><input id="pi" placeholder="Indiener(s)" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);"><textarea id="pd" placeholder="Beschrijving" rows="2" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);resize:vertical;"></textarea><select id="pp" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);">${PS.map(s=>`<option>${s}</option>`).join('')}</select><p style="font-size:11px;font-weight:600;">Welke ondersteuning nodig?</p><div id="hn-btns" style="display:flex;flex-direction:column;gap:5px;"></div><div style="display:flex;gap:5px;"><button onclick="SAV()" style="flex:1;background:var(--co);color:#fff;padding:8px;border-radius:8px;font-size:12px;font-weight:700;border:none;cursor:pointer;box-shadow:0 2px 6px var(--co)44;">✅ Opslaan</button><button onclick="document.getElementById('hf').style.display='none';" style="padding:8px 12px;border-radius:8px;border:2px solid var(--br);background:var(--bg);font-size:11px;font-weight:600;color:var(--tx);cursor:pointer;">✖ Annuleren</button></div></div></div>`;RHN();}
 
-async function DELP(id){await _DB.from('projects').delete().eq('id',id);await LD();}async function DELS(id){await _DB.from('supporters').delete().eq('id',id);await LD();}async function UPDP(id,st){await _DB.from('projects').update({status:st}).eq('id',id);await LD();}function SD(){}
-async function LD(){if(!_DB)return;const{data:pd}=await _DB.from('projects').select('*').order('created_at',{ascending:false});if(pd)projs=pd.map(p=>({...p,desc:p.description}));const{data:sd}=await _DB.from('supporters').select('*').order('created_at',{ascending:false});if(sd)supporters=sd;const{data:fd}=await _DB.from('fund').select('*');if(fd)fund=fd;const{data:fp}=await _DB.from('fund_pot').select('*').limit(1);if(fp&&fp[0])fundpot=+fp[0].startbedrag;RH();ROS();let d=document.getElementById('h-debug');if(d&&pd)d.innerHTML='✅ '+pd.length+' project(en) geladen';}
+async function DELP(id){await _DB.from('projects').delete().eq('id',id);await LD();}async function UPDP(id,st){await _DB.from('projects').update({status:st}).eq('id',id);await LD();}function SD(){}
+async function LD(){if(!_DB)return;const{data:pd}=await _DB.from('projects').select('*').order('created_at',{ascending:false});if(pd)projs=pd.map(p=>({...p,desc:p.description}));const{data:sd}=await _DB.from('supporters').select('*').order('created_at',{ascending:false});if(sd)supporters=sd;RH();let d=document.getElementById('h-debug');if(d&&pd)d.innerHTML='✅ '+pd.length+' project(en) geladen';}
 function MATCH(p){const pv=(p.needs||[]).map(x=>x&&x.v?x.v:x);return(supporters||[]).filter(s=>{const sv=(s.cats||[]).map(x=>x&&x.v?x.v:x);return pv.some(n=>sv.includes(n));});}
 async function SAV(){const n=document.getElementById('pn');if(!n||!n.value.trim()){alert('Naam vereist');return;}const needs=OSC.map(([v])=>{const inp=document.getElementById('hn-'+v);const note=inp?inp.value.trim():'';return note?{v,note}:null;}).filter(Boolean);await _DB.from('projects').insert([{name:n.value.trim(),ind:(document.getElementById('pi')||{value:''}).value,status:(document.getElementById('pp')||{value:'Idee'}).value,description:(document.getElementById('pd')||{value:''}).value.trim(),needs}]);document.getElementById('hf').style.display='none';await LD();}
 function RHN(){const b=document.getElementById('hn-btns');if(!b)return;b.innerHTML=OSC.map(([v,l,cl,q1,q2])=>{const ico=l.split(' ')[0];const lbl=l.split(' ').slice(1).join(' ');return'<div style="margin-bottom:8px;"><label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:'+cl+';margin-bottom:3px;"><span style="font-size:15px;">'+ico+'</span>'+lbl+'</label><input id="hn-'+v+'" placeholder="'+q2+'" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);box-sizing:border-box;" onfocus="this.style.borderColor=\''+cl+'\'" onblur="this.style.borderColor=\'var(--br)\'"></div>';}).join('');}
@@ -186,7 +180,7 @@ function ROS(){
       +'<div style="display:flex;align-items:center;gap:7px;">'
       +'<div style="flex:1;"><strong style="font-size:13px;">'+s.name+'</strong>'
       +'<div style="font-size:11px;color:var(--mu);">'+(s.cats||[]).map(c=>c.v+': '+c.note).join(' · ')+'</div></div>'
-      +'<button onclick="DELS('+s.id+')" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'
+      +'<button onclick="supporters=supporters.filter(x=>x.id!=='+s.id+');ROS();" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'
       +'</div></div>').join('')
     :'<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners.</p>';
 }
@@ -208,19 +202,16 @@ async function ADS(){
 }
 
 
-function RELOAD_MBRS(){localStorage.removeItem('fs_removed');mbrs=[...M];CS();}
 
-function START_APP(isDemo){
-  document.getElementById('wl').style.display='none';
-  const ub=document.getElementById('ubar');
-  ub.style.display='flex';
-  document.getElementById('ubar-name').textContent='👤 '+currentUser+(isDemo?' (demo)':'');
-  // Restore removed demo members from localStorage
-  const removed=JSON.parse(localStorage.getItem('fs_removed')||'[]');
-  mbrs=M.filter(m=>!removed.includes(m.id));
-  // Restore income
-  const sv=localStorage.getItem('fs_inc_'+currentUser);
-  if(sv&&mI)mI.value=sv;
+function OPEN_APP(isDemo){
+  try{
+    const removed=isDemo?[]:JSON.parse(localStorage.getItem('fs_removed')||'[]');
+    mbrs=M.filter(function(m){return!removed.includes(m.id);});
+  }catch(e){mbrs=[...M];}
+  const wl=document.getElementById('wl');if(wl)wl.style.display='none';
+  const ub=document.getElementById('ubar');if(ub)ub.style.display='flex';
+  const ubn=document.getElementById('ubar-name');if(ubn)ubn.textContent='👤 '+currentUser+(isDemo?' (demo)':'');
+  if(!isDemo){try{const sv=localStorage.getItem('fs_inc_'+currentUser);if(sv&&mI)mI.value=sv;}catch(e){}}
   if(isDemo&&mI&&!mI.value)mI.value='2500';
   CS();ST(0);LD();
 }
@@ -229,32 +220,33 @@ function JOIN(){
   const n=document.getElementById('uname');
   if(!n||!n.value.trim()){alert('Vul je naam in');return;}
   currentUser=n.value.trim();
-  localStorage.setItem('fs_user',currentUser);
-  START_APP(false);
+  try{localStorage.setItem('fs_user',currentUser);}catch(e){}
+  OPEN_APP(false);
 }
 
 function DEMO_START(){
   currentUser='Demo';
-  START_APP(true);
+  OPEN_APP(true);
+}
+
+function RELOAD_MBRS(){
+  try{localStorage.removeItem('fs_removed');}catch(e){}
+  mbrs=[...M];CS();
 }
 
 function LOGOUT(){
   currentUser=null;
-  mbrs=[...M];
-  projs=[];supporters=[];fund=[];fundpot=0;
+  mbrs=[...M];projs=[];supporters=[];fund=[];fundpot=0;
   if(mI)mI.value='';
-  localStorage.removeItem('fs_user');
-  localStorage.removeItem('fs_removed');
-  document.getElementById('wl').style.display='flex';
-  document.getElementById('ubar').style.display='none';
+  try{localStorage.removeItem('fs_user');}catch(e){}
+  const wl=document.getElementById('wl');if(wl)wl.style.display='flex';
+  const ub=document.getElementById('ubar');if(ub)ub.style.display='none';
 }
 
-window.addEventListener('load',()=>{
+window.addEventListener('load',function(){
   _DB=supabase.createClient(SURL,SKEY);
-  const saved=localStorage.getItem('fs_user');
-  if(saved){
-    currentUser=saved;
-    document.getElementById('uname').value=saved;
-    START_APP(false);
-  }
+  try{
+    const saved=localStorage.getItem('fs_user');
+    if(saved){currentUser=saved;OPEN_APP(false);}
+  }catch(e){}
 });
