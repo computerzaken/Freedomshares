@@ -8,16 +8,16 @@
 </head>
 <body>
 <div id="ubar" style="display:none;background:var(--g);color:#fff;padding:6px 16px;display:flex;justify-content:space-between;align-items:center;font-size:12px;position:sticky;top:0;z-index:50;"><span id="ubar-name" style="font-weight:600;"></span><button onclick="LOGOUT()" style="background:rgba(255,255,255,.2);border:none;color:#fff;padding:3px 10px;border-radius:10px;font-size:11px;cursor:pointer;">Uitloggen</button></div>
-<div id="wl" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;">
+<div id="wl" style="position:fixed;top:0;left:0;width:100%;height:100%;background:var(--bg);z-index:999;display:flex;align-items:center;justify-content:center;padding:20px;box-sizing:border-box;">
 <div style="max-width:360px;width:100%;text-align:center;">
 <div style="font-size:36px;margin-bottom:8px;">🌱</div>
 <h1 style="font-family:'Lora',serif;font-size:26px;color:var(--g);margin-bottom:6px;">FreedomShares</h1>
-<p style="font-size:13px;color:var(--mu);margin-bottom:24px;line-height:1.5;">Dienstbaar aan de aarde,<br>medemens en de toekomst.</p>
+<p style="font-size:13px;color:var(--mu);margin-bottom:24px;line-height:1.6;">Dienstbaar aan de aarde,<br>medemens en de toekomst.</p>
 <div style="background:var(--w);border-radius:14px;padding:20px;box-shadow:0 2px 20px rgba(0,0,0,.08);">
-<p style="font-size:13px;font-weight:600;margin-bottom:14px;color:var(--tx);">Hoe wil je beginnen?</p>
+<p style="font-size:13px;font-weight:600;margin-bottom:14px;">Hoe wil je beginnen?</p>
 <input id="uname" placeholder="Jouw naam" onkeydown="if(event.key==='Enter')JOIN()" style="width:100%;padding:10px 14px;border:1px solid var(--br);border-radius:9px;font-size:14px;background:var(--bg);color:var(--tx);margin-bottom:10px;box-sizing:border-box;">
 <button onclick="JOIN()" style="width:100%;background:var(--g);color:#fff;padding:12px;border-radius:9px;font-size:14px;font-weight:600;border:none;cursor:pointer;margin-bottom:10px;">Ik doe mee →</button>
-<button onclick="RELOAD_MBRS()" style="width:100%;background:none;color:var(--g);padding:11px;border-radius:9px;font-size:13px;font-weight:600;border:2px solid var(--g);cursor:pointer;">Demo bekijken</button>
+<button onclick="DEMO_START()" style="width:100%;background:none;color:var(--g);padding:11px;border-radius:9px;font-size:13px;font-weight:600;border:2px solid var(--g);cursor:pointer;">Demo bekijken</button>
 </div>
 </div>
 </div>
@@ -63,8 +63,8 @@
 <div class="card" style="margin-bottom:10px;">
 <div style="display:flex;gap:7px;margin-bottom:11px;flex-wrap:wrap;align-items:center;">
 <span style="font-size:12px;color:var(--mu);min-width:80px;">Inkomen:</span>
-<div style="position:relative;flex:1;min-width:100px;"><input type="number" id="mI" placeholder="Vul hier je netto inkomen in" oninput="CS()" onkeydown="if(event.key==='Enter')CS()" style="width:100%;border:1px solid var(--br);border-radius:8px;padding:6px 10px;font-size:14px;font-weight:700;background:var(--w);color:var(--tx);"></div>
-<button onclick="CS();ST(1);" style="background:var(--g);color:#fff;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;white-space:nowrap;flex-shrink:0;">Toepassen →</button>
+<div style="position:relative;flex:1;min-width:100px;"><input type="number" id="mI" placeholder="Vul hier je netto inkomen in" oninput="CS()" onkeydown="if(event.key==='Enter'){CS();ST(1);}" style="width:100%;border:1px solid var(--br);border-radius:8px;padding:6px 10px;font-size:14px;font-weight:700;background:var(--w);color:var(--tx);"></div>
+<button onclick="CS();ST(1);" style="background:var(--g);color:#fff;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;border:none;cursor:pointer;flex-shrink:0;">Toepassen →</button>
 </div>
 <div class="tr" style="max-width:200px;margin-bottom:10px;">
 <button class="tb on" id="pb1" onclick="SF(false)">Mijn bijdrage %</button>
@@ -122,9 +122,5 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="app.js"></script>
-<div id="fm" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:999;"></div>
-<div style="position:fixed;bottom:18px;right:16px;z-index:90;">
-<a href="mailto:computerzaken@gmail.com?subject=FreedomShares%20feedback&body=Mijn%20feedback%3A%0A%0A" style="display:flex;align-items:center;gap:6px;background:#1c1c1a;color:#fff;padding:9px 14px;border-radius:20px;font-size:12px;font-weight:600;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,.25);">💬 Feedback geven</a>
-</div>
 </body>
 </html>
