@@ -91,7 +91,7 @@ function CS(){
   const inc=+(mI.value)||0,pct=fx?(inc>0?(+(fa.value)||0)/inc:0):(+(ps.value)||0)/100;
   const mc=fx?(+(fa.value)||0):Math.round(inc*pct);
   if(!fx)$('pl').textContent=ps.value+'% = €'+mc.toLocaleString('nl-NL')+'/mnd';
-  const all=[...mbrs,{id:0,n:'Jij',i:inc,me:true}];
+  const all=[...mbrs,{id:0,n:currentUser||'Jij',i:inc,me:true}];
   const pool=all.reduce((s,m)=>s+Math.round(m.i*pct),0),pp=all.length?Math.round(pool/all.length):0;
   const comp=all.map(m=>({...m,cn:Math.round(m.i*pct),rc:pp,nt:pp-Math.round(m.i*pct)}));
   const me=comp.find(m=>m.me)||{cn:0,rc:0,nt:0};
