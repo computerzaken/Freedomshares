@@ -109,11 +109,7 @@ function RS(me,comp,pool,avg){
   $('tab2').innerHTML=`<div class="card" style="margin-bottom:10px;"><h3 style="font-size:13px;margin-bottom:10px;">👥 Deelnemer toevoegen</h3><div style="display:grid;grid-template-columns:1fr 1fr auto;gap:6px;align-items:end;"><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Naam</label><input id="nn" placeholder="Sara" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 9px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Inkomen/mnd</label><div style="position:relative;"><span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--g);font-size:11px;">€</span><input id="ni" type="number" placeholder="2500" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 7px 6px 18px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div></div><button onclick="AM()" style="background:var(--g);color:#fff;padding:6px 10px;border-radius:7px;font-size:13px;font-weight:600;height:33px;border:none;cursor:pointer;">+</button></div></div><div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><h3 style="font-size:13px;">${mbrs.length} leden</h3><span style="font-size:11px;color:var(--mu);">Gem.ink: <strong style="color:var(--g);">€${avg.toLocaleString('nl-NL')}</strong></span></div><div style="display:flex;flex-direction:column;gap:4px;">${[...mbrs].sort((a,b)=>a.i-b.i).map(m=>{const cl=comp.find(c=>c.id===m.id)||{nt:0};return`<div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:7px;align-items:center;padding:7px 9px;border-radius:9px;background:#f8f5f0;border:1px solid var(--br);"><div style="width:26px;height:26px;border-radius:50%;background:hsl(${m.i/30},40%,55%);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">${(m.n||'').split(' ').map(w=>w[0]).join('').slice(0,2)}</div><div><div style="font-size:12px;font-weight:500;">${m.n}</div><div style="font-size:10px;color:var(--mu);">€${m.i.toLocaleString('nl-NL')}/mnd</div></div><div style="text-align:right;"><div style="font-size:8px;color:var(--mu);">netto</div><div style="font-size:10px;font-weight:600;color:${cl.nt>=0?'#2d5a27':'#b85450'};">${cl.nt>=0?'+':''}€${Math.abs(cl.nt).toLocaleString('nl-NL')}</div></div><button onclick="RM(${m.id})" style="width:22px;height:22px;border-radius:50%;background:var(--w);color:var(--mu);font-size:13px;border:1px solid var(--br);cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button></div>`;}).join('')}</div></div>`;
 }
 function AM(){const n=($('nn')||{}).value||'',i=+($('ni')||{}).value||0;if(!n.trim()||!i)return;mbrs.push({id:++nid,n:n.trim(),i});CS();}
-function RM(id){
-  mbrs=mbrs.filter(m=>m.id!==id);
-  try{const r=JSON.parse(localStorage.getItem('fs_removed')||'[]');if(!r.includes(id)){r.push(id);localStorage.setItem('fs_removed',JSON.stringify(r));}}catch(e){}
-  CS();
-}
+function RM(id){mbrs=mbrs.filter(m=>m.id!==id);try{const r=JSON.parse(localStorage.getItem('fs_r')||'[]');r.push(id);localStorage.setItem('fs_r',JSON.stringify(r));}catch(e){}CS();}
 
 function CT(i){['ck0','ck1','ck2'].forEach((id,j)=>{const el=document.getElementById(id);if(el)el.style.display=i===j?'block':'none';});['ct0','ct1','ct2'].forEach((id,j)=>{const b=document.getElementById(id);if(!b)return;b.className='tb'+(i===j?' on':'');});if(i===1)RCW();if(i===2){window._sc=window._sc||[];ROS();}}
 
@@ -201,52 +197,59 @@ async function ADS(){
   ROS();
 }
 
+CS();ST(0);
 
-
-function OPEN_APP(isDemo){
+window.addEventListener('load',()=>{
+  _DB=supabase.createClient(SURL,SKEY);
   try{
-    const removed=isDemo?[]:JSON.parse(localStorage.getItem('fs_removed')||'[]');
-    mbrs=M.filter(function(m){return!removed.includes(m.id);});
-  }catch(e){mbrs=[...M];}
-  const wl=document.getElementById('wl');if(wl)wl.style.display='none';
-  const ub=document.getElementById('ubar');if(ub)ub.style.display='flex';
-  const ubn=document.getElementById('ubar-name');if(ubn)ubn.textContent='👤 '+currentUser+(isDemo?' (demo)':'');
-  if(!isDemo){try{const sv=localStorage.getItem('fs_inc_'+currentUser);if(sv&&mI)mI.value=sv;}catch(e){}}
-  if(isDemo&&mI&&!mI.value)mI.value='2500';
-  CS();ST(0);LD();
-}
+    const saved=localStorage.getItem('fs_user');
+    if(saved){
+      currentUser=saved;
+      const sv=localStorage.getItem('fs_inc_'+currentUser);
+      if(sv&&mI)mI.value=sv;
+      // Restore removed members
+      const removed=JSON.parse(localStorage.getItem('fs_r')||'[]');
+      mbrs=M.filter(m=>!removed.includes(m.id));
+      CS();
+      document.getElementById('wl').style.display='none';
+      const ub=document.getElementById('ubar');if(ub)ub.style.display='flex';
+      document.getElementById('ubar-name').textContent='👤 '+currentUser;
+    }
+  }catch(e){}
+  LD();
+});
 
 function JOIN(){
   const n=document.getElementById('uname');
   if(!n||!n.value.trim()){alert('Vul je naam in');return;}
   currentUser=n.value.trim();
   try{localStorage.setItem('fs_user',currentUser);}catch(e){}
-  OPEN_APP(false);
+  // Restore removed members for this user
+  try{const removed=JSON.parse(localStorage.getItem('fs_r')||'[]');mbrs=M.filter(m=>!removed.includes(m.id));}catch(e){mbrs=[...M];}
+  // Restore income
+  try{const sv=localStorage.getItem('fs_inc_'+currentUser);if(sv&&mI)mI.value=sv;}catch(e){}
+  CS();
+  document.getElementById('wl').style.display='none';
+  const ub=document.getElementById('ubar');if(ub)ub.style.display='flex';
+  document.getElementById('ubar-name').textContent='👤 '+currentUser;
 }
 
 function DEMO_START(){
   currentUser='Demo';
-  OPEN_APP(true);
-}
-
-function RELOAD_MBRS(){
-  try{localStorage.removeItem('fs_removed');}catch(e){}
-  mbrs=[...M];CS();
+  mbrs=[...M];
+  if(mI)mI.value='2500';
+  CS();
+  document.getElementById('wl').style.display='none';
+  const ub=document.getElementById('ubar');if(ub)ub.style.display='flex';
+  document.getElementById('ubar-name').textContent='👤 Demo (demo)';
 }
 
 function LOGOUT(){
   currentUser=null;
-  mbrs=[...M];projs=[];supporters=[];fund=[];fundpot=0;
+  mbrs=[...M];
   if(mI)mI.value='';
   try{localStorage.removeItem('fs_user');}catch(e){}
-  const wl=document.getElementById('wl');if(wl)wl.style.display='flex';
+  CS();
+  document.getElementById('wl').style.display='flex';
   const ub=document.getElementById('ubar');if(ub)ub.style.display='none';
 }
-
-window.addEventListener('load',function(){
-  _DB=supabase.createClient(SURL,SKEY);
-  try{
-    const saved=localStorage.getItem('fs_user');
-    if(saved){currentUser=saved;OPEN_APP(false);}
-  }catch(e){}
-});
