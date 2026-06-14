@@ -1,7 +1,7 @@
 const SURL='https://gffzskbxjzgewztjhncz.supabase.co';
 const SKEY='sb_publishable_agTW0NWNmrewQJZuOGV6Lw_llciY6Yw';
 let _DB=null;
-window.addEventListener('load',()=>{_DB=supabase.createClient(SURL,SKEY);const sv=localStorage.getItem('fs_inc');if(sv&&mI)mI.value=sv;LD();});
+
 
 const $=id=>document.getElementById(id);
 const M=[{id:1,n:'Sophie',i:1200},{id:2,n:'Mohammed',i:1800},{id:3,n:'Lisa',i:2100},{id:4,n:'Ravi',i:2300},{id:5,n:'Emma',i:2800},{id:6,n:'Pieter',i:3400},{id:7,n:'Yasmine',i:4200},{id:8,n:'Jan',i:5800}];
@@ -74,7 +74,7 @@ const OSC=[
 const SC=[{id:'voeding',l:'Voeding & Drinken',e:'🥦',c:'#2d5a27'},{id:'kleding',l:'Kleding & Mode',e:'👕',c:'#1a7a6e'},{id:'tech',l:'Technologie',e:'💻',c:'#5b4fa8'},{id:'witgoed',l:'Witgoed & Elektronica',e:'🔌',c:'#c45e00'},{id:'wonen',l:'Wonen & Interieur',e:'🛋️',c:'#c17f24'},{id:'verzorging',l:'Lichaam & Verzorging',e:'🌿',c:'#2d5a27'},{id:'markt',l:'Boerenmarkt & Landwinkel',e:'🌾',c:'#c45e00'},{id:'financien',l:'Financiën',e:'💰',c:'#1a7a6e'},{id:'mobiliteit',l:'Mobiliteit',e:'🚲',c:'#5b4fa8'},{id:'energie',l:'Energie & Klimaat',e:'⚡',c:'#c17f24'},{id:'zorg',l:'Zorg & Welzijn',e:'🏥',c:'#b85450'},{id:'vrije_tijd',l:'Natuur & Vrije Tijd',e:'🎭',c:'#2d5a27'}];
 const QD={invest:{c:'#2d5a27',l:'Investeren',d:'Renteloos le.',di:['Initiatief starten','Renteloze lening','Deelnemen'],fi:['Geld vloeit terug','Geen rente, wel verantwoordelijkheid']},support:{c:'#1a7a6e',l:'Ondersteunen',d:'Persoonlijke.',di:['Persoonlijke voordracht','Groei ondersteunen','Geen criteria'],fi:['Gift, geen lening','Vertrouwen als basis']},crowd:{c:'#5b4fa8',l:'Crowdfunding',d:'Initiatieven.',di:['Criteria-selectie','Gelijke stem','Consent-besluitvorming'],fi:['Geld vrij bij haalbaarheid','Collectief beheer']},give:{c:'#c17f24',l:'Weggeven',d:'Zuivere gift.',di:['Geen verwachtingen','Onpersoonlijk','Trickledown'],fi:['Pure gift','Versterkt het systeem']}};
 const PS=['Idee','Actief','Afgerond'],STC={Idee:'#c17f24',Actief:'#2d5a27',Afgerond:'#6b7260'};
-var projs=[];var supporters=[];var fundpot=0;var fund=[];let mbrs=[],shops=[...SH_DATA];
+var currentUser=null;var projs=[];var supporters=[];var fundpot=0;var fund=[];let mbrs=[],shops=[...SH_DATA];
 var hf='Alle';let fx=false,nid=200,cws=0,cwa={},cwr=null,ks=0,ka={},km=[];
 
 function G(p){
@@ -87,8 +87,8 @@ function G(p){
 }
 
 function CS(){
-  try{localStorage.setItem('fs_inc',mI.value);}catch(e){}
-  const inc=+(mI.value)||0,pct=fx?(inc>0?(+(fa.value)||0)/inc:0):(+(ps.value)||0)/100;
+  if(mI&&mI.value&&currentUser)try{localStorage.setItem('fs_inc_'+currentUser,mI.value);}catch(e){}
+  const inc=+(mI&&mI.value)||0,pct=fx?(inc>0?(+(fa.value)||0)/inc:0):(+(ps.value)||0)/100;
   const mc=fx?(+(fa.value)||0):Math.round(inc*pct);
   if(!fx)$('pl').textContent=ps.value+'% = €'+mc.toLocaleString('nl-NL')+'/mnd';
   const all=[...mbrs,{id:0,n:'Jij',i:inc,me:true}];
@@ -106,9 +106,9 @@ function RS(me,comp,pool,avg){
   const nt=me.nt,na=Math.abs(nt),g=nt>=0?'#2d5a27':'#b85450';
   $('tab0').innerHTML=`<div class="card" style="margin-bottom:10px;"><div style="text-align:center;margin-bottom:11px;"><div style="font-size:22px;margin-bottom:3px;">${nt>=0?'🌱':'💛'}</div><h2 style="font-size:14px;color:${g};">${!me.i?'Vul je inkomen in':''}</h2></div><div style="display:flex;gap:6px;margin-bottom:9px;"><div style="flex:1;border-radius:10px;padding:10px 6px;text-align:center;background:var(--cl);"><div style="font-size:9px;color:var(--mu);margin-bottom:1px;">Jij geeft</div><div style="font-family:'Lora',serif;font-size:16px;font-weight:700;color:var(--co);">↑ €${me.cn.toLocaleString('nl-NL')}</div></div><div style="flex:1;border-radius:10px;padding:10px 6px;text-align:center;background:var(--gl);"><div style="font-size:9px;color:var(--mu);margin-bottom:1px;">Jij ontvangt</div><div style="font-family:'Lora',serif;font-size:16px;font-weight:700;color:var(--g);">↓ €${me.rc.toLocaleString('nl-NL')}</div></div></div><div style="border-radius:10px;padding:12px;text-align:center;background:${nt>=0?'var(--gl)':'var(--cl)'};"><div style="font-size:9px;color:var(--mu);text-transform:uppercase;letter-spacing:1px;margin-bottom:2px;">Netto</div><div style="font-family:'Lora',serif;font-size:28px;font-weight:700;color:${g};">${nt>=0?'+':'−'}€${na.toLocaleString('nl-NL')}</div><div style="font-size:10px;color:var(--mu);margin-top:1px;">per maand</div></div></div>`;
   $('tab1').innerHTML=`<div class="card"><h3 style="font-size:13px;margin-bottom:8px;">Alle ${comp.length} deelnemers</h3><table style="width:100%;border-collapse:collapse;font-size:11px;"><thead><tr style="background:#f8f5f0;font-size:8px;text-transform:uppercase;color:var(--mu);">${['Naam','Inkomen','Bijdrage','Ontvangt','Netto'].map((h,i)=>`<th style="padding:3px 5px;text-align:${i?'right':'left'};">${h}</th>`).join('')}</tr></thead><tbody>${[...comp].sort((a,b)=>a.i-b.i).map(m=>`<tr style="background:${m.me?'var(--gl)':'transparent'};border-bottom:1px solid var(--br);"><td style="padding:5px 5px;font-weight:${m.me?600:400};color:${m.me?'#2d5a27':'var(--tx)'};">${m.n}${m.me?' ⬅':''}</td><td style="text-align:right;padding:5px;color:var(--mu);">€${m.i.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;color:var(--co);">−€${m.cn.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;color:var(--t);">+€${m.rc.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;font-weight:600;color:${m.nt>=0?'#2d5a27':'#b85450'};">${m.nt>=0?'+':''}€${Math.abs(m.nt).toLocaleString('nl-NL')}</td></tr>`).join('')}<tr style="border-top:2px solid var(--br);font-weight:700;"><td style="padding:5px;font-size:8px;color:var(--mu);">TOTAAL</td><td></td><td style="text-align:right;padding:5px;color:var(--co);">€${pool.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;color:var(--t);">€${pool.toLocaleString('nl-NL')}</td><td style="text-align:right;padding:5px;color:#2d5a27;">€0</td></tr></tbody></table></div>`;
-  $('tab2').innerHTML=`<div class="card" style="margin-bottom:10px;"><h3 style="font-size:13px;margin-bottom:10px;">👥 Deelnemer toevoegen</h3><div style="display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:6px;align-items:end;"><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Naam</label><input id="nn" placeholder="Sara" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 9px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Inkomen/mnd</label><div style="position:relative;"><span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--g);font-size:11px;">€</span><input id="ni" type="number" placeholder="2500" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 7px 6px 18px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Bijdrage %</label><input id="np" type="number" placeholder="10" min="0" max="100" style="width:100%;padding:6px 7px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><button onclick="AM()" style="background:var(--g);color:#fff;padding:6px 10px;border-radius:7px;font-size:13px;font-weight:600;height:33px;border:none;cursor:pointer;">+</button></div></div><div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><h3 style="font-size:13px;">${all.length} deelnemers</h3><button onclick="DEMO()" style="font-size:9px;padding:2px 7px;border-radius:6px;border:1px solid var(--g);color:var(--g);background:none;cursor:pointer;">Laad voorbeeldleden</button><span style="font-size:11px;color:var(--mu);">Gem.ink: <strong style="color:var(--g);">€${avg.toLocaleString('nl-NL')}</strong></span></div><div style="display:flex;flex-direction:column;gap:4px;">${[...comp].sort((a,b)=>a.i-b.i).map(m=>{const cl=m;return`<div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:7px;align-items:center;padding:7px 9px;border-radius:9px;background:#f8f5f0;border:1px solid var(--br);"><div style="width:26px;height:26px;border-radius:50%;background:hsl(${m.i/30},40%,55%);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">${(m.n||'').split(' ').map(w=>w[0]).join('').slice(0,2)}</div><div><div style="font-size:12px;font-weight:500;">${m.n}</div><div style="font-size:10px;color:var(--mu);">€${m.i.toLocaleString('nl-NL')}/mnd</div></div><div style="text-align:right;"><div style="font-size:8px;color:var(--mu);">netto</div><div style="font-size:10px;font-weight:600;color:${cl.nt>=0?'#2d5a27':'#b85450'};">${cl.nt>=0?'+':''}€${Math.abs(cl.nt).toLocaleString('nl-NL')}</div></div><button ${m.me?'<span style="width:22px;"></span>':'<button onclick="RM('+m.id+')" style="width:22px;height:22px;border-radius:50%;background:var(--w);color:var(--mu);font-size:13px;border:1px solid var(--br);cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button>'}</div>`;}).join('')}</div></div>`;
+  $('tab2').innerHTML=`<div class="card" style="margin-bottom:10px;"><h3 style="font-size:13px;margin-bottom:10px;">👥 Deelnemer toevoegen</h3><div style="display:grid;grid-template-columns:2fr 2fr 1fr auto;gap:6px;align-items:end;"><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Naam</label><input id="nn" placeholder="Sara" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 9px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Inkomen/mnd</label><div style="position:relative;"><span style="position:absolute;left:7px;top:50%;transform:translateY(-50%);font-weight:700;color:var(--g);font-size:11px;">€</span><input id="ni" type="number" placeholder="2500" onkeydown="if(event.key==='Enter')AM()" style="width:100%;padding:6px 7px 6px 18px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div></div><div><label style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);display:block;margin-bottom:3px;">Bijdrage %</label><input id="np" type="number" placeholder="10" min="0" max="100" style="width:100%;padding:6px 7px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div><button onclick="AM()" style="background:var(--g);color:#fff;padding:6px 10px;border-radius:7px;font-size:13px;font-weight:600;height:33px;border:none;cursor:pointer;">+</button></div></div><div class="card"><div style="display:flex;justify-content:space-between;margin-bottom:8px;"><h3 style="font-size:13px;">${all.length} deelnemers</h3><button onclick="DEMO_START()" style="font-size:9px;padding:2px 7px;border-radius:6px;border:1px solid var(--g);color:var(--g);background:none;cursor:pointer;">Laad voorbeeldleden</button><span style="font-size:11px;color:var(--mu);">Gem.ink: <strong style="color:var(--g);">€${avg.toLocaleString('nl-NL')}</strong></span></div><div style="display:flex;flex-direction:column;gap:4px;">${[...comp].sort((a,b)=>a.i-b.i).map(m=>{const cl=m;return`<div style="display:grid;grid-template-columns:auto 1fr auto auto;gap:7px;align-items:center;padding:7px 9px;border-radius:9px;background:#f8f5f0;border:1px solid var(--br);"><div style="width:26px;height:26px;border-radius:50%;background:hsl(${m.i/30},40%,55%);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;">${(m.n||'').split(' ').map(w=>w[0]).join('').slice(0,2)}</div><div><div style="font-size:12px;font-weight:500;">${m.n}</div><div style="font-size:10px;color:var(--mu);">€${m.i.toLocaleString('nl-NL')}/mnd</div></div><div style="text-align:right;"><div style="font-size:8px;color:var(--mu);">netto</div><div style="font-size:10px;font-weight:600;color:${cl.nt>=0?'#2d5a27':'#b85450'};">${cl.nt>=0?'+':''}€${Math.abs(cl.nt).toLocaleString('nl-NL')}</div></div><button ${m.me?'<span style="width:22px;"></span>':'<button onclick="RM('+m.id+')" style="width:22px;height:22px;border-radius:50%;background:var(--w);color:var(--mu);font-size:13px;border:1px solid var(--br);cursor:pointer;display:flex;align-items:center;justify-content:center;">×</button>'}</div>`;}).join('')}</div></div>`;
 }
-function DEMO(){mbrs=[...M];CS();}function AM(){const n=($('nn')||{}).value||'',i=+($('ni')||{}).value||0,pv=$('np');const p=pv&&pv.value?+pv.value:undefined;if(!n.trim()||!i)return;mbrs.push({id:++nid,n:n.trim(),i,p});CS();}
+function AM(){const n=($('nn')||{}).value||'',i=+($('ni')||{}).value||0,pv=$('np');const p=pv&&pv.value?+pv.value:undefined;if(!n.trim()||!i)return;mbrs.push({id:++nid,n:n.trim(),i,p});CS();}
 function RM(id){mbrs=mbrs.filter(m=>m.id!==id);CS();}
 
 function CT(i){['ck0','ck1','ck2'].forEach((id,j)=>{const el=document.getElementById(id);if(el)el.style.display=i===j?'block':'none';});['ct0','ct1','ct2'].forEach((id,j)=>{const b=document.getElementById(id);if(!b)return;b.className='tb'+(i===j?' on':'');});if(i===1)RCW();if(i===2){window._sc=window._sc||[];ROS();}}
@@ -201,4 +201,52 @@ async function ADS(){
   ROS();
 }
 
-CS();ST(0);
+
+function START_APP(isDemo){
+  document.getElementById('wl').style.display='none';
+  const ub=document.getElementById('ubar');
+  ub.style.display='flex';
+  document.getElementById('ubar-name').textContent='👤 '+currentUser+(isDemo?' (demo)':'');
+  if(!isDemo){
+    const sv=localStorage.getItem('fs_inc_'+currentUser);
+    if(sv&&mI)mI.value=sv;
+  }
+  CS();ST(0);LD();
+}
+
+function JOIN(){
+  const n=document.getElementById('uname');
+  if(!n||!n.value.trim()){alert('Vul je naam in');return;}
+  currentUser=n.value.trim();
+  localStorage.setItem('fs_user',currentUser);
+  START_APP(false);
+}
+
+function DEMO_START(){
+  currentUser='Demo';
+  mbrs=[...M];
+  if(mI)mI.value='2500';
+  START_APP(true);
+}
+
+function LOGOUT(){
+  currentUser=null;
+  mbrs=[];
+  projs=[];
+  supporters=[];
+  fund=[];
+  fundpot=0;
+  if(mI)mI.value='';
+  document.getElementById('wl').style.display='flex';
+  document.getElementById('ubar').style.display='none';
+}
+
+window.addEventListener('load',()=>{
+  _DB=supabase.createClient(SURL,SKEY);
+  const saved=localStorage.getItem('fs_user');
+  if(saved){
+    currentUser=saved;
+    document.getElementById('uname').value=saved;
+    START_APP(false);
+  }
+});
