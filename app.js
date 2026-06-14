@@ -1,7 +1,7 @@
 const SURL='https://gffzskbxjzgewztjhncz.supabase.co';
 const SKEY='sb_publishable_agTW0NWNmrewQJZuOGV6Lw_llciY6Yw';
 let _DB=null;
-window.addEventListener('load',()=>{_DB=supabase.createClient(SURL,SKEY);LD();});
+window.addEventListener('load',()=>{_DB=supabase.createClient(SURL,SKEY);const sv=localStorage.getItem('fs_inc');if(sv&&mI)mI.value=sv;LD();});
 
 const $=id=>document.getElementById(id);
 const M=[{id:1,n:'Sophie',i:1200},{id:2,n:'Mohammed',i:1800},{id:3,n:'Lisa',i:2100},{id:4,n:'Ravi',i:2300},{id:5,n:'Emma',i:2800},{id:6,n:'Pieter',i:3400},{id:7,n:'Yasmine',i:4200},{id:8,n:'Jan',i:5800}];
@@ -87,6 +87,7 @@ function G(p){
 }
 
 function CS(){
+  try{localStorage.setItem('fs_inc',mI.value);}catch(e){}
   const inc=+(mI.value)||0,pct=fx?(inc>0?(+(fa.value)||0)/inc:0):(+(ps.value)||0)/100;
   const mc=fx?(+(fa.value)||0):Math.round(inc*pct);
   if(!fx)$('pl').textContent=ps.value+'% = €'+mc.toLocaleString('nl-NL')+'/mnd';
