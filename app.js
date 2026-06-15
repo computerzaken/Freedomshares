@@ -229,6 +229,49 @@ const SH_DATA=[
 ,{n:'Monuta',c:'diensten',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:4,w:'https://www.monuta.nl',certs:['steward']}
 ,{n:'PC Uitvaart',c:'diensten',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:5,w:'https://www.pcuitvaart.nl',certs:['steward']}
 ,{n:'Vanadis Uitvaartverzorging',c:'diensten',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:5,w:'https://www.vanadis.nl',certs:['steward']}
+// === BIOLOGISCHE RESTAURANTS (bron: eet.nu, beoordeling 9.0+) ===
+,{n:'DOYY',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Eindhoven',certs:['biologisch'],w:'https://www.eet.nu/eindhoven/doyy'}
+,{n:'Brasserie de Lantaern',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Maassluis',certs:['biologisch'],w:'https://www.eet.nu/maassluis/brasserie-de-lantaern'}
+,{n:'Martha-Zaras',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Zandvoort',certs:['biologisch'],w:'https://www.eet.nu/zandvoort/martha-zaras'}
+,{n:'Ten Cate',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Emmen',certs:['biologisch'],w:'https://www.eet.nu/emmen/ten-cate'}
+,{n:'Het Graauwe Paard',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Oudebildtzijl',certs:['biologisch'],w:'https://www.eet.nu/oudebildtzijl/het-graauwe-paard'}
+,{n:'Queen of Sheba',c:'horeca',t:'retailer',s:'physical',bio:4,fair:5,sust:4,lo:4,p:'Amsterdam',certs:['biologisch'],w:'https://www.eet.nu/amsterdam/queen-of-sheba'}
+,{n:'Lovely Local',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Enschede',certs:['biologisch'],w:'https://www.eet.nu/enschede/lovely-local'}
+,{n:'Alles met Liefde',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Middenbeemster',certs:['biologisch'],w:'https://www.eet.nu/middenbeemster/alles-met-liefde'}
+,{n:'Lo Stivale',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Groningen',certs:['biologisch'],w:'https://www.eet.nu/groningen/lo-stivale'}
+,{n:'Danyel',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:5,p:'Maastricht',certs:['biologisch'],w:'https://www.eet.nu/maastricht/danyel-maastricht'}
+,{n:"'t KoaikersHuus",c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Buren',certs:['biologisch'],w:'https://www.eet.nu/buren-fr/t-koaikershuus'}
+,{n:'Wijnbar Vino',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Oud Beijerland',certs:['biologisch'],w:'https://www.eet.nu/oud-beijerland/wijnbar-vino'}
+,{n:'Uijttewaal',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:4,p:'Breda',certs:['biologisch'],w:'https://www.eet.nu/breda/uijttewaal'}
+,{n:'Enya',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Maarssen',certs:['biologisch'],w:'https://www.eet.nu/maarssen/enya'}
+,{n:'Os en Peper',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Zwolle',certs:['biologisch'],w:'https://www.eet.nu/zwolle/os-en-peper'}
+,{n:'Hafiza',c:'horeca',t:'retailer',s:'physical',bio:4,fair:5,sust:4,lo:5,p:'Nijmegen',certs:['biologisch'],w:'https://www.eet.nu/nijmegen/hafiza'}
+,{n:'Restaurant Samen',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Wijchen',certs:['biologisch'],w:'https://www.eet.nu/wijchen/restaurant-samen'}
+,{n:'Aruna Cuisine',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Roermond',certs:['biologisch'],w:'https://www.eet.nu/roermond/aruna-cuisine'}
+,{n:'Eetatelier',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Houten',certs:['biologisch'],w:'https://www.eet.nu/houten/eetatelier'}
+,{n:'Don Pablo',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Nijmegen',certs:['biologisch'],w:'https://www.eet.nu/nijmegen/don-pablo'}
+// === VEGAN RESTAURANTS (bron: curated NL vegan gids) ===
+,{n:'Soepp',c:'horeca',t:'steward',s:'physical',bio:5,fair:5,sust:5,lo:5,p:'Alkmaar',certs:['vegan','biologisch'],w:'https://www.soepp.nl'}
+,{n:'Neighbours Kitchen',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Almere',certs:['vegan'],w:'https://www.neighbourskitchen.nl'}
+,{n:'The Black Cockatoo',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Almere',certs:['vegan','biologisch'],w:'https://www.theblackcockatoo.nl'}
+,{n:'Bindi Cafe',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amersfoort',certs:['vegan'],w:'https://www.bindicafe.nl'}
+,{n:'Het Lokaal Amersfoort',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Amersfoort',certs:['vegan'],w:'https://www.hetlokaalamersfoort.nl'}
+,{n:'Bonboon',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.bonboon.nl'}
+,{n:'Bloem eten drinken',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan','biologisch'],w:'https://www.bloemamsterdam.nl'}
+,{n:'Cafe de Ceuvel',c:'horeca',t:'steward',s:'physical',bio:4,fair:5,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.ceuvel.nl'}
+,{n:'Flower Burger',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:3,p:'Amsterdam',certs:['vegan'],w:'https://flowerburger.eu'}
+,{n:'Hearth Amsterdam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.hearth-amsterdam.com'}
+,{n:'Kitchen Impossible',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.kitchenimpossible.nl'}
+,{n:'Lowlander Restaurant',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.lowlander.com'}
+,{n:'Madre Amsterdam',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan','biologisch'],w:'https://www.restaurantmadre.nl'}
+,{n:'Meatless District',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.meatlessdistrict.com'}
+,{n:'Mediamatic',c:'horeca',t:'retailer',s:'physical',bio:5,fair:5,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.mediamatic.net'}
+,{n:'Men Impossible',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.menimpossible.com'}
+,{n:'Morris & Bella',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan','biologisch'],w:'https://www.morrisenbella.nl'}
+,{n:'MKZ Restaurant',c:'horeca',t:'cooperative',s:'physical',bio:4,fair:5,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/amsterdam/mkz'}
+,{n:'The Old Soul',c:'horeca',t:'retailer',s:'physical',bio:4,fair:5,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.theoldsoulamsterdam.nl'}
+,{n:'Oliver Green',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.olivergreen.nl'}
+,{n:'Saint-Jean Amsterdam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.saintjean.nl'}
 ];
 const TX={wasmachine:{c:['witgoed']},koelkast:{c:['witgoed']},ijskast:{c:['witgoed']},laptop:{c:['tech']},telefoon:{c:['tech']},jeans:{c:['kleding']},shampoo:{c:['verzorging']},wasmiddel:{c:['verzorging']},energie:{c:['energie']},fiets:{c:['mobiliteit']},spinazie:{c:['voeding','markt']},koffie:{c:['voeding']},chocolade:{c:['voeding']}};
 const OSC=[
@@ -252,6 +295,8 @@ const CERT_BADGES={
   great:   {l:'GoY: Uitstekend',e:'⭐⭐⭐',c:'#2d5a27'},
   good:    {l:'GoY: Goed',      e:'⭐⭐', c:'#1a7a6e'},
   start:   {l:'GoY: Begin',     e:'⭐',  c:'#c45e00'},
+  biologisch:{l:'Biologisch',   e:'🌿', c:'#2d5a27'},
+  vegan:   {l:'Vegan/Plantbased',e:'🌱',c:'#1a7a6e'},
 };
 
 const QD={invest:{c:'#2d5a27',l:'Investeren',d:'Renteloos le.',di:['Initiatief starten','Renteloze lening','Deelnemen'],fi:['Geld vloeit terug','Geen rente, wel verantwoordelijkheid']},support:{c:'#1a7a6e',l:'Ondersteunen',d:'Persoonlijke.',di:['Persoonlijke voordracht','Groei ondersteunen','Geen criteria'],fi:['Gift, geen lening','Vertrouwen als basis']},crowd:{c:'#5b4fa8',l:'Crowdfunding',d:'Initiatieven.',di:['Criteria-selectie','Gelijke stem','Consent-besluitvorming'],fi:['Geld vrij bij haalbaarheid','Collectief beheer']},give:{c:'#c17f24',l:'Weggeven',d:'Zuivere gift.',di:['Geen verwachtingen','Onpersoonlijk','Trickledown'],fi:['Pure gift','Versterkt het systeem']}};
@@ -301,7 +346,7 @@ function RCW(){const wq=[{q:'Heb je een persoonlijke relatie met de ontvanger of
 function LTX(q){const ql=q.toLowerCase().trim();if(TX[ql])return TX[ql];const m=Object.entries(TX).find(([k])=>ql.includes(k)||k.includes(ql));return m?m[1]:null;}
 function SH(){$('sb').style.display='none';$('sht').textContent='🛍️ Shopping';$('shs').textContent='Zoek op product of winkel, of gebruik de Koophulp.';si.value='';$('sc').innerHTML=`<p style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--mu);margin-bottom:9px;">Browse per categorie</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:7px;margin-bottom:18px;">${SC.map(cat=>`<div class="pl" onclick="SC2('${cat.id}')" style="padding:10px;"><div style="font-size:16px;margin-bottom:6px;">${cat.e}</div><div style="font-size:11px;font-weight:600;color:${cat.c};line-height:1.3;">${cat.l}</div><div style="font-size:9px;color:var(--mu);margin-top:2px;">${shops.filter(s=>s.c===cat.id).length} winkels</div></div>`).join('')}</div><div onclick="KH()" style="border-radius:14px;background:linear-gradient(135deg,#2d5a27,#1a7a6e);padding:14px;display:flex;align-items:center;gap:10px;cursor:pointer;"><div style="font-size:24px;">🧭</div><div><h3 style="font-size:13px;color:#fff;margin-bottom:1px;">Weet je niet waar te beginnen?</h3><p style="font-size:12px;color:rgba(255,255,255,.8);">Koophulp geeft persoonlijk advies.</p></div><div style="margin-left:auto;color:rgba(255,255,255,.6);font-size:16px;">→</div></div>`;}
 function SC2(cid){$('sb').style.display='';const cat=SC.find(c=>c.id===cid);$('sht').textContent=cat.e+' '+cat.l;const lst=shops.filter(s=>s.c===cid);$('shs').textContent=lst.length+' winkels';$('sc').innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:7px;">${lst.map(s=>KA(s,'')).join('')}</div>`;}
-function DS(){const q=si.value.trim();if(!q)return;$('sb').style.display='';$('sht').textContent='🛍️ "'+q+'"';const ex=LTX(q);const res=shops.filter(s=>{const d=s.n.toLowerCase().includes(q.toLowerCase())||s.d.toLowerCase().includes(q.toLowerCase());const em=ex&&(ex.c.includes(s.c));return d||em;});$('shs').textContent=res.length+' resultaten'+(ex?' (product herkend)':'');if(!res.length){$('sc').innerHTML=`<div style="text-align:center;padding:32px 0;"><div style="font-size:28px;margin-bottom:7px;">🔍</div><h3 style="font-size:14px;margin-bottom:4px;">Niets gevonden voor "${q}"</h3><p style="color:var(--mu);font-size:13px;">Probeer bijv. spinazie, ijskast, jeans</p></div>`;return;}let h=ex?`<div style="background:var(--al);border-radius:8px;padding:7px 12px;margin-bottom:10px;font-size:12px;color:var(--a);font-weight:500;">💡 Product herkend: winkels voor "${q}"</div>`:'';SC.forEach(cat=>{const cs=res.filter(s=>s.c===cat.id);if(!cs.length)return;h+=`<div style="margin-bottom:16px;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;"><span style="font-size:13px;">${cat.e}</span><h3 style="font-size:12px;font-weight:600;color:${cat.c};">${cat.l} (${cs.length})</h3></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:7px;">${cs.map(s=>KA(s,q)).join('')}</div></div>`;});$('sc').innerHTML=h;}
+function DS(){const q=si.value.trim();if(!q)return;$('sb').style.display='';$('sht').textContent='🛍️ "'+q+'"';const ex=LTX(q);const res=shops.filter(s=>{const d=s.n.toLowerCase().includes(q.toLowerCase())||(s.d||'').toLowerCase().includes(q.toLowerCase());const em=ex&&(ex.c.includes(s.c));return d||em;});$('shs').textContent=res.length+' resultaten'+(ex?' (product herkend)':'');if(!res.length){$('sc').innerHTML=`<div style="text-align:center;padding:32px 0;"><div style="font-size:28px;margin-bottom:7px;">🔍</div><h3 style="font-size:14px;margin-bottom:4px;">Niets gevonden voor "${q}"</h3><p style="color:var(--mu);font-size:13px;">Probeer bijv. spinazie, ijskast, jeans</p></div>`;return;}let h=ex?`<div style="background:var(--al);border-radius:8px;padding:7px 12px;margin-bottom:10px;font-size:12px;color:var(--a);font-weight:500;">💡 Product herkend: winkels voor "${q}"</div>`:'';SC.forEach(cat=>{const cs=res.filter(s=>s.c===cat.id);if(!cs.length)return;h+=`<div style="margin-bottom:16px;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;"><span style="font-size:13px;">${cat.e}</span><h3 style="font-size:12px;font-weight:600;color:${cat.c};">${cat.l} (${cs.length})</h3></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:7px;">${cs.map(s=>KA(s,q)).join('')}</div></div>`;});$('sc').innerHTML=h;}
 function LS(){const q=si.value.trim();if(q.length>=1)DS();else if(!q)SH();}
 function HL(t,q){if(!q||!t)return t||'';const i=t.toLowerCase().indexOf(q.toLowerCase());if(i<0)return t;return t.slice(0,i)+'<mark>'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length);}
 function TB(t){const m={steward:{l:'Steward',bg:'#eef5ec',c:'#2d5a27'},cooperative:{l:'Coöp',bg:'#eaf5f3',c:'#1a7a6e'},retailer:{l:'Retailer',bg:'#fdf5e8',c:'#c17f24'}}[t]||{l:'?',bg:'#f3f0eb',c:'#6b7260'};return`<span style="font-size:8px;padding:2px 5px;border-radius:4px;background:${m.bg};color:${m.c};font-weight:700;flex-shrink:0;">${m.l}</span>`;}
@@ -358,7 +403,7 @@ function ROS(){
       +'<div style="display:flex;align-items:center;gap:7px;">'
       +'<div style="flex:1;"><strong style="font-size:13px;">'+s.name+'</strong>'
       +'<div style="font-size:11px;color:var(--mu);">'+(s.cats||[]).map(c=>c.v+': '+c.note).join(' · ')+'</div></div>'
-      +'<button onclick="supporters=supporters.filter(x=>x.id!=='+s.id+');ROS();" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'
+      +'<button onclick="DELS('+s.id+')" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'
       +'</div></div>').join('')
     :'<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners.</p>';
 }
