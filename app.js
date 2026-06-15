@@ -230,50 +230,191 @@ const SH_DATA=[
 ,{n:'PC Uitvaart',c:'diensten',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:5,w:'https://www.pcuitvaart.nl',certs:['steward']}
 ,{n:'Vanadis Uitvaartverzorging',c:'diensten',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:5,w:'https://www.vanadis.nl',certs:['steward']}
 // === BIOLOGISCHE RESTAURANTS (bron: eet.nu, beoordeling 9.0+) ===
-,{n:'DOYY',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Eindhoven',certs:['biologisch'],w:'https://www.eet.nu/eindhoven/doyy'}
-,{n:'Brasserie de Lantaern',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Maassluis',certs:['biologisch'],w:'https://www.eet.nu/maassluis/brasserie-de-lantaern'}
-,{n:'Martha-Zaras',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Zandvoort',certs:['biologisch'],w:'https://www.eet.nu/zandvoort/martha-zaras'}
-,{n:'Ten Cate',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Emmen',certs:['biologisch'],w:'https://www.eet.nu/emmen/ten-cate'}
-,{n:'Het Graauwe Paard',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Oudebildtzijl',certs:['biologisch'],w:'https://www.eet.nu/oudebildtzijl/het-graauwe-paard'}
-,{n:'Queen of Sheba',c:'horeca',t:'retailer',s:'physical',bio:4,fair:5,sust:4,lo:4,p:'Amsterdam',certs:['biologisch'],w:'https://www.eet.nu/amsterdam/queen-of-sheba'}
-,{n:'Lovely Local',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Enschede',certs:['biologisch'],w:'https://www.eet.nu/enschede/lovely-local'}
-,{n:'Alles met Liefde',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Middenbeemster',certs:['biologisch'],w:'https://www.eet.nu/middenbeemster/alles-met-liefde'}
-,{n:'Lo Stivale',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Groningen',certs:['biologisch'],w:'https://www.eet.nu/groningen/lo-stivale'}
-,{n:'Danyel',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:5,p:'Maastricht',certs:['biologisch'],w:'https://www.eet.nu/maastricht/danyel-maastricht'}
-,{n:"'t KoaikersHuus",c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Buren',certs:['biologisch'],w:'https://www.eet.nu/buren-fr/t-koaikershuus'}
-,{n:'Wijnbar Vino',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Oud Beijerland',certs:['biologisch'],w:'https://www.eet.nu/oud-beijerland/wijnbar-vino'}
-,{n:'Uijttewaal',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:4,p:'Breda',certs:['biologisch'],w:'https://www.eet.nu/breda/uijttewaal'}
-,{n:'Enya',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Maarssen',certs:['biologisch'],w:'https://www.eet.nu/maarssen/enya'}
-,{n:'Os en Peper',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:5,p:'Zwolle',certs:['biologisch'],w:'https://www.eet.nu/zwolle/os-en-peper'}
-,{n:'Hafiza',c:'horeca',t:'retailer',s:'physical',bio:4,fair:5,sust:4,lo:5,p:'Nijmegen',certs:['biologisch'],w:'https://www.eet.nu/nijmegen/hafiza'}
-,{n:'Restaurant Samen',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Wijchen',certs:['biologisch'],w:'https://www.eet.nu/wijchen/restaurant-samen'}
-,{n:'Aruna Cuisine',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Roermond',certs:['biologisch'],w:'https://www.eet.nu/roermond/aruna-cuisine'}
-,{n:'Eetatelier',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Houten',certs:['biologisch'],w:'https://www.eet.nu/houten/eetatelier'}
-,{n:'Don Pablo',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:4,lo:4,p:'Nijmegen',certs:['biologisch'],w:'https://www.eet.nu/nijmegen/don-pablo'}
 // === VEGAN RESTAURANTS (bron: curated NL vegan gids) ===
 ,{n:'Soepp',c:'horeca',t:'steward',s:'physical',bio:5,fair:5,sust:5,lo:5,p:'Alkmaar',certs:['vegan','biologisch'],w:'https://www.soepp.nl'}
-,{n:'Neighbours Kitchen',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Almere',certs:['vegan'],w:'https://www.neighbourskitchen.nl'}
-,{n:'The Black Cockatoo',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Almere',certs:['vegan','biologisch'],w:'https://www.theblackcockatoo.nl'}
-,{n:'Bindi Cafe',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amersfoort',certs:['vegan'],w:'https://www.bindicafe.nl'}
-,{n:'Het Lokaal Amersfoort',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Amersfoort',certs:['vegan'],w:'https://www.hetlokaalamersfoort.nl'}
-,{n:'Bonboon',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.bonboon.nl'}
-,{n:'Bloem eten drinken',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan','biologisch'],w:'https://www.bloemamsterdam.nl'}
 ,{n:'Cafe de Ceuvel',c:'horeca',t:'steward',s:'physical',bio:4,fair:5,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.ceuvel.nl'}
-,{n:'Flower Burger',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:3,p:'Amsterdam',certs:['vegan'],w:'https://flowerburger.eu'}
-,{n:'Hearth Amsterdam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.hearth-amsterdam.com'}
-,{n:'Kitchen Impossible',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.kitchenimpossible.nl'}
-,{n:'Lowlander Restaurant',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.lowlander.com'}
-,{n:'Madre Amsterdam',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan','biologisch'],w:'https://www.restaurantmadre.nl'}
-,{n:'Meatless District',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.meatlessdistrict.com'}
-,{n:'Mediamatic',c:'horeca',t:'retailer',s:'physical',bio:5,fair:5,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.mediamatic.net'}
-,{n:'Men Impossible',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.menimpossible.com'}
-,{n:'Morris & Bella',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan','biologisch'],w:'https://www.morrisenbella.nl'}
-,{n:'MKZ Restaurant',c:'horeca',t:'cooperative',s:'physical',bio:4,fair:5,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/amsterdam/mkz'}
-,{n:'The Old Soul',c:'horeca',t:'retailer',s:'physical',bio:4,fair:5,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.theoldsoulamsterdam.nl'}
-,{n:'Oliver Green',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.olivergreen.nl'}
-,{n:'Saint-Jean Amsterdam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.saintjean.nl'}
+// === BIOLOGISCHE RESTAURANTS (bron: eet.nu, top 64 op beoordeling) ===
+,{n:'DOYY',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Eindhoven',certs:['biologisch'],w:'https://www.eet.nu/eindhoven/doyy'}
+,{n:'Brasserie de Lantaern',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Maassluis',certs:['biologisch'],w:'https://www.eet.nu/maassluis/brasserie-de-lantaern'}
+,{n:'Sfeerlijk',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Sprang Capelle',certs:['biologisch'],w:'https://www.eet.nu/sprang-capelle/sfeerlijk'}
+,{n:'Sjmaak',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Geleen',certs:['biologisch'],w:'https://www.eet.nu/geleen/sjmaak'}
+,{n:'Het Graauwe Paard',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Oudebildtzijl',certs:['biologisch'],w:'https://www.eet.nu/oudebildtzijl/het-graauwe-paard'}
+,{n:'Martha-Zaras',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Zandvoort',certs:['biologisch'],w:'https://www.eet.nu/zandvoort/martha-zaras'}
+,{n:'Ten Cate',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Emmen',certs:['biologisch'],w:'https://www.eet.nu/emmen/ten-cate'}
+,{n:'Bistro in den Koning',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Waterlandkerkje',certs:['biologisch'],w:'https://www.eet.nu/waterlandkerkje/bistro-in-den-koning'}
+,{n:'De Drie Turven',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Drachten',certs:['biologisch'],w:'https://www.eet.nu/drachten/de-drie-turven'}
+,{n:'Downey\'s',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Amersfoort',certs:['biologisch'],w:'https://www.eet.nu/amersfoort/downey-s'}
+,{n:'De Arend',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Winssen',certs:['biologisch'],w:'https://www.eet.nu/winssen/de-arend'}
+,{n:'Queen of Sheba',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Amsterdam',certs:['biologisch'],w:'https://www.eet.nu/amsterdam/queen-of-sheba'}
+,{n:'The Booster',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Beilen',certs:['biologisch'],w:'https://www.eet.nu/beilen/the-booster'}
+,{n:'GUIDO\'S | De Burg',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Noord Scharwoude',certs:['biologisch'],w:'https://www.eet.nu/noord-scharwoude/guido-s-de-burg'}
+,{n:'Brasserie UIT',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Rijssen',certs:['biologisch'],w:'https://www.eet.nu/rijssen/brasserie-uit'}
+,{n:'Op de Boom',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Koningsbosch',certs:['biologisch'],w:'https://www.eet.nu/koningsbosch/op-de-boom'}
+,{n:'Hugo\'s Bistrobar',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Sint Oedenrode',certs:['biologisch'],w:'https://www.eet.nu/sint-oedenrode/hugo-s-bistrobar'}
+,{n:'Vinck',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Geesteren Ov',certs:['biologisch'],w:'https://www.eet.nu/geesteren-ov/vinck'}
+,{n:'Alles met Liefde',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Middenbeemster',certs:['biologisch'],w:'https://www.eet.nu/middenbeemster/alles-met-liefde'}
+,{n:'Lo Stivale',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Groningen',certs:['biologisch'],w:'https://www.eet.nu/groningen/lo-stivale'}
+,{n:'Danyel',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Maastricht',certs:['biologisch'],w:'https://www.eet.nu/maastricht/danyel-maastricht'}
+,{n:'Lovely Local',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Enschede',certs:['biologisch'],w:'https://www.eet.nu/enschede/lovely-local'}
+,{n:'Kale & de Bril',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Goes',certs:['biologisch'],w:'https://www.eet.nu/goes/kale-de-bril'}
+,{n:'\'t KoaikersHuus',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Buren Fr',certs:['biologisch'],w:'https://www.eet.nu/buren-fr/t-koaikershuus'}
+,{n:'De Eerste Aanleg',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Nieuwkoop',certs:['biologisch'],w:'https://www.eet.nu/nieuwkoop/de-eerste-aanleg'}
+,{n:'Restaurant RED',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Heythuysen',certs:['biologisch'],w:'https://www.eet.nu/heythuysen/restaurant-red'}
+,{n:'Picknickers',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Terherne',certs:['biologisch'],w:'https://www.eet.nu/terherne/picknickers'}
+,{n:'Wijnbar Vino',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Oud Beijerland',certs:['biologisch'],w:'https://www.eet.nu/oud-beijerland/wijnbar-vino'}
+,{n:'@Zeetra de Molenhoek',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Kamperland',certs:['biologisch'],w:'https://www.eet.nu/kamperland/zeetra-de-molenhoek'}
+,{n:'De Zwarte Haan',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Sint Jacobiparochie',certs:['biologisch'],w:'https://www.eet.nu/sint-jacobiparochie/de-zwarte-haan'}
+,{n:'Pomerol',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Landgraaf',certs:['biologisch'],w:'https://www.eet.nu/landgraaf/pomerol'}
+,{n:'Hof van Herstal',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Echt',certs:['biologisch'],w:'https://www.eet.nu/echt/hof-van-herstal'}
+,{n:'Unia 12',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Leeuwarden',certs:['biologisch'],w:'https://www.eet.nu/leeuwarden/unia-12'}
+,{n:'Sjef\'s Table',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Rijen',certs:['biologisch'],w:'https://www.eet.nu/rijen/sjef-s-table'}
+,{n:'Uijttewaal',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Breda',certs:['biologisch'],w:'https://www.eet.nu/breda/uijttewaal'}
+,{n:'De Provenier',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Schiedam',certs:['biologisch'],w:'https://www.eet.nu/schiedam/de-provenier'}
+,{n:'Lokate',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Wijhe',certs:['biologisch'],w:'https://www.eet.nu/wijhe/lokate'}
+,{n:'Noderstraun',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Schiermonnikoog',certs:['biologisch'],w:'https://www.eet.nu/schiermonnikoog/noderstraun'}
+,{n:'Infini',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Wahlwiller',certs:['biologisch'],w:'https://www.eet.nu/wahlwiller/infini'}
+,{n:'Taboe',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Zwolle',certs:['biologisch'],w:'https://www.eet.nu/zwolle/taboe'}
+,{n:'Bib GourmandLe Vieux Jean',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Delft',certs:['biologisch'],w:'https://www.eet.nu/delft/le-vieux-jean'}
+,{n:'The Old Bakery',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Bergen Op Zoom',certs:['biologisch'],w:'https://www.eet.nu/bergen-op-zoom/the-old-bakery'}
+,{n:'Caspar',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Arnhem',certs:['biologisch'],w:'https://www.eet.nu/arnhem/caspar'}
+,{n:'één MichelinsterLatour1653',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Noordwijk Aan Zee',certs:['biologisch'],w:'https://www.eet.nu/noordwijk-aan-zee/latour'}
+,{n:'Ritos',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Den Haag',certs:['biologisch'],w:'https://www.eet.nu/den-haag/ritos'}
+,{n:'De Hooghei',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Berlicum Nb',certs:['biologisch'],w:'https://www.eet.nu/berlicum-nb/de-hooghei'}
+,{n:'Colori',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Grave',certs:['biologisch'],w:'https://www.eet.nu/grave/colori'}
+,{n:'één MichelinsterDa Vinci16,524',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Maasbracht',certs:['biologisch'],w:'https://www.eet.nu/maasbracht/da-vinci'}
+,{n:'Gasterij Zuidbarge',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Emmen',certs:['biologisch'],w:'https://www.eet.nu/emmen/gasterij-zuidbarge'}
+,{n:'The Bourbon Room',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Bergen Noord Holland',certs:['biologisch'],w:'https://www.eet.nu/bergen-noord-holland/the-bourbon-room'}
+,{n:'Os en Peper',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Zwolle',certs:['biologisch'],w:'https://www.eet.nu/zwolle/os-en-peper'}
+,{n:'Enya',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Maarssen',certs:['biologisch'],w:'https://www.eet.nu/maarssen/enya'}
+,{n:'één MichelinsterFletcher | De Kromme Dissel52',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Heelsum',certs:['biologisch'],w:'https://www.eet.nu/heelsum/fletcher-de-kromme-dissel'}
+,{n:'Tante Blanche',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Brummen',certs:['biologisch'],w:'https://www.eet.nu/brummen/tante-blanche'}
+,{n:'Bib GourmandDe Schans',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Montfoort',certs:['biologisch'],w:'https://www.eet.nu/montfoort/de-schans'}
+,{n:'Hafiza',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Nijmegen',certs:['biologisch'],w:'https://www.eet.nu/nijmegen/hafiza'}
+,{n:'één MichelinsterApicius',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Castricum',certs:['biologisch'],w:'https://www.eet.nu/castricum/apicius'}
+,{n:'Ana\'s Lams Dis',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Utrecht',certs:['biologisch'],w:'https://www.eet.nu/utrecht/ana-s-lams-dis'}
+,{n:'Barrevoets',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Leeuwarden',certs:['biologisch'],w:'https://www.eet.nu/leeuwarden/barrevoets'}
+,{n:'De Heerlijke Huiskamer',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Ambt Delden',certs:['biologisch'],w:'https://www.eet.nu/ambt-delden/de-heerlijke-huiskamer'}
+,{n:'Stadscafé de Tapperij',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Elburg',certs:['biologisch'],w:'https://www.eet.nu/elburg/stadscafe-de-tapperij'}
+,{n:'De Molenaar',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Onderdendam',certs:['biologisch'],w:'https://www.eet.nu/onderdendam/de-molenaar'}
+,{n:'Brasserie AanDeel',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Emmeloord',certs:['biologisch'],w:'https://www.eet.nu/emmeloord/brasserie-aandeel'}
+,{n:'Bib GourmandDe Watergeus',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,p:'Noorden',certs:['biologisch'],w:'https://www.eet.nu/noorden/de-watergeus'}
+
+// === VEGAN RESTAURANTS (bron: curated NL vegan gids, alle steden) ===
+,{n:'Neighbours kitchen',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Almere',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'The black cockatoo',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Almere',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Bindi Café',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amersfoort',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Het lokaal',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amersfoort',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Rozey',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amersfoort',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Abu Amr Koshari',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Bloem eten & drinken',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Bonboon',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Café de Ceuvel',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Flower burger',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Café Gilde',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Have a roll',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Hearth',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Kitchen Impossible',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Koffie ende koeck',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Lait de Choco',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Little Plant Pantry',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Lowlander',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Luminair',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Madre',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Margo’s',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Meatless District',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'The Meets',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Mediamatic',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Men impossible',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'MKZ',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Morris & Bella',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Mr Watson',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'The Old Soul',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Oliver Green',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Robin Food',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Rose & Vanilla',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Saint-Jean',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'De Sering',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Soil',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Spirit',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Sue',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'TerraZen Centre',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Trevi’s',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Vegan Junk Food Bar',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Vegan sushi bar',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Veganees',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'De Waaghals',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Wrap Lab',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Amsterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'FLFL',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Arnhem',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Konijnenvoer',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Arnhem',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Puur Sahn',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Berg en Dal',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Loff',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Breda',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Black & White kafe',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Breda',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'FRET',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Breda',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Pollevie',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Breda',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'FOAM',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Den Haag',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Hagedis',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Den Haag',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'PLENTY',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Den Haag',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Vegane glorie',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Den Haag',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Veggies on fire',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Den Haag',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Hotel Gaia',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Deventer',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Rebel Rebel',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Dordrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Jungle',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Eindhoven',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Foodbar RAUW',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Enschede',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Het Paradijs',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Enschede',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Miss Nice Banana',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Gouda',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Curcuma',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Gouda',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Achterwerk',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Groningen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Blabla',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Groningen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Fankaasoo',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Groningen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Mahalo',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Groningen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'De Herbivoor',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Groningen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Smaakaron',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Groningen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'SLA (I Love Sla)',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Groningen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'New Vegas',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Haarlem',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Mama Gaia',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Haarlem',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Klein Geluk',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Heemskerk',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Lab071',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Leiden',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Logica',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Leiden',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Avantgarde',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Leiden',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Soup Bros',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Leiden',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Bar Verde',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Leiden',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Bhalu',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Nijmegen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'De nieuwe winkel',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Nijmegen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'De Plak',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Nijmegen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'De Grote Broek',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Nijmegen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Tati',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Nijmegen',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Backyard',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Copperbranch',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Dumbo',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Gare du Nord',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Happy food and health',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Heavenly Cupcakes',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Leaf',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Sharp Sharp',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Vegan pizzabar',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Groenten van Roos',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Sittard',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Texel, Den Burg',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Sittard',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Broei',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Gys',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Kasvio',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Koffiebar en vegan bakkerij Kluts',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Last Vegas',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Le Jardin',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Life’s a peach',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Oproer',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Syr',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Vegitalian',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Warmoes',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Zo’ndag Werkendam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Ministerie van geluk',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Zoetermeer',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Dr. Plant',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Leeuwarden',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Pele Surf Shack',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Hoek van Holland',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Breakaway',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Sint Geertruid',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Wit-lof Foodbar',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Texel',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+,{n:'Zo\'ndag Werkendam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Werkendam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
+
 ];
-const TX={wasmachine:{c:['witgoed']},koelkast:{c:['witgoed']},ijskast:{c:['witgoed']},laptop:{c:['tech']},telefoon:{c:['tech']},jeans:{c:['kleding']},shampoo:{c:['verzorging']},wasmiddel:{c:['verzorging']},energie:{c:['energie']},fiets:{c:['mobiliteit']},spinazie:{c:['voeding','markt']},koffie:{c:['voeding']},chocolade:{c:['voeding']}};
+const TX={wasmachine:{c:['witgoed']},koelkast:{c:['witgoed']},ijskast:{c:['witgoed']},laptop:{c:['tech']},telefoon:{c:['tech']},jeans:{c:['kleding']},shampoo:{c:['verzorging']},wasmiddel:{c:['verzorging']},energie:{c:['energie']},fiets:{c:['mobiliteit']},spinazie:{c:['voeding','markt']},koffie:{c:['voeding','horeca']},chocolade:{c:['voeding']},restaurant:{c:['horeca']},eten:{c:['horeca','voeding']},diner:{c:['horeca']},lunch:{c:['horeca']},cafe:{c:['horeca']},keuken:{c:['horeca']},vegan:{c:['horeca']},plantbased:{c:['horeca']},biologisch:{c:['horeca','voeding','markt']},uiteten:{c:['horeca']},horeca:{c:['horeca']},bouw:{c:['bouw']},software:{c:['tech']},advies:{c:['diensten']},media:{c:['media']},zorg:{c:['zorg']},bank:{c:['financien']}};
 const OSC=[
 ['netwerk','🌐 Netwerk','#2d5a27','Contacten?','Wie ken je?'],
 ['wetenschap','🔬 Kennis','#1a7a6e','Kennis?','Welke kennis?'],
@@ -281,6 +422,24 @@ const OSC=[
 ['tijd','⏳ Tijd','#c45e00','Tijd?','Hoeveel tijd?'],
 ['middelen','💰 Middelen','#c17f24','Middelen?','Welke middelen?'],
 ['xfactor','✨ X-factor','#b85450','Uniek?','Jouw bijdrage?']
+// === VEGAN RESTAURANTS OVERIGE STEDEN ===
+,{n:'FLFL',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Arnhem',certs:['vegan'],w:'https://www.flfl.nl'}
+,{n:'Loff',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Breda',certs:['vegan','biologisch'],w:'https://www.loff.nl'}
+,{n:'Hagedis',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Breda',certs:['vegan'],w:'https://www.restauranthagedis.nl'}
+,{n:'Hotel Gaia',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Deventer',certs:['vegan'],w:'https://www.hotelgaia.nl'}
+,{n:'Rebel Rebel',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Dordrecht',certs:['vegan'],w:'https://www.rebelrebel.nl'}
+,{n:'Bij Albrecht',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Eindhoven',certs:['vegan','biologisch'],w:'https://www.bijalbrecht.nl'}
+,{n:'Foodbar RAUW',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Enschede',certs:['vegan'],w:'https://www.foodbarrauw.nl'}
+,{n:'Miss Nice Banana',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Gouda',certs:['vegan'],w:'https://www.missnicebana.nl'}
+,{n:'Achterwerk',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Groningen',certs:['vegan'],w:'https://www.achterwerk.nl'}
+,{n:'FLFL Haarlem',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Haarlem',certs:['vegan'],w:'https://www.flfl.nl'}
+,{n:'Klein Geluk',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Heemskerk',certs:['vegan'],w:'https://www.kleingeluk.nl'}
+,{n:'Lab071',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Leiden',certs:['vegan'],w:'https://www.lab071.nl'}
+,{n:'Bhalu',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Nijmegen',certs:['vegan'],w:'https://www.bhalu.nl'}
+,{n:'Aloha Bar Rotterdam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Rotterdam',certs:['vegan'],w:'https://www.alohabar.nl'}
+,{n:'Groenten van Roos',c:'horeca',t:'retailer',s:'physical',bio:5,fair:4,sust:5,lo:5,p:'Sittard',certs:['vegan','biologisch'],w:'https://www.groentenvanroos.nl'}
+,{n:'Broei Utrecht',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Utrecht',certs:['vegan'],w:'https://www.broei.nu'}
+,{n:'Ministerie van Geluk',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Zoetermeer',certs:['vegan'],w:'https://www.ministerievangeluk.nl'}
 ];
 
 const SC=[{id:'voeding',l:'Voeding & Drinken',e:'🥦',c:'#2d5a27'},{id:'kleding',l:'Kleding & Mode',e:'👕',c:'#1a7a6e'},{id:'tech',l:'Technologie',e:'💻',c:'#5b4fa8'},{id:'witgoed',l:'Witgoed & Elektronica',e:'🔌',c:'#c45e00'},{id:'wonen',l:'Wonen & Interieur',e:'🛋️',c:'#c17f24'},{id:'verzorging',l:'Lichaam & Verzorging',e:'🌿',c:'#2d5a27'},{id:'markt',l:'Boerenmarkt & Landwinkel',e:'🌾',c:'#c45e00'},{id:'financien',l:'Financiën',e:'💰',c:'#1a7a6e'},{id:'mobiliteit',l:'Mobiliteit',e:'🚲',c:'#5b4fa8'},{id:'energie',l:'Energie & Klimaat',e:'⚡',c:'#c17f24'},{id:'zorg',l:'Zorg & Welzijn',e:'🏥',c:'#b85450'},{id:'vrije_tijd',l:'Natuur & Vrije Tijd',e:'🎭',c:'#2d5a27'},{id:'horeca',l:'Horeca & vrije tijd',e:'🍽️',c:'#c45e00'},{id:'bouw',l:'Bouw & maakindustrie',e:'🔨',c:'#6b7260'},{id:'diensten',l:'Zakelijke dienstverlening',e:'💼',c:'#5b4fa8'},{id:'media',l:'Media & cultuur',e:'📚',c:'#1a7a6e'}];
@@ -346,7 +505,7 @@ function RCW(){const wq=[{q:'Heb je een persoonlijke relatie met de ontvanger of
 function LTX(q){const ql=q.toLowerCase().trim();if(TX[ql])return TX[ql];const m=Object.entries(TX).find(([k])=>ql.includes(k)||k.includes(ql));return m?m[1]:null;}
 function SH(){$('sb').style.display='none';$('sht').textContent='🛍️ Shopping';$('shs').textContent='Zoek op product of winkel, of gebruik de Koophulp.';si.value='';$('sc').innerHTML=`<p style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--mu);margin-bottom:9px;">Browse per categorie</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:7px;margin-bottom:18px;">${SC.map(cat=>`<div class="pl" onclick="SC2('${cat.id}')" style="padding:10px;"><div style="font-size:16px;margin-bottom:6px;">${cat.e}</div><div style="font-size:11px;font-weight:600;color:${cat.c};line-height:1.3;">${cat.l}</div><div style="font-size:9px;color:var(--mu);margin-top:2px;">${shops.filter(s=>s.c===cat.id).length} winkels</div></div>`).join('')}</div><div onclick="KH()" style="border-radius:14px;background:linear-gradient(135deg,#2d5a27,#1a7a6e);padding:14px;display:flex;align-items:center;gap:10px;cursor:pointer;"><div style="font-size:24px;">🧭</div><div><h3 style="font-size:13px;color:#fff;margin-bottom:1px;">Weet je niet waar te beginnen?</h3><p style="font-size:12px;color:rgba(255,255,255,.8);">Koophulp geeft persoonlijk advies.</p></div><div style="margin-left:auto;color:rgba(255,255,255,.6);font-size:16px;">→</div></div>`;}
 function SC2(cid){$('sb').style.display='';const cat=SC.find(c=>c.id===cid);$('sht').textContent=cat.e+' '+cat.l;const lst=shops.filter(s=>s.c===cid);$('shs').textContent=lst.length+' winkels';$('sc').innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:7px;">${lst.map(s=>KA(s,'')).join('')}</div>`;}
-function DS(){const q=si.value.trim();if(!q)return;$('sb').style.display='';$('sht').textContent='🛍️ "'+q+'"';const ex=LTX(q);const res=shops.filter(s=>{const qlow=q.toLowerCase();const d=s.n.toLowerCase().includes(qlow)||(s.d||'').toLowerCase().includes(qlow)||(s.p||'').toLowerCase().includes(qlow)||((s.certs||[]).some(c=>c.includes(qlow)));const em=ex&&(ex.c.includes(s.c));return d||em;});$('shs').textContent=res.length+' resultaten'+(ex?' (product herkend)':'');if(!res.length){$('sc').innerHTML=`<div style="text-align:center;padding:32px 0;"><div style="font-size:28px;margin-bottom:7px;">🔍</div><h3 style="font-size:14px;margin-bottom:4px;">Niets gevonden voor "${q}"</h3><p style="color:var(--mu);font-size:13px;">Probeer bijv. spinazie, ijskast, jeans</p></div>`;return;}let h=ex?`<div style="background:var(--al);border-radius:8px;padding:7px 12px;margin-bottom:10px;font-size:12px;color:var(--a);font-weight:500;">💡 Product herkend: winkels voor "${q}"</div>`:'';SC.forEach(cat=>{const cs=res.filter(s=>s.c===cat.id);if(!cs.length)return;h+=`<div style="margin-bottom:16px;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;"><span style="font-size:13px;">${cat.e}</span><h3 style="font-size:12px;font-weight:600;color:${cat.c};">${cat.l} (${cs.length})</h3></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:7px;">${cs.map(s=>KA(s,q)).join('')}</div></div>`;});$('sc').innerHTML=h;}
+function DS(){const q=si.value.trim();if(!q)return;$('sb').style.display='';$('sht').textContent='🛍️ "'+q+'"';const ex=LTX(q);const res=shops.filter(s=>{const qlow=q.toLowerCase();const cat=SC.find(c=>c.id===s.c);const d=s.n.toLowerCase().includes(qlow)||(s.d||'').toLowerCase().includes(qlow)||(s.p||'').toLowerCase().includes(qlow)||((s.certs||[]).some(c=>c.includes(qlow)))||((cat&&cat.l)||'').toLowerCase().includes(qlow);const em=ex&&(ex.c.includes(s.c));return d||em;});$('shs').textContent=res.length+' resultaten'+(ex?' (product herkend)':'');if(!res.length){$('sc').innerHTML=`<div style="text-align:center;padding:32px 0;"><div style="font-size:28px;margin-bottom:7px;">🔍</div><h3 style="font-size:14px;margin-bottom:4px;">Niets gevonden voor "${q}"</h3><p style="color:var(--mu);font-size:13px;">Probeer bijv. spinazie, ijskast, jeans</p></div>`;return;}let h=ex?`<div style="background:var(--al);border-radius:8px;padding:7px 12px;margin-bottom:10px;font-size:12px;color:var(--a);font-weight:500;">💡 Product herkend: winkels voor "${q}"</div>`:'';SC.forEach(cat=>{const cs=res.filter(s=>s.c===cat.id);if(!cs.length)return;h+=`<div style="margin-bottom:16px;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;"><span style="font-size:13px;">${cat.e}</span><h3 style="font-size:12px;font-weight:600;color:${cat.c};">${cat.l} (${cs.length})</h3></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:7px;">${cs.map(s=>KA(s,q)).join('')}</div></div>`;});$('sc').innerHTML=h;}
 function LS(){const q=si.value.trim();if(q.length>=1)DS();else if(!q)SH();}
 function HL(t,q){if(!q||!t)return t||'';const i=t.toLowerCase().indexOf(q.toLowerCase());if(i<0)return t;return t.slice(0,i)+'<mark>'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length);}
 function TB(t){const m={steward:{l:'Steward',bg:'#eef5ec',c:'#2d5a27'},cooperative:{l:'Coöp',bg:'#eaf5f3',c:'#1a7a6e'},retailer:{l:'Retailer',bg:'#fdf5e8',c:'#c17f24'}}[t]||{l:'?',bg:'#f3f0eb',c:'#6b7260'};return`<span style="font-size:8px;padding:2px 5px;border-radius:4px;background:${m.bg};color:${m.c};font-weight:700;flex-shrink:0;">${m.l}</span>`;}
