@@ -640,19 +640,30 @@ function ROS(){
 }
 async function ADS(){
   const n=document.getElementById('sn');
-  if(!n||!n.value.trim()){alert('Naam vereist');return;}
+  if(!n){alert('Formulier niet gevonden. Klik op de tab Ondersteuners en probeer opnieuw.');return;}
+  if(!n.value.trim()){alert('Vul je naam in');return;}
+  if(!_DB){alert('Geen verbinding. Ververs de pagina (Ctrl+Shift+R).');return;}
+  const btn=document.querySelector('#ck2 button');
+  if(btn){btn.textContent='⏳ Bezig...';btn.disabled=true;}
   const cats=OSC.map(([v])=>{
     const inp=document.getElementById('osc-'+v);
     const note=inp?inp.value.trim():'';
     return note?{v,note}:null;
   }).filter(Boolean);
   const note=(document.getElementById('st')||{value:''}).value;
-  await _DB.from('supporters').insert([{name:n.value.trim(),cats,note}]);
-  await LD();
-  n.value='';
-  OSC.forEach(([v])=>{const inp=document.getElementById('osc-'+v);if(inp)inp.value='';});
-  (document.getElementById('st')||{}).value='';
-  ROS();
+  try{
+    const {error}=await _DB.from('supporters').insert([{name:n.value.trim(),cats,note}]);
+    if(error){alert('Fout bij opslaan: '+error.message);if(btn){btn.textContent='Aanmelden';btn.disabled=false;}return;}
+    n.value='';
+    OSC.forEach(([v])=>{const inp=document.getElementById('osc-'+v);if(inp)inp.value='';});
+    const stEl=document.getElementById('st');if(stEl)stEl.value='';
+    if(btn){btn.textContent='✅ Aangemeld!';setTimeout(()=>{btn.textContent='Aanmelden';btn.disabled=false;},2000);}
+    await LD();
+    ROS();
+  }catch(e){
+    alert('Fout: '+e.message);
+    if(btn){btn.textContent='Aanmelden';btn.disabled=false;}
+  }
 }
 
 CS();ST(0);
