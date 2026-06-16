@@ -219,7 +219,7 @@ function EDSUPP(id){
 function DELSUPP(id){
   supporters=supporters.filter(x=>String(x.id)!==String(id));
   try{localStorage.setItem('fs_sup',JSON.stringify(supporters));}catch(e){}
-  if(_DB)_DB.from('supporters').delete().eq('id',id).catch(()=>{});
+  if(_DB)Promise.resolve(_DB.from('supporters').delete().eq('id',id)).catch(()=>{});
   ROS();
 }
 
@@ -236,12 +236,12 @@ async function ADS(){
   if(_editSuppId){
     // Update bestaande ondersteuner
     supporters=supporters.map(x=>String(x.id)===String(_editSuppId)?{...x,...entry,id:x.id}:x);
-    if(_DB)_DB.from('supporters').update({name:entry.name,cats,note}).eq('id',_editSuppId).catch(()=>{});
+    if(_DB)Promise.resolve(_DB.from('supporters').update({name:entry.name,cats,note}).eq('id',_editSuppId)).catch(()=>{});
     _editSuppId=null;
     const lbl=document.getElementById('ads-lbl');if(lbl)lbl.textContent='Aanmelden als ondersteuner';
   } else {
     supporters.unshift(entry);
-    if(_DB)_DB.from('supporters').insert([{name:entry.name,cats,note}]).catch(()=>{});
+    if(_DB)Promise.resolve(_DB.from('supporters').insert([{name:entry.name,cats,note}])).catch(()=>{});
   }
   try{localStorage.setItem('fs_sup',JSON.stringify(supporters));}catch(e){}
   n.value='';
