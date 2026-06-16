@@ -123,7 +123,7 @@ function LS(){const q=si.value.trim();if(q.length>=1)DS();else if(!q)SH();}
 function HL(t,q){if(!q||!t)return t||'';const i=t.toLowerCase().indexOf(q.toLowerCase());if(i<0)return t;return t.slice(0,i)+'<mark>'+t.slice(i,i+q.length)+'</mark>'+t.slice(i+q.length);}
 function TB(t){const m={steward:{l:'Steward',bg:'#eef5ec',c:'#2d5a27'},cooperative:{l:'Coöp',bg:'#eaf5f3',c:'#1a7a6e'},retailer:{l:'Retailer',bg:'#fdf5e8',c:'#c17f24'}}[t]||{l:'?',bg:'#f3f0eb',c:'#6b7260'};return`<span style="font-size:8px;padding:2px 5px;border-radius:4px;background:${m.bg};color:${m.c};font-weight:700;flex-shrink:0;">${m.l}</span>`;}
 function SB(s){return[[s.bio,'Bio','#2d5a27'],[s.fair,'Fair','#1a7a6e'],[s.sust,'Duurz','#5b4fa8'],[s.lo,'Lokaal','#c17f24']].filter(([v])=>v!=null).map(([v,l,c])=>`<span style="padding:1px 5px;border-radius:8px;font-size:9px;font-weight:500;border:1px solid ${c}40;background:${c}15;color:${c};">${l} ${v}/5</span>`).join('');}
-function KA(s,q){const cat=SC.find(c=>c.id===s.c)||{e:'🛍️',c:'#c17f24'};const dm=s.w?s.w.replace('https://','').replace('http://','').replace('www.','').split('/')[0]:'';return`<div class="cc"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;"><div style="display:flex;align-items:center;gap:5px;flex:1;min-width:0;"><span style="font-size:12px;flex-shrink:0;">${cat.e}</span><h3 style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${HL(s.n,q)}</h3></div>${TB(s.t)}</div><p style="font-size:11px;color:var(--mu);line-height:1.6;margin-bottom:7px;flex:1;">${HL(s.d,q)}</p><div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px;">${SB(s)}</div><div style="display:flex;gap:6px;align-items:center;margin-bottom:6px;font-size:10px;color:var(--mu);"><span>📍 ${s.p||'Landelijk'}</span><span>${s.s==='online'?'🌐':s.s==='physical'?'🏪':'🔀'}</span></div>${s.w?`<a href="${s.w}" target="_blank" class="sl">🔗 ${dm}</a>`:''}<div style="</div></div>`;}
+function KA(s,q){const cat=SC.find(c=>c.id===s.c)||{e:'🛍️',c:'#c17f24'};const dm=s.w?s.w.replace('https://','').replace('http://','').replace('www.','').split('/')[0]:'';return`<div class="cc"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:5px;"><div style="display:flex;align-items:center;gap:5px;flex:1;min-width:0;"><span style="font-size:12px;flex-shrink:0;">${cat.e}</span><h3 style="font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${HL(s.n,q)}</h3></div>${TB(s.t)}</div><p style="font-size:11px;color:var(--mu);line-height:1.6;margin-bottom:7px;flex:1;">${HL(s.d,q)}</p><div style="display:flex;gap:3px;flex-wrap:wrap;margin-bottom:6px;">${SB(s)}</div><div style="display:flex;gap:6px;align-items:center;margin-bottom:6px;font-size:10px;color:var(--mu);"><span>📍 ${s.p||'Landelijk'}</span><span>${s.s==='online'?'🌐':s.s==='physical'?'🏪':'🔀'}</span></div>${s.w?`<a href="${s.w}" target="_blank" class="sl">🔗 ${dm}</a>`:''}</div></div>`;}
 
 function KH(){$('sb').style.display='';$('sht').textContent='🧭 Koophulp';$('shs').textContent='3 vragen — persoonlijk advies.';ks=0;ka={};km=[];RKH();}
 function RKH(){const steps=[{q:'Wat wil je kopen?',o:SC.map(c=>({l:c.e+' '+c.l,v:c.id})),g:true},{q:'Wat is het belangrijkste?',m:true,o:[{l:'🌿 Bio',v:'bio'},{l:'🤝 Eerlijk',v:'fair'},{l:'♻️ Circulair',v:'sust'},{l:'📍 Lokaal',v:'local'},{l:'💰 Budget',v:'bgt'},{l:'🌐 Online',v:'onl'}]},{q:'Hoe wil je winkelen?',o:[{l:'🌐 Online',v:'onl'},{l:'🏪 Fysiek',v:'phy'},{l:'🔀 Maakt niet uit',v:'any'}]}];
@@ -170,14 +170,13 @@ function ROS(){
     }).join('');
   }
   const sl=document.getElementById('sup-list');
-  if(sl)sl.innerHTML=supporters.length
-    ?supporters.map(s=>'<div class="card" style="padding:9px;margin-bottom:6px;">'
-      +'<div style="display:flex;align-items:center;gap:7px;">'
-      +'<div style="flex:1;"><strong style="font-size:13px;">'+s.name+'</strong>'
-      +'<div style="font-size:11px;color:var(--mu);">'+(s.cats||[]).map(c=>c.v+': '+c.note).join(' · ')+'</div></div>'
-      +'<button onclick="EDSUPP(\''+s.id+'\')" style="background:none;border:1px solid var(--g);border-radius:5px;cursor:pointer;color:var(--g);font-size:11px;font-weight:600;padding:2px 6px;margin-right:4px;">✏️</button>'+'<button onclick="DELSUPP(\''+s.id+'\')" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'
-      +'</div></div>').join('')
-    :'<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners.</p>';
+  if(sl){
+    if(!supporters.length){sl.innerHTML='<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners.</p>';return;}
+    sl.innerHTML=supporters.map(s=>{
+      const cats=(s.cats||[]).filter(c=>c.note).map(c=>c.v+': '+c.note).join(' · ');
+      return '<div class="card" style="padding:9px;margin-bottom:6px;"><div style="display:flex;align-items:center;gap:7px;">'        +'<div style="flex:1;"><strong style="font-size:13px;">'+s.name+'</strong>'        +'<div style="font-size:11px;color:var(--mu);">'+cats+'</div></div>'        +'<button data-id="'+s.id+'" onclick="EDSUPP(this.dataset.id)" style="background:none;border:1px solid var(--g);border-radius:5px;cursor:pointer;color:var(--g);font-size:11px;font-weight:600;padding:2px 6px;margin-right:4px;">✏️</button>'        +'<button data-id="'+s.id+'" onclick="DELSUPP(this.dataset.id)" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'        +'</div></div>';
+    }).join('');
+  }
 }
 var _editSuppId=null;
 
