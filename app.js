@@ -415,40 +415,67 @@ const SH_DATA=[
 
 ];
 const TX={
-// Witgoed & tech
-wasmachine:{c:['witgoed']},droger:{c:['witgoed']},koelkast:{c:['witgoed']},ijskast:{c:['witgoed']},vaatwasser:{c:['witgoed']},magnetron:{c:['witgoed']},oven:{c:['witgoed']},televisie:{c:['witgoed','tech']},laptop:{c:['tech']},computer:{c:['tech']},telefoon:{c:['tech']},smartphone:{c:['tech']},tablet:{c:['tech']},
-// Kleding
+wasmachine:{c:['witgoed']},droger:{c:['witgoed']},wasdroger:{c:['witgoed']},koelkast:{c:['witgoed']},ijskast:{c:['witgoed']},vaatwasser:{c:['witgoed']},magnetron:{c:['witgoed']},oven:{c:['witgoed']},televisie:{c:['witgoed','tech']},laptop:{c:['tech']},computer:{c:['tech']},telefoon:{c:['tech']},smartphone:{c:['tech']},tablet:{c:['tech']},
 jeans:{c:['kleding']},broek:{c:['kleding']},shirt:{c:['kleding']},trui:{c:['kleding']},jas:{c:['kleding']},schoenen:{c:['kleding']},sokken:{c:['kleding']},ondergoed:{c:['kleding']},kleding:{c:['kleding']},mode:{c:['kleding']},
-// Voeding - dagelijkse producten
 eieren:{c:['voeding','markt']},ei:{c:['voeding','markt']},
 groente:{c:['voeding','markt']},groenten:{c:['voeding','markt']},groentepakket:{c:['markt']},groentebox:{c:['markt']},
-fruit:{c:['voeding','markt']},appels:{c:['voeding','markt']},aardappelen:{c:['voeding','markt']},
-melk:{c:['voeding','markt']},zuivel:{c:['voeding','markt']},yoghurt:{c:['voeding']},kwark:{c:['voeding']},boter:{c:['voeding','markt']},
-kaas:{c:['voeding','markt']},
-vlees:{c:['voeding','markt']},kip:{c:['voeding','markt']},rundvlees:{c:['voeding','markt']},varken:{c:['voeding','markt']},
-vis:{c:['voeding','markt']},
+doperwten:{c:['voeding','markt']},erwten:{c:['voeding','markt']},sperziebonen:{c:['voeding','markt']},peultjes:{c:['voeding','markt']},
+spinazie:{c:['voeding','markt']},sla:{c:['voeding','markt']},salade:{c:['voeding','markt','horeca']},
+komkommer:{c:['voeding','markt']},tomaat:{c:['voeding','markt']},tomaten:{c:['voeding','markt']},
+paprika:{c:['voeding','markt']},ui:{c:['voeding','markt']},uien:{c:['voeding','markt']},knoflook:{c:['voeding','markt']},
+wortel:{c:['voeding','markt']},wortelen:{c:['voeding','markt']},worteltjes:{c:['voeding','markt']},
+broccoli:{c:['voeding','markt']},bloemkool:{c:['voeding','markt']},kool:{c:['voeding','markt']},
+courgette:{c:['voeding','markt']},pompoen:{c:['voeding','markt']},aubergine:{c:['voeding','markt']},
+prei:{c:['voeding','markt']},selderij:{c:['voeding','markt']},venkel:{c:['voeding','markt']},
+asperges:{c:['voeding','markt']},biet:{c:['voeding','markt']},bieten:{c:['voeding','markt']},
+radijs:{c:['voeding','markt']},andijvie:{c:['voeding','markt']},witlof:{c:['voeding','markt']},
+postelein:{c:['voeding','markt']},rucola:{c:['voeding','markt']},
+champignon:{c:['voeding','markt']},paddenstoel:{c:['voeding','markt']},paddenstoelen:{c:['voeding','markt']},
+maïs:{c:['voeding','markt']},mais:{c:['voeding','markt']},avocado:{c:['voeding','markt']},
+paksoi:{c:['voeding','markt']},taugé:{c:['voeding','markt']},raap:{c:['voeding','markt']},
+aardappel:{c:['voeding','markt']},aardappelen:{c:['voeding','markt']},
+fruit:{c:['voeding','markt']},
+appel:{c:['voeding','markt']},appels:{c:['voeding','markt']},appelsap:{c:['voeding']},
+peer:{c:['voeding','markt']},peren:{c:['voeding','markt']},
+sinaasappel:{c:['voeding','markt']},sinaasappelen:{c:['voeding','markt']},
+mandarijn:{c:['voeding','markt']},citroen:{c:['voeding','markt']},limoen:{c:['voeding','markt']},
+banaan:{c:['voeding','markt']},bananen:{c:['voeding','markt']},
+aardbei:{c:['voeding','markt']},aardbeien:{c:['voeding','markt']},
+bosbes:{c:['voeding','markt']},bosbessen:{c:['voeding','markt']},
+framboos:{c:['voeding','markt']},frambozen:{c:['voeding','markt']},
+druif:{c:['voeding','markt']},druiven:{c:['voeding','markt']},
+mango:{c:['voeding','markt']},ananas:{c:['voeding','markt']},meloen:{c:['voeding','markt']},
+pruim:{c:['voeding','markt']},kers:{c:['voeding','markt']},kersen:{c:['voeding','markt']},
+melk:{c:['voeding','markt']},zuivel:{c:['voeding','markt']},
+yoghurt:{c:['voeding']},kwark:{c:['voeding']},boter:{c:['voeding','markt']},
+kaas:{c:['voeding','markt']},brie:{c:['voeding']},gouda:{c:['voeding']},feta:{c:['voeding']},
+room:{c:['voeding']},slagroom:{c:['voeding']},
+vlees:{c:['voeding','markt']},kip:{c:['voeding','markt']},gehakt:{c:['voeding','markt']},
+rundvlees:{c:['voeding','markt']},rund:{c:['voeding','markt']},lam:{c:['voeding','markt']},lamsvlees:{c:['voeding','markt']},
+worst:{c:['voeding','markt']},ham:{c:['voeding','markt']},
+vis:{c:['voeding','markt']},zalm:{c:['voeding','markt']},haring:{c:['voeding','markt']},makreel:{c:['voeding','markt']},
+garnalen:{c:['voeding','markt']},mosselen:{c:['voeding','markt']},
 brood:{c:['voeding','markt']},bakker:{c:['voeding','markt']},
-pasta:{c:['voeding']},rijst:{c:['voeding']},peulvruchten:{c:['voeding','markt']},bonen:{c:['voeding','markt']},linzen:{c:['voeding']},
-noten:{c:['voeding']},zaden:{c:['voeding']},
-olie:{c:['voeding']},olijfolie:{c:['voeding']},
-sauzen:{c:['voeding']},kruiden:{c:['voeding','markt']},specerijen:{c:['voeding']},
+havermout:{c:['voeding']},haver:{c:['voeding']},spelt:{c:['voeding']},boekweit:{c:['voeding']},quinoa:{c:['voeding']},
+pasta:{c:['voeding']},rijst:{c:['voeding']},
+bonen:{c:['voeding','markt']},linzen:{c:['voeding']},kikkererwten:{c:['voeding','markt']},
+noten:{c:['voeding']},amandelen:{c:['voeding']},walnoten:{c:['voeding']},cashew:{c:['voeding']},
+olie:{c:['voeding']},olijfolie:{c:['voeding']},zonnebloemolie:{c:['voeding']},
+honing:{c:['voeding','markt']},jam:{c:['voeding']},stroop:{c:['voeding']},
+pindakaas:{c:['voeding']},tahini:{c:['voeding']},hummus:{c:['voeding']},
+tofu:{c:['voeding']},tempeh:{c:['voeding']},
 chocolade:{c:['voeding']},snoep:{c:['voeding']},koekjes:{c:['voeding']},
-koffie:{c:['voeding','horeca']},thee:{c:['voeding']},sap:{c:['voeding']},
-wijn:{c:['voeding','horeca']},bier:{c:['voeding','horeca']},drank:{c:['voeding','horeca']},
-spinazie:{c:['voeding','markt']},salade:{c:['voeding','markt','horeca']},
+koffie:{c:['voeding','horeca']},thee:{c:['voeding']},
+wijn:{c:['voeding','horeca']},bier:{c:['voeding','horeca']},
+sap:{c:['voeding']},saus:{c:['voeding']},kruiden:{c:['voeding','markt']},specerijen:{c:['voeding']},zout:{c:['voeding']},peper:{c:['voeding']},
 supermarkt:{c:['voeding']},boodschappen:{c:['voeding','markt']},biologisch:{c:['voeding','markt','horeca']},
-// Markt & boerderij
 boerenmarkt:{c:['markt']},boerderij:{c:['markt']},streekproducten:{c:['markt']},seizoensgroente:{c:['markt']},lokaal:{c:['markt','voeding']},
-// Horeca
-restaurant:{c:['horeca']},eten:{c:['horeca','voeding']},diner:{c:['horeca']},lunch:{c:['horeca']},ontbijt:{c:['horeca']},cafe:{c:['horeca']},keuken:{c:['horeca']},uiteten:{c:['horeca']},horeca:{c:['horeca']},vegan:{c:['horeca']},plantbased:{c:['horeca']},
-// Verzorging
-shampoo:{c:['verzorging']},zeep:{c:['verzorging']},tandpasta:{c:['verzorging']},deodorant:{c:['verzorging']},lotion:{c:['verzorging']},crème:{c:['verzorging']},make:{c:['verzorging']},luiers:{c:['verzorging']},babyverzorging:{c:['verzorging']},wasmiddel:{c:['verzorging']},schoonmaak:{c:['verzorging']},
-// Wonen & bouw
-verf:{c:['wonen','bouw']},meubels:{c:['wonen']},tapijt:{c:['wonen']},gordijnen:{c:['wonen']},verlichting:{c:['wonen']},keukenapparatuur:{c:['witgoed','wonen']},
-// Energie & mobiliteit
-zonnepanelen:{c:['energie']},energie:{c:['energie']},stroom:{c:['energie']},gas:{c:['energie']},fiets:{c:['mobiliteit']},ebike:{c:['mobiliteit']},auto:{c:['mobiliteit']},
-// Finance & diensten
-bank:{c:['financien']},sparen:{c:['financien']},verzekering:{c:['financien']},
+restaurant:{c:['horeca']},eten:{c:['horeca','voeding']},diner:{c:['horeca']},lunch:{c:['horeca']},cafe:{c:['horeca']},vegan:{c:['horeca']},plantbased:{c:['horeca']},horeca:{c:['horeca']},
+shampoo:{c:['verzorging']},zeep:{c:['verzorging']},tandpasta:{c:['verzorging']},deodorant:{c:['verzorging']},lotion:{c:['verzorging']},wasmiddel:{c:['verzorging']},schoonmaak:{c:['verzorging']},luiers:{c:['verzorging']},
+verf:{c:['wonen','bouw']},meubels:{c:['wonen']},
+zonnepanelen:{c:['energie']},energie:{c:['energie']},stroom:{c:['energie']},
+fiets:{c:['mobiliteit']},ebike:{c:['mobiliteit']},
+bank:{c:['financien']},sparen:{c:['financien']},
 bouw:{c:['bouw']},software:{c:['tech']},advies:{c:['diensten']},media:{c:['media']},zorg:{c:['zorg']},
 };
 const OSC=[
@@ -538,7 +565,16 @@ function CT(i){['ck0','ck1','ck2'].forEach((id,j)=>{const el=document.getElement
 function SQ(id,btn){const q=QD[id];document.querySelectorAll('.qb').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');$('qd').innerHTML=`<div style="border-radius:12px;border:1px solid ${q.c};padding:14px;animation:fu .3s ease both;"><div style="display:flex;align-items:center;gap:8px;margin-bottom:9px;"><div style="width:32px;height:32px;border-radius:8px;background:${q.c};display:flex;align-items:center;justify-content:center;font-size:16px;color:#fff;flex-shrink:0;">${{invest:'📈',support:'🌱',crowd:'👥',give:'🎁'}[id]}</div><div><h3 style="font-size:13px;color:${q.c};">${q.l}</h3><p style="font-size:11px;color:var(--mu);">${q.d}</p></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">${[{t:'Kenmerken',i:q.di},{t:'Financieel',i:q.fi}].map(s=>`<div><p style="font-size:8px;font-weight:600;text-transform:uppercase;color:var(--mu);margin-bottom:4px;">${s.t}</p>${s.i.map(d=>`<div style="display:flex;gap:4px;margin-bottom:3px;"><span style="width:4px;height:4px;border-radius:50%;background:${q.c};margin-top:5px;flex-shrink:0;"></span><span style="font-size:11px;">${d}</span></div>`).join('')}</div>`).join('')}</div></div>`;}
 function RCW(){const wq=[{q:'Heb je een persoonlijke relatie met de ontvanger of het initiatief?',o:[{l:'✋ Ja',v:'y'},{l:'🌍 Nee',v:'n'}]},{q:'Stel je een voorwaarde of heb je een verwachting bij je bijdrage?',o:[{l:'📋 Ja',v:'y'},{l:'🕊️ Nee',v:'n'}]}];if(cwr){const q=QD[cwr];$('ck1').innerHTML=`<div class="card" style="border:1px solid ${q.c};"><div style="text-align:center;margin-bottom:12px;"><div style="width:44px;height:44px;border-radius:11px;background:${q.c};display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;margin:0 auto 8px;">${{invest:'📈',support:'🌱',crowd:'👥',give:'🎁'}[cwr]}</div><h2 style="font-size:17px;color:${q.c};margin-bottom:2px;">${q.l}</h2><p style="color:var(--mu);font-size:12px;">${q.d}</p></div>${q.di.map(d=>`<div style="display:flex;gap:6px;align-items:center;margin-bottom:5px;"><span style="width:12px;height:12px;border-radius:50%;background:${q.c}22;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="width:4px;height:4px;border-radius:50%;background:${q.c};"></span></span><span style="font-size:12px;">${d}</span></div>`).join('')}<button onclick="cwr=null;cws=0;cwa={};RCW();" style="margin-top:10px;width:100%;padding:7px;border-radius:8px;background:#f3f0eb;color:var(--mu);font-size:12px;border:none;cursor:pointer;">🔄 Opnieuw</button></div>`;return;}const step=wq[cws];$('ck1').innerHTML=`<div class="card"><div style="display:flex;gap:4px;margin-bottom:12px;">${wq.map((_,i)=>`<div style="flex:1;height:4px;border-radius:2px;background:${i<=cws?'#1a7a6e':'var(--br)'}"></div>`).join('')}</div><p style="font-size:11px;color:var(--mu);margin-bottom:2px;">Vraag ${cws+1} van ${wq.length}</p><h3 style="font-size:15px;margin-bottom:12px;">${step.q}</h3><div style="display:flex;flex-direction:column;gap:6px;">${step.o.map(o=>`<button class="wo" onclick="cwa['${cws===0?'p':'c'}']=this.dataset.v;${cws<1?'cws++;RCW()':'const p=cwa.p===\"y\",c=cwa.c===\"y\";cwr=p&&c?\"invest\":p?\"support\":c?\"crowd\":\"give\";RCW();'}" data-v="${o.v}">${o.l} <span style="color:var(--mu);">→</span></button>`).join('')}</div>${cws>0?`<button onclick="cws--;RCW();" style="margin-top:7px;padding:3px 8px;border-radius:5px;background:none;border:none;font-size:11px;color:var(--mu);cursor:pointer;">← Vorige</button>`:''}</div>`;}
 
-function LTX(q){const ql=q.toLowerCase().trim();if(TX[ql])return TX[ql];const m=Object.entries(TX).find(([k])=>ql.includes(k)||k.includes(ql));return m?m[1]:null;}
+function LTX(q){
+  const ql=q.toLowerCase().trim();
+  if(TX[ql])return TX[ql];
+  const m=Object.entries(TX).find(([k])=>ql.includes(k)||k.includes(ql));
+  if(m)return m[1];
+  // Fallback: food-like words → voeding/markt
+  const foodEnds=['erwten','groente','bonen','appel','kool','vlees','vis','salade','ei','melk','sap','bes','moes','soep','kruid'];
+  if(foodEnds.some(e=>ql.endsWith(e)||ql.includes(e)))return {c:['voeding','markt']};
+  return null;
+}
 function SH(){$('sb').style.display='none';$('sht').textContent='🛍️ Shopping';$('shs').textContent='Zoek op product of winkel, of gebruik de Koophulp.';si.value='';$('sc').innerHTML=`<p style="font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--mu);margin-bottom:9px;">Browse per categorie</p><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:7px;margin-bottom:18px;">${SC.map(cat=>`<div class="pl" onclick="SC2('${cat.id}')" style="padding:10px;"><div style="font-size:16px;margin-bottom:6px;">${cat.e}</div><div style="font-size:11px;font-weight:600;color:${cat.c};line-height:1.3;">${cat.l}</div><div style="font-size:9px;color:var(--mu);margin-top:2px;">${shops.filter(s=>s.c===cat.id).length} winkels</div></div>`).join('')}</div><div onclick="KH()" style="border-radius:14px;background:linear-gradient(135deg,#2d5a27,#1a7a6e);padding:14px;display:flex;align-items:center;gap:10px;cursor:pointer;"><div style="font-size:24px;">🧭</div><div><h3 style="font-size:13px;color:#fff;margin-bottom:1px;">Weet je niet waar te beginnen?</h3><p style="font-size:12px;color:rgba(255,255,255,.8);">Koophulp geeft persoonlijk advies.</p></div><div style="margin-left:auto;color:rgba(255,255,255,.6);font-size:16px;">→</div></div>`;}
 function SC2(cid){$('sb').style.display='';const cat=SC.find(c=>c.id===cid);$('sht').textContent=cat.e+' '+cat.l;const lst=shops.filter(s=>s.c===cid);$('shs').textContent=lst.length+' winkels';$('sc').innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:7px;">${lst.map(s=>KA(s,'')).join('')}</div>`;}
 function DS(){const q=si.value.trim();if(!q)return;$('sb').style.display='';$('sht').textContent='🛍️ "'+q+'"';const ex=LTX(q);const res=shops.filter(s=>{const qlow=q.toLowerCase();const cat=SC.find(c=>c.id===s.c);const d=s.n.toLowerCase().includes(qlow)||(s.d||'').toLowerCase().includes(qlow)||(s.p||'').toLowerCase().includes(qlow)||((s.certs||[]).some(c=>c.includes(qlow)))||((cat&&cat.l)||'').toLowerCase().includes(qlow);const em=ex&&(ex.c.includes(s.c));return d||em;});$('shs').textContent=res.length+' resultaten'+(ex?' (product herkend)':'');if(!res.length){$('sc').innerHTML=`<div style="text-align:center;padding:32px 0;"><div style="font-size:28px;margin-bottom:7px;">🔍</div><h3 style="font-size:14px;margin-bottom:4px;">Niets gevonden voor "${q}"</h3><p style="color:var(--mu);font-size:13px;">Probeer bijv. spinazie, ijskast, jeans</p></div>`;return;}let h=ex?`<div style="background:var(--al);border-radius:8px;padding:7px 12px;margin-bottom:10px;font-size:12px;color:var(--a);font-weight:500;">💡 Product herkend: winkels voor "${q}"</div>`:'';SC.forEach(cat=>{const cs=res.filter(s=>s.c===cat.id);if(!cs.length)return;h+=`<div style="margin-bottom:16px;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:7px;"><span style="font-size:13px;">${cat.e}</span><h3 style="font-size:12px;font-weight:600;color:${cat.c};">${cat.l} (${cs.length})</h3></div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:7px;">${cs.map(s=>KA(s,q)).join('')}</div></div>`;});$('sc').innerHTML=h;}
