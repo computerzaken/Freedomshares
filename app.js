@@ -39,40 +39,40 @@ window.addEventListener('load',()=>{_DB=supabase.createClient(SURL,SKEY);LD();})
 const $=id=>document.getElementById(id);
 const M=[{id:1,n:'Sophie',i:1200},{id:2,n:'Mohammed',i:1800},{id:3,n:'Lisa',i:2100},{id:4,n:'Ravi',i:2300},{id:5,n:'Emma',i:2800},{id:6,n:'Pieter',i:3400},{id:7,n:'Yasmine',i:4200},{id:8,n:'Jan',i:5800}];
 const SH_DATA=[
-{n:'Ekoplaza',c:'voeding',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,w:'https://www.ekoplaza.nl',certs:['demeter','steward']},
-{n:'Odin',c:'voeding',t:'cooperative',s:'hybrid',bio:5,fair:4,sust:4,lo:4,w:'https://www.odin.nl',certs:['demeter','fairtrade','steward']},
-{n:'Marqt',c:'voeding',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:5,w:'https://www.marqt.com'},
-{n:'Pieter Pot',c:'voeding',t:'steward',s:'online',bio:4,fair:4,sust:5,lo:3,w:'https://www.pieterpot.nl',certs:['steward']},
+{n:'Ekoplaza',c:'voeding',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:4,w:'https://www.ekoplaza.nl',certs:['demeter','steward'],d:'biologisch supermarkt groente fruit vlees vis zuivel brood eieren kaas yoghurt noten koffie thee'},
+{n:'Odin',c:'voeding',t:'cooperative',s:'hybrid',bio:5,fair:4,sust:4,lo:4,w:'https://www.odin.nl',certs:['demeter','fairtrade','steward'],d:'biologische supermarkt groente fruit zuivel brood eieren kaas boter boodschappen'},
+{n:'Marqt',c:'voeding',t:'retailer',s:'physical',bio:5,fair:4,sust:4,lo:5,w:'https://www.marqt.com',d:'supermarkt biologisch groente fruit vlees vis zuivel brood eieren lokale producten boodschappen'},
+{n:'Pieter Pot',c:'voeding',t:'steward',s:'online',bio:4,fair:4,sust:5,lo:3,w:'https://www.pieterpot.nl',certs:['steward'],d:'verpakkingsvrij groente pasta noten olie kruiden sauzen zeezout boodschappen'},
 {n:"Tony's Chocolonely",c:'voeding',t:'steward',s:'online',bio:3,fair:5,sust:4,lo:1,w:'https://www.tonyschocolonely.com',certs:['steward']},
 {n:'De Vegetarische Slager',c:'voeding',t:'steward',s:'hybrid',bio:4,fair:4,sust:5,lo:3,w:'https://www.devegetarischeslager.nl',certs:['steward']},
-{n:'Moyee Coffee',c:'voeding',t:'steward',s:'online',bio:4,fair:5,sust:4,lo:2,w:'https://www.moyeecoffee.com',certs:['bcorp','fairtrade','steward']},
-{n:'Rechtstreex',c:'voeding',t:'steward',s:'hybrid',bio:4,fair:5,sust:5,lo:5,w:'https://www.rechtstreex.nl',certs:['fairtrade']},
-{n:'Boerschappen',c:'voeding',t:'steward',s:'online',bio:4,fair:5,sust:5,lo:5,w:'https://www.boerschappen.nl',certs:['steward']},
+{n:'Moyee Coffee',c:'voeding',t:'steward',s:'online',bio:4,fair:5,sust:4,lo:2,w:'https://www.moyeecoffee.com',certs:['bcorp','fairtrade','steward'],d:'koffie fairtrade biologisch espresso'},
+{n:'Rechtstreex',c:'voeding',t:'steward',s:'hybrid',bio:4,fair:5,sust:5,lo:5,w:'https://www.rechtstreex.nl',certs:['fairtrade'],d:'biologische groente fruit seizoensproducten streekproducten boer'},
+{n:'Boerschappen',c:'voeding',t:'steward',s:'online',bio:4,fair:5,sust:5,lo:5,w:'https://www.boerschappen.nl',certs:['steward'],d:'biologisch vlees groente fruit seizoensbox lokaal boerderij'},
 {n:'Bioplanet',c:'voeding',t:'retailer',s:'hybrid',bio:5,fair:4,sust:4,lo:3,w:'https://www.bioplanet.nl'},
 {n:'Udea/Ekomarkt',c:'voeding',t:'cooperative',s:'hybrid',bio:5,fair:4,sust:5,lo:4,w:'https://www.udea.nl',certs:['steward']},
 {n:'Zonnatura',c:'voeding',t:'steward',s:'hybrid',bio:5,fair:4,sust:4,lo:3,w:'https://www.zonnatura.nl',certs:['steward']},
-{n:'Mud Jeans',c:'kleding',t:'steward',s:'online',bio:4,fair:5,sust:5,lo:2,w:'https://www.mudjeans.eu',certs:['great','bcorp','gots','fairwear']},
-{n:'Nudie Jeans',c:'kleding',t:'steward',s:'hybrid',bio:4,fair:5,sust:5,lo:2,w:'https://www.nudiejeans.com',certs:['great','gots','fairwear']},
-{n:'Kuyichi',c:'kleding',t:'steward',s:'online',bio:4,fair:5,sust:5,lo:2,w:'https://www.kuyichi.com',certs:['great','gots','fairtrade']},
-{n:'Patagonia',c:'kleding',t:'steward',s:'hybrid',bio:4,fair:4,sust:5,lo:1,w:'https://eu.patagonia.com/nl',certs:['good','bcorp']},
-{n:'Organic Basics',c:'kleding',t:'steward',s:'online',bio:5,fair:5,sust:5,lo:1,w:'https://www.organicbasics.com',certs:['start','gots']},
-{n:'Armed Angels',c:'kleding',t:'steward',s:'online',bio:5,fair:5,sust:5,lo:1,w:'https://www.armedangels.com',certs:['great','gots','fairwear']},
-{n:'Fairphone',c:'tech',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:2,w:'https://www.fairphone.com',certs:['bcorp','steward']},
+{n:'Mud Jeans',c:'kleding',t:'steward',s:'online',bio:4,fair:5,sust:5,lo:2,w:'https://www.mudjeans.eu',certs:['great','bcorp','gots','fairwear'],d:'duurzame jeans spijkerbroek kleding biologisch katoen'},
+{n:'Nudie Jeans',c:'kleding',t:'steward',s:'hybrid',bio:4,fair:5,sust:5,lo:2,w:'https://www.nudiejeans.com',certs:['great','gots','fairwear'],d:'biologische jeans kleding duurzaam katoen'},
+{n:'Kuyichi',c:'kleding',t:'steward',s:'online',bio:4,fair:5,sust:5,lo:2,w:'https://www.kuyichi.com',certs:['great','gots','fairtrade'],d:'biologische kleding jeans shirts fair trade'},
+{n:'Patagonia',c:'kleding',t:'steward',s:'hybrid',bio:4,fair:4,sust:5,lo:1,w:'https://eu.patagonia.com/nl',certs:['good','bcorp'],d:'outdoor kleding jas fleece duurzaam repareren'},
+{n:'Organic Basics',c:'kleding',t:'steward',s:'online',bio:5,fair:5,sust:5,lo:1,w:'https://www.organicbasics.com',certs:['start','gots'],d:'biologisch ondergoed shirts sokken kleding'},
+{n:'Armed Angels',c:'kleding',t:'steward',s:'online',bio:5,fair:5,sust:5,lo:1,w:'https://www.armedangels.com',certs:['great','gots','fairwear'],d:'biologische kleding shirts broeken duurzaam'},
+{n:'Fairphone',c:'tech',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:2,w:'https://www.fairphone.com',certs:['bcorp','steward'],d:'eerlijke telefoon smartphone repareerbaar'},
 {n:'Leapp',c:'tech',t:'retailer',s:'hybrid',bio:null,fair:3,sust:5,lo:3,w:'https://www.leapp.nl'},
 {n:'Back Market',c:'tech',t:'retailer',s:'online',bio:null,fair:3,sust:5,lo:1,w:'https://www.backmarket.nl'},
 {n:'Renew Electronics',c:'witgoed',t:'retailer',s:'online',bio:null,fair:3,sust:5,lo:3,w:'https://www.renewelectronics.nl'},
 {n:'Repair Café NL',c:'witgoed',t:'steward',s:'physical',bio:null,fair:5,sust:5,lo:5,w:'https://repaircafe.org/nl',certs:['steward']},
-{n:'Seepje',c:'verzorging',t:'steward',s:'online',bio:5,fair:4,sust:5,lo:2,w:'https://www.seepje.com',certs:['bcorp','steward']},
+{n:'Seepje',c:'verzorging',t:'steward',s:'online',bio:5,fair:4,sust:5,lo:2,w:'https://www.seepje.com',certs:['bcorp','steward'],d:'biologisch wasmiddel schoonmaakmiddel zeep verzorging'},
 {n:'Weleda',c:'verzorging',t:'steward',s:'hybrid',bio:5,fair:4,sust:5,lo:2,w:'https://www.weleda.nl',certs:['steward']},
 {n:"Dr. Bronner's",c:'verzorging',t:'steward',s:'online',bio:5,fair:5,sust:5,lo:1,w:'https://www.drbronner.nl',certs:['steward']},
 {n:'Landwinkel.nl',c:'markt',t:'steward',s:'hybrid',bio:4,fair:5,sust:5,lo:5,w:'https://www.landwinkel.nl',certs:['steward']},
 {n:'Boerenmarkt.nl',c:'markt',t:'steward',s:'physical',bio:4,fair:5,sust:5,lo:5,w:'https://www.boerenmarkt.nl',certs:['steward']},
-{n:'Herenboeren',c:'markt',t:'cooperative',s:'physical',bio:5,fair:5,sust:5,lo:5,w:'https://www.herenboeren.nl',certs:['demeter','steward']},
-{n:'Triodos Bank',c:'financien',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:4,w:'https://www.triodos.nl',certs:['bcorp','steward']},
-{n:'ASN Bank',c:'financien',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:4,w:'https://www.asnbank.nl',certs:['steward']},
-{n:'Swapfiets',c:'mobiliteit',t:'steward',s:'physical',bio:null,fair:4,sust:4,lo:5,w:'https://www.swapfiets.nl',certs:['steward']},
-{n:'Vandebron',c:'energie',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:4,w:'https://www.vandebron.nl',certs:['steward']},
-{n:'Buurtzorg',c:'zorg',t:'steward',s:'physical',bio:null,fair:5,sust:5,lo:5,w:'https://www.buurtzorg.com',certs:['steward']},
+{n:'Herenboeren',c:'markt',t:'cooperative',s:'physical',bio:5,fair:5,sust:5,lo:5,w:'https://www.herenboeren.nl',certs:['demeter','steward'],d:'boerencoöperatie vlees groente melk eieren zuivel kaas streekproducten lokaal'},
+{n:'Triodos Bank',c:'financien',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:4,w:'https://www.triodos.nl',certs:['bcorp','steward'],d:'duurzame bank sparen beleggen hypotheek verzekering'},
+{n:'ASN Bank',c:'financien',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:4,w:'https://www.asnbank.nl',certs:['steward'],d:'duurzame bank sparen beleggen groene hypotheek'},
+{n:'Swapfiets',c:'mobiliteit',t:'steward',s:'physical',bio:null,fair:4,sust:4,lo:5,w:'https://www.swapfiets.nl',certs:['steward'],d:'fiets ebike abonnement reparatie'},
+{n:'Vandebron',c:'energie',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:4,w:'https://www.vandebron.nl',certs:['steward'],d:'groene energie stroom zonnepanelen wind'},
+{n:'Buurtzorg',c:'zorg',t:'steward',s:'physical',bio:null,fair:5,sust:5,lo:5,w:'https://www.buurtzorg.com',certs:['steward'],d:'thuiszorg zorg verpleging'},
 {n:'Tony\'s Chocolonely',c:'voeding',t:'steward',s:'online',bio:3,fair:5,sust:4,lo:1,w:'https://www.tonyschocolonely.com',certs:['bcorp']},
 {n:'De Groene Weg',c:'voeding',t:'cooperative',s:'physical',bio:5,fair:4,sust:4,lo:4,w:'https://www.degroeneweg.nl',certs:['fairtrade','steward']},
 {n:'Rewear',c:'kleding',t:'retailer',s:'physical',bio:null,fair:3,sust:5,lo:4,w:'https://www.rewear.nl'},
@@ -85,7 +85,7 @@ const SH_DATA=[
 {n:'Bioboerderijen.nl',c:'markt',t:'steward',s:'hybrid',bio:5,fair:5,sust:5,lo:5,w:'https://www.bioboerderijen.nl',certs:['steward']},
 {n:'Oikocredit',c:'financien',t:'cooperative',s:'online',bio:null,fair:5,sust:5,lo:2,w:'https://www.oikocredit.nl',certs:['steward']},
 {n:'Greenwheels',c:'mobiliteit',t:'steward',s:'physical',bio:null,fair:4,sust:5,lo:5,w:'https://www.greenwheels.com',certs:['steward']},
-{n:'Greenchoice',c:'energie',t:'steward',s:'online',bio:null,fair:4,sust:5,lo:3,w:'https://www.greenchoice.nl',certs:['steward']},
+{n:'Greenchoice',c:'energie',t:'steward',s:'online',bio:null,fair:4,sust:5,lo:3,w:'https://www.greenchoice.nl',certs:['steward'],d:'groene energie stroom gas duurzaam'},
 {n:'Powerpeers',c:'energie',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:5,w:'https://www.powerpeers.nl',certs:['steward']},
 {n:'Urgenda',c:'vrije_tijd',t:'steward',s:'online',bio:null,fair:5,sust:5,lo:5,w:'https://www.urgenda.nl',certs:['steward']},
 {n:'Natuurmonumenten',c:'vrije_tijd',t:'cooperative',s:'physical',bio:null,fair:5,sust:5,lo:5,w:'https://www.natuurmonumenten.nl',certs:['steward']},
@@ -112,16 +112,16 @@ const SH_DATA=[
 ,{n:'Team050',c:'zorg',t:'steward',s:'physical',bio:3,fair:5,sust:5,lo:5,w:'https://www.team050.nl',certs:['steward']}
 // Landbouw, natuur & voedselketen
 ,{n:'Behout Houtzagerij',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.behout.nl',certs:['steward']}
-,{n:'Coöperatie Kraaybeekerhof',c:'markt',t:'cooperative',s:'physical',bio:5,fair:5,sust:5,lo:5,w:'https://www.kraaybeekerhof.nl',certs:['steward']}
-,{n:'De Biesterhof',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.debiesterhof.nl',certs:['steward']}
-,{n:'De Buurtboer',c:'markt',t:'steward',s:'hybrid',bio:5,fair:4,sust:5,lo:5,w:'https://www.debuurtboer.nl',certs:['steward']}
-,{n:'De Patrijs',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.departrijs.nl',certs:['steward']}
-,{n:'De Terp',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.boerderijdeterp.nl',certs:['steward']}
+,{n:'Coöperatie Kraaybeekerhof',c:'markt',t:'cooperative',s:'physical',bio:5,fair:5,sust:5,lo:5,w:'https://www.kraaybeekerhof.nl',certs:['steward'],d:'biologisch-dynamisch groente fruit zuivel eieren demeter streekproducten'}
+,{n:'De Biesterhof',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.debiesterhof.nl',certs:['steward'],d:'biologische boerderij groente fruit eieren vlees streekproducten'}
+,{n:'De Buurtboer',c:'markt',t:'steward',s:'hybrid',bio:5,fair:4,sust:5,lo:5,w:'https://www.debuurtboer.nl',certs:['steward'],d:'seizoensgroente groentepakket groentebox fruit biologisch lokaal boerderij'}
+,{n:'De Patrijs',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.departrijs.nl',certs:['steward'],d:'biologische boerderij groente eieren vlees lokaal'}
+,{n:'De Terp',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.boerderijdeterp.nl',certs:['steward'],d:'biologische boerderij groente fruit eieren melk lokaal'}
 ,{n:'Donker Groep',c:'markt',t:'steward',s:'physical',bio:4,fair:4,sust:5,lo:4,w:'https://www.donkergroep.nl',certs:['steward']}
 ,{n:'Eerste Wijk',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.eerstewijk.nl',certs:['steward']}
-,{n:'Lenteland',c:'markt',t:'cooperative',s:'physical',bio:5,fair:5,sust:5,lo:5,w:'https://www.lenteland.nl',certs:['steward']}
+,{n:'Lenteland',c:'markt',t:'cooperative',s:'physical',bio:5,fair:5,sust:5,lo:5,w:'https://www.lenteland.nl',certs:['steward'],d:'coöperatie groente fruit biologisch seizoensgroente lokaal boerderij'}
 ,{n:'Loverendale Ter Linde',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.loverendale.nl',certs:['steward']}
-,{n:'Regelink',c:'markt',t:'steward',s:'physical',bio:4,fair:4,sust:4,lo:5,w:'https://www.regelink.nl',certs:['steward']}
+,{n:'Regelink',c:'markt',t:'steward',s:'physical',bio:4,fair:4,sust:4,lo:5,w:'https://www.regelink.nl',certs:['steward'],d:'biologische groente fruit seizoensgroente lokaal boerderij'}
 ,{n:'Tuinen van Kraaybeekerhof',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.kraaybeekerhof.nl',certs:['steward']}
 ,{n:'Werkplaats de Smidse',c:'markt',t:'steward',s:'physical',bio:4,fair:4,sust:5,lo:5,w:'https://www.desmidse.nl',certs:['steward']}
 ,{n:'Ygen Forest',c:'markt',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:5,w:'https://www.ygen.nl',certs:['steward']}
@@ -210,16 +210,16 @@ const SH_DATA=[
 ,{n:'Vrij Nederland',c:'media',t:'steward',s:'hybrid',bio:2,fair:4,sust:5,lo:5,w:'https://www.vn.nl',certs:['steward']}
 ,{n:'WPG Uitgevers',c:'media',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:4,w:'https://www.wpg.nl',certs:['steward']}
 // Retail & consumentenmerken (Odin al aanwezig)
-,{n:'Aarden',c:'voeding',t:'steward',s:'physical',bio:4,fair:4,sust:5,lo:5,w:'https://www.aarden.nl',certs:['steward']}
-,{n:'BOOT Koffie',c:'voeding',t:'steward',s:'physical',bio:4,fair:5,sust:5,lo:5,w:'https://www.bootkoffie.nl',certs:['steward']}
+,{n:'Aarden',c:'voeding',t:'steward',s:'physical',bio:4,fair:4,sust:5,lo:5,w:'https://www.aarden.nl',certs:['steward'],d:'biologisch groente fruit lokaal seizoensproducten'}
+,{n:'BOOT Koffie',c:'voeding',t:'steward',s:'physical',bio:4,fair:5,sust:5,lo:5,w:'https://www.bootkoffie.nl',certs:['steward'],d:'koffie biologisch fairtrade espresso'}
 ,{n:'De Beeldhouwwinkel',c:'media',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:5,w:'https://www.debeeldhouwwinkel.nl',certs:['steward']}
 ,{n:'De Haagse Boekerij',c:'media',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:5,w:'https://www.haagse-boekerij.nl',certs:['steward']}
 ,{n:'Het Reizende Koffertje',c:'vrije_tijd',t:'steward',s:'physical',bio:3,fair:4,sust:4,lo:5,w:'https://www.hetreizendekoffertje.nl',certs:['steward']}
 ,{n:'Kriterion Studentenpomp',c:'horeca',t:'cooperative',s:'physical',bio:3,fair:5,sust:5,lo:5,w:'https://www.kriterion.nl',certs:['steward']}
-,{n:'Mercurius',c:'voeding',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:4,w:'https://www.mercuriusshop.nl',certs:['steward']}
-,{n:'Nearchus',c:'voeding',t:'steward',s:'physical',bio:4,fair:4,sust:4,lo:5,w:'https://www.nearchus.nl',certs:['steward']}
-,{n:'Oerbouillon',c:'voeding',t:'steward',s:'hybrid',bio:5,fair:4,sust:5,lo:5,w:'https://www.oerbouillon.nl',certs:['steward']}
-,{n:'The Good Spice',c:'voeding',t:'steward',s:'hybrid',bio:4,fair:5,sust:5,lo:4,w:'https://www.thegoodspice.nl',certs:['steward']}
+,{n:'Mercurius',c:'voeding',t:'steward',s:'physical',bio:5,fair:4,sust:5,lo:4,w:'https://www.mercuriusshop.nl',certs:['steward'],d:'biologisch groothandel groente fruit zuivel noten bonen'}
+,{n:'Nearchus',c:'voeding',t:'steward',s:'physical',bio:4,fair:4,sust:4,lo:5,w:'https://www.nearchus.nl',certs:['steward'],d:'biologisch bier brasserie lokaal'}
+,{n:'Oerbouillon',c:'voeding',t:'steward',s:'hybrid',bio:5,fair:4,sust:5,lo:5,w:'https://www.oerbouillon.nl',certs:['steward'],d:'biologische bouillon groente vlees kip rund'}
+,{n:'The Good Spice',c:'voeding',t:'steward',s:'hybrid',bio:4,fair:5,sust:5,lo:4,w:'https://www.thegoodspice.nl',certs:['steward'],d:'biologische kruiden specerijen thee koffie'}
 ,{n:'Warmenbol',c:'kleding',t:'steward',s:'physical',bio:3,fair:4,sust:4,lo:5,w:'https://www.warmenbol.nl',certs:['steward']}
 // Financieel, accountancy & investeren
 ,{n:'Flynth',c:'financien',t:'steward',s:'physical',bio:2,fair:4,sust:4,lo:4,w:'https://www.flynth.nl',certs:['steward']}
@@ -414,7 +414,43 @@ const SH_DATA=[
 ,{n:'Zo\'ndag Werkendam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:'Werkendam',certs:['vegan'],w:'https://www.eet.nu/nederland/restaurants/biologisch'}
 
 ];
-const TX={wasmachine:{c:['witgoed']},koelkast:{c:['witgoed']},ijskast:{c:['witgoed']},laptop:{c:['tech']},telefoon:{c:['tech']},jeans:{c:['kleding']},shampoo:{c:['verzorging']},wasmiddel:{c:['verzorging']},energie:{c:['energie']},fiets:{c:['mobiliteit']},spinazie:{c:['voeding','markt']},koffie:{c:['voeding','horeca']},chocolade:{c:['voeding']},restaurant:{c:['horeca']},eten:{c:['horeca','voeding']},diner:{c:['horeca']},lunch:{c:['horeca']},cafe:{c:['horeca']},keuken:{c:['horeca']},vegan:{c:['horeca']},plantbased:{c:['horeca']},biologisch:{c:['horeca','voeding','markt']},uiteten:{c:['horeca']},horeca:{c:['horeca']},bouw:{c:['bouw']},software:{c:['tech']},advies:{c:['diensten']},media:{c:['media']},zorg:{c:['zorg']},bank:{c:['financien']}};
+const TX={
+// Witgoed & tech
+wasmachine:{c:['witgoed']},droger:{c:['witgoed']},koelkast:{c:['witgoed']},ijskast:{c:['witgoed']},vaatwasser:{c:['witgoed']},magnetron:{c:['witgoed']},oven:{c:['witgoed']},televisie:{c:['witgoed','tech']},laptop:{c:['tech']},computer:{c:['tech']},telefoon:{c:['tech']},smartphone:{c:['tech']},tablet:{c:['tech']},
+// Kleding
+jeans:{c:['kleding']},broek:{c:['kleding']},shirt:{c:['kleding']},trui:{c:['kleding']},jas:{c:['kleding']},schoenen:{c:['kleding']},sokken:{c:['kleding']},ondergoed:{c:['kleding']},kleding:{c:['kleding']},mode:{c:['kleding']},
+// Voeding - dagelijkse producten
+eieren:{c:['voeding','markt']},ei:{c:['voeding','markt']},
+groente:{c:['voeding','markt']},groenten:{c:['voeding','markt']},groentepakket:{c:['markt']},groentebox:{c:['markt']},
+fruit:{c:['voeding','markt']},appels:{c:['voeding','markt']},aardappelen:{c:['voeding','markt']},
+melk:{c:['voeding','markt']},zuivel:{c:['voeding','markt']},yoghurt:{c:['voeding']},kwark:{c:['voeding']},boter:{c:['voeding','markt']},
+kaas:{c:['voeding','markt']},
+vlees:{c:['voeding','markt']},kip:{c:['voeding','markt']},rundvlees:{c:['voeding','markt']},varken:{c:['voeding','markt']},
+vis:{c:['voeding','markt']},
+brood:{c:['voeding','markt']},bakker:{c:['voeding','markt']},
+pasta:{c:['voeding']},rijst:{c:['voeding']},peulvruchten:{c:['voeding','markt']},bonen:{c:['voeding','markt']},linzen:{c:['voeding']},
+noten:{c:['voeding']},zaden:{c:['voeding']},
+olie:{c:['voeding']},olijfolie:{c:['voeding']},
+sauzen:{c:['voeding']},kruiden:{c:['voeding','markt']},specerijen:{c:['voeding']},
+chocolade:{c:['voeding']},snoep:{c:['voeding']},koekjes:{c:['voeding']},
+koffie:{c:['voeding','horeca']},thee:{c:['voeding']},sap:{c:['voeding']},
+wijn:{c:['voeding','horeca']},bier:{c:['voeding','horeca']},drank:{c:['voeding','horeca']},
+spinazie:{c:['voeding','markt']},salade:{c:['voeding','markt','horeca']},
+supermarkt:{c:['voeding']},boodschappen:{c:['voeding','markt']},biologisch:{c:['voeding','markt','horeca']},
+// Markt & boerderij
+boerenmarkt:{c:['markt']},boerderij:{c:['markt']},streekproducten:{c:['markt']},seizoensgroente:{c:['markt']},lokaal:{c:['markt','voeding']},
+// Horeca
+restaurant:{c:['horeca']},eten:{c:['horeca','voeding']},diner:{c:['horeca']},lunch:{c:['horeca']},ontbijt:{c:['horeca']},cafe:{c:['horeca']},keuken:{c:['horeca']},uiteten:{c:['horeca']},horeca:{c:['horeca']},vegan:{c:['horeca']},plantbased:{c:['horeca']},
+// Verzorging
+shampoo:{c:['verzorging']},zeep:{c:['verzorging']},tandpasta:{c:['verzorging']},deodorant:{c:['verzorging']},lotion:{c:['verzorging']},crème:{c:['verzorging']},make:{c:['verzorging']},luiers:{c:['verzorging']},babyverzorging:{c:['verzorging']},wasmiddel:{c:['verzorging']},schoonmaak:{c:['verzorging']},
+// Wonen & bouw
+verf:{c:['wonen','bouw']},meubels:{c:['wonen']},tapijt:{c:['wonen']},gordijnen:{c:['wonen']},verlichting:{c:['wonen']},keukenapparatuur:{c:['witgoed','wonen']},
+// Energie & mobiliteit
+zonnepanelen:{c:['energie']},energie:{c:['energie']},stroom:{c:['energie']},gas:{c:['energie']},fiets:{c:['mobiliteit']},ebike:{c:['mobiliteit']},auto:{c:['mobiliteit']},
+// Finance & diensten
+bank:{c:['financien']},sparen:{c:['financien']},verzekering:{c:['financien']},
+bouw:{c:['bouw']},software:{c:['tech']},advies:{c:['diensten']},media:{c:['media']},zorg:{c:['zorg']},
+};
 const OSC=[
 ['netwerk','🌐 Netwerk','#2d5a27','Contacten?','Wie ken je?'],
 ['wetenschap','🔬 Kennis','#1a7a6e','Kennis?','Welke kennis?'],
