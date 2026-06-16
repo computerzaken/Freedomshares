@@ -661,14 +661,19 @@ async function ADS(){
   }).filter(Boolean);
   const note=(document.getElementById('st')||{value:''}).value;
   try{
-    const {error}=await _DB.from('supporters').insert([{name:n.value.trim(),cats,note}]);
-    if(error){_notify('Fout: '+error.message,false);if(btn){btn.textContent='Aanmelden';btn.disabled=false;}return;}
+    // Timeout na 8 seconden
+    const timeout=new Promise((_,rej)=>setTimeout(()=>rej(new Error('Verbinding time-out — controleer je internet')),8000));
+    const insert=_DB.from('supporters').insert([{name:n.value.trim(),cats,note}]);
+    const {data,error}=await Promise.race([insert,timeout]);
+    if(error){_notify('Fout bij opslaan: '+error.message,false);if(btn){btn.textContent='Aanmelden';btn.disabled=false;}return;}
+    // Succes — reset form direct
     n.value='';
     OSC.forEach(([v])=>{const inp=document.getElementById('osc-'+v);if(inp)inp.value='';});
     const stEl=document.getElementById('st');if(stEl)stEl.value='';
     if(btn){btn.textContent='✅ Aangemeld!';setTimeout(()=>{btn.textContent='Aanmelden';btn.disabled=false;},2500);}
     _notify('✅ Je bent aangemeld als ondersteuner!',true);
-    await LD();ROS();
+    // Herlaad data op de achtergrond
+    LD().then(()=>ROS()).catch(()=>{});
   }catch(e){
     _notify('Fout: '+e.message,false);
     if(btn){btn.textContent='Aanmelden';btn.disabled=false;}
