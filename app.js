@@ -638,13 +638,21 @@ function ROS(){
       +'</div></div>').join('')
     :'<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners.</p>';
 }
+function _notify(msg,ok){
+  const d=document.getElementById('ads-msg');
+  if(!d)return;
+  d.textContent=msg;
+  d.style.display='block';
+  d.style.background=ok?'#2d5a2718':'#b8545018';
+  d.style.color=ok?'#2d5a27':'#b85450';
+  if(ok)setTimeout(()=>{d.style.display='none';},3000);
+}
 async function ADS(){
-  alert('ADS wordt aangeroepen');
   const n=document.getElementById('sn');
-  if(!n){alert('Formulier niet gevonden. Klik op de tab Ondersteuners en probeer opnieuw.');return;}
-  if(!n.value.trim()){alert('Vul je naam in');return;}
-  if(!_DB){alert('Geen verbinding. Ververs de pagina (Ctrl+Shift+R).');return;}
-  const btn=document.querySelector('#ck2 button');
+  const msg=document.getElementById('ads-msg');
+  if(!n||!n.value.trim()){_notify('Vul je naam in ↑',false);return;}
+  if(!_DB){_notify('Geen verbinding — ververs de pagina',false);return;}
+  const btn=document.querySelector('#ck2 button[onclick]');
   if(btn){btn.textContent='⏳ Bezig...';btn.disabled=true;}
   const cats=OSC.map(([v])=>{
     const inp=document.getElementById('osc-'+v);
@@ -654,15 +662,15 @@ async function ADS(){
   const note=(document.getElementById('st')||{value:''}).value;
   try{
     const {error}=await _DB.from('supporters').insert([{name:n.value.trim(),cats,note}]);
-    if(error){alert('Fout bij opslaan: '+error.message);if(btn){btn.textContent='Aanmelden';btn.disabled=false;}return;}
+    if(error){_notify('Fout: '+error.message,false);if(btn){btn.textContent='Aanmelden';btn.disabled=false;}return;}
     n.value='';
     OSC.forEach(([v])=>{const inp=document.getElementById('osc-'+v);if(inp)inp.value='';});
     const stEl=document.getElementById('st');if(stEl)stEl.value='';
-    if(btn){btn.textContent='✅ Aangemeld!';setTimeout(()=>{btn.textContent='Aanmelden';btn.disabled=false;},2000);}
-    await LD();
-    ROS();
+    if(btn){btn.textContent='✅ Aangemeld!';setTimeout(()=>{btn.textContent='Aanmelden';btn.disabled=false;},2500);}
+    _notify('✅ Je bent aangemeld als ondersteuner!',true);
+    await LD();ROS();
   }catch(e){
-    alert('Fout: '+e.message);
+    _notify('Fout: '+e.message,false);
     if(btn){btn.textContent='Aanmelden';btn.disabled=false;}
   }
 }
