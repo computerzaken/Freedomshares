@@ -639,6 +639,7 @@ function ROS(){
     :'<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners.</p>';
 }
 async function ADS(){
+  alert('ADS wordt aangeroepen');
   const n=document.getElementById('sn');
   if(!n){alert('Formulier niet gevonden. Klik op de tab Ondersteuners en probeer opnieuw.');return;}
   if(!n.value.trim()){alert('Vul je naam in');return;}
