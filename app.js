@@ -175,14 +175,14 @@ function ROS(){
       +'<div style="display:flex;align-items:center;gap:7px;">'
       +'<div style="flex:1;"><strong style="font-size:13px;">'+s.name+'</strong>'
       +'<div style="font-size:11px;color:var(--mu);">'+(s.cats||[]).map(c=>c.v+': '+c.note).join(' · ')+'</div></div>'
-      +'<button onclick="EDSUPP('+s.id+')" style="background:none;border:1px solid var(--g);border-radius:5px;cursor:pointer;color:var(--g);font-size:11px;font-weight:600;padding:2px 6px;margin-right:4px;">✏️</button>'+'<button onclick="DELSUPP('+s.id+')" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'
+      +'<button onclick="EDSUPP(\''+s.id+'\')" style="background:none;border:1px solid var(--g);border-radius:5px;cursor:pointer;color:var(--g);font-size:11px;font-weight:600;padding:2px 6px;margin-right:4px;">✏️</button>'+'<button onclick="DELSUPP(\''+s.id+'\')" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'
       +'</div></div>').join('')
     :'<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners.</p>';
 }
 var _editSuppId=null;
 
 function EDSUPP(id){
-  const s=supporters.find(x=>x.id===id);
+  const s=supporters.find(x=>String(x.id)===String(id));
   if(!s)return;
   _editSuppId=id;
   const n=document.getElementById('sn');
@@ -204,7 +204,7 @@ function EDSUPP(id){
 }
 
 function DELSUPP(id){
-  supporters=supporters.filter(x=>x.id!==id);
+  supporters=supporters.filter(x=>String(x.id)!==String(id));
   try{localStorage.setItem('fs_sup',JSON.stringify(supporters));}catch(e){}
   if(_DB)_DB.from('supporters').delete().eq('id',id).catch(()=>{});
   ROS();
@@ -222,7 +222,7 @@ async function ADS(){
   const entry={id:Date.now(),name:n.value.trim(),cats,note,created_at:new Date().toISOString()};
   if(_editSuppId){
     // Update bestaande ondersteuner
-    supporters=supporters.map(x=>x.id===_editSuppId?{...x,...entry,id:x.id}:x);
+    supporters=supporters.map(x=>String(x.id)===String(_editSuppId)?{...x,...entry,id:x.id}:x);
     if(_DB)_DB.from('supporters').update({name:entry.name,cats,note}).eq('id',_editSuppId).catch(()=>{});
     _editSuppId=null;
     const lbl=document.getElementById('ads-lbl');if(lbl)lbl.textContent='Aanmelden als ondersteuner';
