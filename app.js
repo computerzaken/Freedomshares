@@ -150,7 +150,7 @@ function RH(){
 function TH(){const f=document.getElementById('hf'),show=f.style.display==='none';f.style.display=show?'block':'none';if(!show)return;window._hn=[];f.innerHTML=`<div class="card" style="border:1px solid var(--co);"><h3 style="font-size:13px;margin-bottom:9px;">Nieuw project</h3><div style="display:grid;gap:7px;"><input id="pn" placeholder="Naam *" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);"><input id="pi" placeholder="Indiener(s)" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);"><textarea id="pd" placeholder="Beschrijving" rows="2" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);resize:vertical;"></textarea><select id="pp" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);">${PS.map(s=>`<option>${s}</option>`).join('')}</select><p style="font-size:11px;font-weight:600;">Welke ondersteuning nodig?</p><div id="hn-btns" style="display:flex;flex-direction:column;gap:5px;"></div><div style="display:flex;gap:5px;"><button onclick="SAV()" style="flex:1;background:var(--co);color:#fff;padding:8px;border-radius:8px;font-size:12px;font-weight:700;border:none;cursor:pointer;box-shadow:0 2px 6px var(--co)44;">✅ Opslaan</button><button onclick="document.getElementById('hf').style.display='none';" style="padding:8px 12px;border-radius:8px;border:2px solid var(--br);background:var(--bg);font-size:11px;font-weight:600;color:var(--tx);cursor:pointer;">✖ Annuleren</button></div></div></div>`;RHN();}
 
 async function DELP(id){await _DB.from('projects').delete().eq('id',id);await LD();}async function UPDP(id,st){await _DB.from('projects').update({status:st}).eq('id',id);await LD();}function SD(){}
-async function LD(){if(!_DB)return;const{data:pd}=await _DB.from('projects').select('*').order('created_at',{ascending:false});if(pd)projs=pd.map(p=>({...p,desc:p.description}));const{data:sd}=await _DB.from('supporters').select('*').order('created_at',{ascending:false});if(sd&&sd.length){supporters=sd;}else{try{const ls=localStorage.getItem('fs_sup');if(ls)supporters=JSON.parse(ls);}catch(e){}}RH();let d=document.getElementById('h-debug');if(d&&pd)d.innerHTML='✅ '+pd.length+' project(en) geladen';}
+async function LD(){if(!_DB)return;const{data:pd}=await _DB.from('projects').select('*').order('created_at',{ascending:false});if(pd)projs=pd.map(p=>({...p,desc:p.description}));const{data:sd}=await _DB.from('supporters').select('*').order('created_at',{ascending:false});if(sd)supporters=sd;RH();let d=document.getElementById('h-debug');if(d&&pd)d.innerHTML='✅ '+pd.length+' project(en) geladen';}
 function MATCH(p){const pv=(p.needs||[]).map(x=>x&&x.v?x.v:x);return(supporters||[]).filter(s=>{const sv=(s.cats||[]).map(x=>x&&x.v?x.v:x);return pv.some(n=>sv.includes(n));});}
 async function SAV(){const n=document.getElementById('pn');if(!n||!n.value.trim()){alert('Naam vereist');return;}const needs=OSC.map(([v])=>{const inp=document.getElementById('hn-'+v);const note=inp?inp.value.trim():'';return note?{v,note}:null;}).filter(Boolean);await _DB.from('projects').insert([{name:n.value.trim(),ind:(document.getElementById('pi')||{value:''}).value,status:(document.getElementById('pp')||{value:'Idee'}).value,description:(document.getElementById('pd')||{value:''}).value.trim(),needs}]);document.getElementById('hf').style.display='none';await LD();}
 function RHN(){const b=document.getElementById('hn-btns');if(!b)return;b.innerHTML=OSC.map(([v,l,cl,q1,q2])=>{const ico=l.split(' ')[0];const lbl=l.split(' ').slice(1).join(' ');return'<div style="margin-bottom:8px;"><label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:'+cl+';margin-bottom:3px;"><span style="font-size:15px;">'+ico+'</span>'+lbl+'</label><input id="hn-'+v+'" placeholder="'+q2+'" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);box-sizing:border-box;" onfocus="this.style.borderColor=\''+cl+'\'" onblur="this.style.borderColor=\'var(--br)\'"></div>';}).join('');}
@@ -181,28 +181,18 @@ function ROS(){
 }
 async function ADS(){
   const n=document.getElementById('sn');
-  if(!n||!n.value.trim()){
-    const m=document.getElementById('ads-msg');
-    if(m){m.textContent='Vul je naam in';m.style.cssText='display:block;padding:6px;border-radius:6px;font-size:12px;background:#b8545018;color:#b85450;';}
-    return;
-  }
-  const btn=document.querySelector('#ck2 button');
-  if(btn){btn.textContent='⏳';btn.disabled=true;}
-  const cats=OSC.map(([v])=>{const inp=document.getElementById('osc-'+v);const note=inp?inp.value.trim():'';return note?{v,note}:null;}).filter(Boolean);
+  if(!n||!n.value.trim()){alert('Naam vereist');return;}
+  const cats=OSC.map(([v])=>{
+    const inp=document.getElementById('osc-'+v);
+    const note=inp?inp.value.trim():'';
+    return note?{v,note}:null;
+  }).filter(Boolean);
   const note=(document.getElementById('st')||{value:''}).value;
-  const entry={id:Date.now(),name:n.value.trim(),cats,note,created_at:new Date().toISOString()};
-  // Sla op lokaal - werkt altijd
-  supporters.unshift(entry);
-  try{localStorage.setItem('fs_sup',JSON.stringify(supporters));}catch(e){}
-  // Probeer ook Supabase (op de achtergrond, geen blokkering)
-  if(_DB)_DB.from('supporters').insert([{name:entry.name,cats,note}]).catch(()=>{});
-  // Reset form direct
+  await _DB.from('supporters').insert([{name:n.value.trim(),cats,note}]);
+  await LD();
   n.value='';
   OSC.forEach(([v])=>{const inp=document.getElementById('osc-'+v);if(inp)inp.value='';});
-  const stEl=document.getElementById('st');if(stEl)stEl.value='';
-  if(btn){btn.textContent='✅ Aangemeld!';setTimeout(()=>{btn.textContent='Aanmelden';btn.disabled=false;},2000);}
-  const m=document.getElementById('ads-msg');
-  if(m){m.textContent='✅ '+entry.name+' is aangemeld!';m.style.cssText='display:block;padding:6px;border-radius:6px;font-size:12px;background:#2d5a2718;color:#2d5a27;';setTimeout(()=>{m.style.display='none';},4000);}
+  (document.getElementById('st')||{}).value='';
   ROS();
 }
 
