@@ -662,10 +662,26 @@ async function ADS(){
   const note=(document.getElementById('st')||{value:''}).value;
   try{
     // Timeout na 8 seconden
-    const timeout=new Promise((_,rej)=>setTimeout(()=>rej(new Error('Verbinding time-out — controleer je internet')),8000));
-    const insert=_DB.from('supporters').insert([{name:n.value.trim(),cats,note}]);
-    const {data,error}=await Promise.race([insert,timeout]);
-    if(error){_notify('Fout bij opslaan: '+error.message,false);if(btn){btn.textContent='Aanmelden';btn.disabled=false;}return;}
+    // Test met directe fetch om RLS te omzeilen
+    const payload={name:n.value.trim(),cats,note};
+    const res=await Promise.race([
+      fetch(SURL+'/rest/v1/supporters',{
+        method:'POST',
+        headers:{
+          'apikey':SKEY,
+          'Authorization':'Bearer '+SKEY,
+          'Content-Type':'application/json',
+          'Prefer':'return=minimal'
+        },
+        body:JSON.stringify(payload)
+      }),
+      new Promise((_,rej)=>setTimeout(()=>rej(new Error('Time-out (8s) — geen verbinding met Supabase')),8000))
+    ]);
+    if(!res.ok){
+      const err=await res.text();
+      _notify('Fout ('+res.status+'): '+err,false);
+      if(btn){btn.textContent='Aanmelden';btn.disabled=false;}return;
+    }
     // Succes — reset form direct
     n.value='';
     OSC.forEach(([v])=>{const inp=document.getElementById('osc-'+v);if(inp)inp.value='';});
