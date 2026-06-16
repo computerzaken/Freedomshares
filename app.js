@@ -155,29 +155,43 @@ function MATCH(p){const pv=(p.needs||[]).map(x=>x&&x.v?x.v:x);return(supporters|
 async function SAV(){const n=document.getElementById('pn');if(!n||!n.value.trim()){alert('Naam vereist');return;}const needs=OSC.map(([v])=>{const inp=document.getElementById('hn-'+v);const note=inp?inp.value.trim():'';return note?{v,note}:null;}).filter(Boolean);await _DB.from('projects').insert([{name:n.value.trim(),ind:(document.getElementById('pi')||{value:''}).value,status:(document.getElementById('pp')||{value:'Idee'}).value,description:(document.getElementById('pd')||{value:''}).value.trim(),needs}]);document.getElementById('hf').style.display='none';await LD();}
 function RHN(){const b=document.getElementById('hn-btns');if(!b)return;b.innerHTML=OSC.map(([v,l,cl,q1,q2])=>{const ico=l.split(' ')[0];const lbl=l.split(' ').slice(1).join(' ');return'<div style="margin-bottom:8px;"><label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:'+cl+';margin-bottom:3px;"><span style="font-size:15px;">'+ico+'</span>'+lbl+'</label><input id="hn-'+v+'" placeholder="'+q2+'" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);box-sizing:border-box;" onfocus="this.style.borderColor=\''+cl+'\'" onblur="this.style.borderColor=\'var(--br)\'"></div>';}).join('');}
 function ROS(){
+  // OSC invoervelden
   const b=document.getElementById('sc-btns');
-  if(b){
-    b.innerHTML=OSC.map(([v,l,cl,q1,q2])=>{
-      const ico=l.split(' ')[0];
-      const lbl=l.split(' ').slice(1).join(' ');
-      return '<div style="margin-bottom:10px;">'
-        +'<label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:'+cl+';margin-bottom:4px;">'
-        +'<span style="font-size:16px;">'+ico+'</span>'+lbl
-        +'</label>'
-        +'<input id="osc-'+v+'" placeholder="'+q2+'" class="osc-inp" '
-        +'onfocus="this.style.borderColor=\''+cl+'\';" onblur="this.style.borderColor=\'var(--br)\';">'
-        +'</div>';
-    }).join('');
-  }
+  if(b)b.innerHTML=OSC.map(([v,l,cl,q1,q2])=>{
+    const ico=l.split(' ')[0],lbl=l.split(' ').slice(1).join(' ');
+    return '<div style="margin-bottom:10px;"><label style="display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:'+cl+';margin-bottom:4px;"><span style="font-size:16px;">'+ico+'</span>'+lbl+'</label><input id="osc-'+v+'" placeholder="'+q2+'" class="osc-inp" onfocus="this.style.borderColor=\''+cl+'\'" onblur="this.style.borderColor=\'var(--br)\'"></div>';
+  }).join('');
+
+  // Ondersteuner lijst via createElement (geen escaping issues)
   const sl=document.getElementById('sup-list');
-  if(sl){
-    if(!supporters.length){sl.innerHTML='<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners.</p>';return;}
-    sl.innerHTML=supporters.map(s=>{
-      const cats=(s.cats||[]).filter(c=>c.note).map(c=>c.v+': '+c.note).join(' · ');
-      return '<div class="card" style="padding:9px;margin-bottom:6px;"><div style="display:flex;align-items:center;gap:7px;">'        +'<div style="flex:1;"><strong style="font-size:13px;">'+s.name+'</strong>'        +'<div style="font-size:11px;color:var(--mu);">'+cats+'</div></div>'        +'<button data-id="'+s.id+'" onclick="EDSUPP(this.dataset.id)" style="background:none;border:1px solid var(--g);border-radius:5px;cursor:pointer;color:var(--g);font-size:11px;font-weight:600;padding:2px 6px;margin-right:4px;">✏️</button>'        +'<button data-id="'+s.id+'" onclick="DELSUPP(this.dataset.id)" style="background:none;border:none;cursor:pointer;color:var(--co);font-size:13px;">×</button>'        +'</div></div>';
-    }).join('');
+  if(!sl)return;
+  sl.innerHTML='';
+  if(!supporters.length){
+    sl.innerHTML='<p style="font-size:12px;color:var(--mu);padding:8px 0;">Nog geen ondersteuners aangemeld.</p>';
+    return;
   }
+  supporters.forEach(s=>{
+    const card=document.createElement('div');
+    card.className='card';
+    card.style.cssText='padding:9px;margin-bottom:6px;';
+    const cats=(s.cats||[]).filter(c=>c.note).map(c=>c.v+': '+c.note).join(' · ');
+    card.innerHTML='<div style="display:flex;align-items:center;gap:7px;"><div style="flex:1;"><strong style="font-size:13px;">'+s.name+'</strong><div style="font-size:11px;color:var(--mu);">'+cats+'</div></div></div>';
+    const row=card.querySelector('div>div:last-child');
+    const editBtn=document.createElement('button');
+    editBtn.textContent='✏️';
+    editBtn.style.cssText='background:none;border:1px solid var(--g);border-radius:5px;cursor:pointer;color:var(--g);font-size:11px;font-weight:600;padding:2px 6px;margin-right:4px;';
+    editBtn.onclick=function(){EDSUPP(s.id);};
+    const delBtn=document.createElement('button');
+    delBtn.textContent='×';
+    delBtn.style.cssText='background:none;border:none;cursor:pointer;color:var(--co);font-size:16px;';
+    delBtn.onclick=function(){DELSUPP(s.id);};
+    const flex=card.querySelector('div');
+    flex.appendChild(editBtn);
+    flex.appendChild(delBtn);
+    sl.appendChild(card);
+  });
 }
+
 var _editSuppId=null;
 
 function EDSUPP(id){
