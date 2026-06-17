@@ -274,20 +274,21 @@ function G(p){
 
 function CS(){
   if(currentUser&&mI&&mI.value)try{localStorage.setItem('fs_inc_'+currentUser,mI.value);localStorage.setItem('fs_pct_'+currentUser,String(savedPct));}catch(e){}
-  const inc=+(mI&&mI.value)||0,pct=fx?(inc>0?(+(fa.value)||0)/inc:0):(+(ps.value)||0)/100;
-  const mc=fx?(+(fa.value)||0):Math.round(inc*pct);
-  if(!fx)$('pl').textContent=ps.value+'% = €'+mc.toLocaleString('nl-NL')+'/mnd';
-  var _old_all=[...mbrs,{id:0,n:currentUser||'Jij',i:myInc,p:Math.round(myPct*100),me:true}];
+  const inc=+(mI&&mI.value)||0,pct=fx?(inc>0?(+(fa&&fa.value)||0)/inc:0):(+(ps&&ps.value)||0)/100;
+  const mc=fx?(+(fa&&fa.value)||0):Math.round(inc*pct);
+  if(!fx&&$('pl'))$('pl').textContent=(ps?ps.value:10)+'% = €'+mc.toLocaleString('nl-NL')+'/mnd';
+  // Community gebruikt opgeslagen waarden - slider beïnvloedt alleen preview
+  const myInc=savedInc||inc;
+  const myPct=savedPct||pct;
   const realMbrs=realMembers.filter(function(m){return m.name&&m.name!==currentUser;}).map(function(m,i){return{id:1000+i,n:m.name,i:m.income||0,p:m.pct||10};});
   const demoMbrs=mbrs.filter(function(d){return !realMbrs.find(function(r){return r.n===d.n;});});
-  const myInc=savedInc||inc;const myPct=savedPct;
-  const pool=(function(){var a=[...demoMbrs,...realMbrs,{id:0,n:currentUser||'Jij',i:myInc,p:Math.round(myPct*100),me:true}];return a.reduce((s,m)=>s+Math.round(m.i*(m.me?myPct:(m.p!==undefined?m.p/100:0.10))),0);})();
-  const pp=Math.round(pool/([...demoMbrs,...realMbrs].length+1));
   const all=[...demoMbrs,...realMbrs,{id:0,n:currentUser||'Jij',i:myInc,p:Math.round(myPct*100),me:true}];
+  const pool=all.reduce((s,m)=>s+Math.round(m.i*(m.me?myPct:(m.p!==undefined?m.p/100:0.10))),0);
+  const pp=all.length?Math.round(pool/all.length):0;
   const comp=all.map(m=>({...m,cn:Math.round(m.i*(m.me?myPct:(m.p!==undefined?m.p/100:0.10))),rc:pp,nt:pp-Math.round(m.i*(m.me?myPct:(m.p!==undefined?m.p/100:0.10)))}));
   const me=comp.find(m=>m.me)||{cn:0,rc:0,nt:0};
-  const avg=mbrs.length?Math.round(mbrs.reduce((s,m)=>s+m.i,0)/mbrs.length):0;
-  $('st-l').textContent=mbrs.length+1;
+  const avg=all.filter(m=>m.i>0).length?Math.round(all.filter(m=>m.i>0).reduce((s,m)=>s+m.i,0)/all.filter(m=>m.i>0).length):0;
+  $('st-l').textContent=all.length;
   $('pst').innerHTML=[{l:'Leden',v:comp.length,c:'#5b4fa8'},{l:'Pool',v:'€'+pool.toLocaleString('nl-NL'),c:'#1a7a6e'},{l:'Per persoon',v:'€'+pp.toLocaleString('nl-NL'),c:'#2d5a27'},{l:'Gem.ink.',v:'€'+avg.toLocaleString('nl-NL'),c:'#c17f24'}].map(s=>`<div class="card" style="text-align:center;padding:8px 5px;"><div style="font-family:'Lora',serif;font-size:14px;font-weight:700;color:${s.c};">${s.v}</div><div style="font-size:9px;color:var(--mu);">${s.l}</div></div>`).join('');
   RS(me,comp,pool,avg);
 }
