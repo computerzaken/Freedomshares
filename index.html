@@ -12,8 +12,8 @@
     <div style="font-size:32px;margin-bottom:8px;">🌱</div>
     <h1 style="font-size:20px;font-weight:700;color:#2d5a27;margin-bottom:4px;">FreedomShares</h1>
     <p style="font-size:13px;color:#666;margin-bottom:24px;">Dienstbaar aan de aarde, medemens en de toekomst.</p>
-    <input id="uname" placeholder="Jouw naam" style="width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:10px;font-size:14px;margin-bottom:10px;box-sizing:border-box;">
-    <button onclick="JOIN()" style="width:100%;background:#2d5a27;color:#fff;padding:12px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;margin-bottom:10px;">Ik doe mee →</button>
+    <input id="uname" placeholder="Jouw naam" style="width:100%;padding:10px 14px;border:1px solid #ddd;border-radius:10px;font-size:14px;margin-bottom:10px;box-sizing:border-box;" onkeydown="if(event.key==='Enter')JOIN()">
+    <button onclick="JOIN()" style="width:100%;background:#2d5a27;color:#fff;padding:12px;border-radius:10px;font-size:14px;font-weight:600;border:none;cursor:pointer;margin-bottom:10px;">Ik doe mee</button>
     <button onclick="DEMO_START()" style="width:100%;background:none;color:#2d5a27;padding:10px;border-radius:10px;font-size:13px;font-weight:500;border:1px solid #2d5a27;cursor:pointer;">Demo bekijken</button>
   </div>
 </div>
@@ -63,14 +63,14 @@
 <div class="card" style="margin-bottom:10px;">
 <div style="display:flex;gap:7px;margin-bottom:11px;flex-wrap:wrap;align-items:center;">
 <span style="font-size:12px;color:var(--mu);min-width:80px;">Inkomen:</span>
-<div style="position:relative;flex:1;min-width:100px;"><div style="display:flex;gap:6px;align-items:center;"><input type="number" id="mI" placeholder="Vul hier je netto inkomen in" oninput="CS()" onkeydown="if(event.key==='Enter'){CS();ST(1);}" style="flex:1;border:1px solid var(--br);border-radius:8px;padding:6px 10px;font-size:14px;font-weight:700;background:var(--w);color:var(--tx);"><button onclick="CS();ST(1);if(currentUser)saveMember(currentUser,+(mI&&mI.value)||0,(+(document.getElementById('ps')||{value:10}).value||10)/100);" style="background:var(--g);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;">Toepassen →</button></div></div>
+<div style="position:relative;flex:1;min-width:100px;"><div style="display:flex;gap:6px;align-items:center;"><input type="number" id="mI" placeholder="Vul hier je netto inkomen in" oninput="PREVIEW()" onkeydown="if(event.key==='Enter'){savedInc=+(mI&&mI.value)||0;savedPct=fx?(savedInc>0?(+(fa&&fa.value)||0)/savedInc:0):(+(ps&&ps.value)||0)/100;if(currentUser)saveMember(currentUser,savedInc,savedPct);CS();ST(1);}" style="flex:1;border:1px solid var(--br);border-radius:8px;padding:6px 10px;font-size:14px;font-weight:700;background:var(--w);color:var(--tx);"><button onclick="savedInc=+(mI&&mI.value)||0;savedPct=fx?(savedInc>0?(+(fa&&fa.value)||0)/savedInc:0):(+(ps&&ps.value)||0)/100;if(currentUser)saveMember(currentUser,savedInc,savedPct);CS();ST(1);" style="background:var(--g);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;">Toepassen</button></div></div>
 </div>
 <div class="tr" style="max-width:200px;margin-bottom:10px;">
 <button class="tb on" id="pb1" onclick="SF(false)">Mijn bijdrage %</button>
 <button class="tb" id="pb2" onclick="SF(true)">Vast bedrag</button>
 </div>
-<div id="pr"><div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:12px;color:var(--mu);">Bijdragepercentage</span><span id="pl" style="font-family:'Lora',serif;font-size:15px;font-weight:700;color:var(--g);">3% = €75/mnd</span></div><input type="range" id="ps" min="0" max="100" step="0.5" value="3" oninput="CS()" style="margin-bottom:7px;"></div>
-<div id="fr" style="display:none;"><input type="number" id="fa" placeholder="Vul hier een vast bedrag in" oninput="CS()" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div>
+<div id="pr"><div style="display:flex;justify-content:space-between;margin-bottom:4px;"><span style="font-size:12px;color:var(--mu);">Bijdragepercentage</span><span id="pl" style="font-family:'Lora',serif;font-size:15px;font-weight:700;color:var(--g);">3% = €75/mnd</span></div><input type="range" id="ps" min="0" max="100" step="0.5" value="3" oninput="PREVIEW()" style="margin-bottom:7px;"></div>
+<div id="fr" style="display:none;"><input type="number" id="fa" placeholder="Vul hier een vast bedrag in" oninput="PREVIEW()" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:13px;background:var(--w);color:var(--tx);"></div>
 </div>
 <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;" id="pst"></div>
 <div class="tr" style="max-width:380px;margin-bottom:10px;">
@@ -120,6 +120,6 @@
 <div id="h-debug" style="font-size:11px;"></div><div id="hl"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js?v=1781699007"></script>
+<script src="app.js?v=1781700575"></script>
 <div id="fm" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:999;"></div></body>
 </html>
