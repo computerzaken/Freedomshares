@@ -244,6 +244,134 @@ const SH_DATA=[
 ,{n:'Werkendam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:"Utrecht",d:'vegan restaurant eten',certs:['vegan'],w:'https://www.eet.nu'}
 ,{n:'Zo’ndag Werkendam',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:"Utrecht",d:'vegan restaurant eten',certs:['vegan'],w:'https://www.eet.nu'}
 ,{n:'Ministerie van geluk',c:'horeca',t:'retailer',s:'physical',bio:4,fair:4,sust:5,lo:5,p:"Zoetermeer",d:'vegan restaurant eten',certs:['vegan'],w:'https://www.eet.nu'}
+// === STEWARD-OWNED ORGANISATIES (bron: We Are Stewards NL) ===
+,{n:'Amada Zorgcollectief',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Arbo Unie',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'BuurtzorgT',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Careibu',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Carend',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'De Advieswinkel',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'De Sprank',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'De Sterrekijker',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Duindoorn Thuiszorg',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Het Rozentuintje',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'LTP Psychologen',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Maminka',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Olles Huis',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Social Medicines',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Team050',c:'zorg',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie zorg'}
+,{n:'Behout Houtzagerij',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Cooperatie Kraaybeekerhof',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'De Biesterhof',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'De Buurtboer',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'De Patrijs',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'De Terp',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Donker Groep',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Eerste Wijk',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Lenteland',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Loverendale Ter Linde',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Regelink',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Tuinen van Kraaybeekerhof',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Werkplaats de Smidse',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Ygen Forest',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'Albron',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'Blooming',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'Brownies & Downies',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'Cafe De Plak',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'Camping Zeeburg',c:'vrije_tijd',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie vrije_tijd'}
+,{n:'Coffeecompany',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'De Boomhuttenclub',c:'vrije_tijd',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie vrije_tijd'}
+,{n:'De Leistert',c:'vrije_tijd',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie vrije_tijd'}
+,{n:'Hotel Casa',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'Hutten',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'Local Happinez',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'SKEK',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'The Green House',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'The Loffly Chef',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'The Shore',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'Biosphere Solar',c:'energie',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie energie'}
+,{n:'Blade-Made',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'De Vries en Verburg',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'Dipam',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'ECOBLOQ',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'Nederhout',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'NiVoGe Groep',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'Remeha',c:'energie',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie energie'}
+,{n:'SafanDarley',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'TBI',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'Tierrafino',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'Topa',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'VDR Bouwgroep',c:'bouw',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie bouw'}
+,{n:'Adabtive',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'Alkemio',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'Bijzonderetafel.nl',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'BOAS',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'CrowdBuilding',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'DataOwn',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'Odesys',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'QBayLogic',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'REM Automatisering',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'Shift',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'Slow Your Life',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Sumthing',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'Time to Momo',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Voys',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'Action Academy',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Atelier16',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'B&T',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Berenschot',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Bord & Stift',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Bureau Buitenklank',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'BurgerReserve',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'CE Delft',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Disrupt Development',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Enviu',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'ER Creatie',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Fiolet Taaltrainingen',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Generous Minds',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Haskoning',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Jaarbeurs',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'KnopOm',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'New Paradigm',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Perspectivity',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Rho Adviseurs',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Showsync',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Sleipnir Support',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Squarewise',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'The Green Silk Road',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Zeevonk',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'De Groene Amsterdammer',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'De Werfklas',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Efteling',c:'vrije_tijd',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie vrije_tijd'}
+,{n:'Groeilokaal',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Happy Times Magazine',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Kriterion',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Madurodam',c:'vrije_tijd',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie vrije_tijd'}
+,{n:'Novamedia',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Podium',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Storytelling Academy',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Studio/K',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Universiteit Nyenrode',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Vrij Nederland',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'WPG Uitgevers',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Aarden',c:'markt',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie markt'}
+,{n:'BOOT Koffie',c:'voeding',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie voeding'}
+,{n:'De Beeldhouwwinkel',c:'wonen',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie wonen'}
+,{n:'De Haagse Boekerij',c:'media',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie media'}
+,{n:'Het Reizende Koffertje',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Kriterion Studentenpomp',c:'horeca',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie horeca'}
+,{n:'Mercurius',c:'voeding',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie voeding'}
+,{n:'Nearchus',c:'voeding',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie voeding'}
+,{n:'Oerbouillon',c:'voeding',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie voeding'}
+,{n:'Sprinklr',c:'tech',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie tech'}
+,{n:'The Good Spice',c:'voeding',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie voeding'}
+,{n:'Warmenbol',c:'wonen',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie wonen'}
+,{n:'Flynth',c:'financien',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie financien'}
+,{n:'Fresh Ventures Studio',c:'financien',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie financien'}
+,{n:'Impact First Group',c:'financien',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie financien'}
+,{n:'Monuta',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'PC Uitvaart',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
+,{n:'Vanadis Uitvaartverzorging',c:'diensten',t:'steward',s:'physical',bio:3,fair:4,sust:5,lo:4,certs:['steward'],d:'steward-owned organisatie diensten'}
 ];
 const TX={wasmachine:{c:['witgoed']},droger:{c:['witgoed']},koelkast:{c:['witgoed']},ijskast:{c:['witgoed']},laptop:{c:['tech']},telefoon:{c:['tech']},smartphone:{c:['tech']},jeans:{c:['kleding']},broek:{c:['kleding']},kleding:{c:['kleding']},shampoo:{c:['verzorging']},zeep:{c:['verzorging']},wasmiddel:{c:['verzorging']},energie:{c:['energie']},fiets:{c:['mobiliteit']},bank:{c:['financien']},bouw:{c:['bouw']},advies:{c:['diensten']},media:{c:['media']},zorg:{c:['zorg']},eieren:{c:['voeding','markt']},groente:{c:['voeding','markt']},doperwten:{c:['voeding','markt']},erwten:{c:['voeding','markt']},spinazie:{c:['voeding','markt']},tomaat:{c:['voeding','markt']},paprika:{c:['voeding','markt']},wortel:{c:['voeding','markt']},aardappel:{c:['voeding','markt']},fruit:{c:['voeding','markt']},appel:{c:['voeding','markt']},banaan:{c:['voeding','markt']},melk:{c:['voeding','markt']},zuivel:{c:['voeding','markt']},kaas:{c:['voeding','markt']},vlees:{c:['voeding','markt']},kip:{c:['voeding','markt']},vis:{c:['voeding','markt']},brood:{c:['voeding','markt']},pasta:{c:['voeding']},rijst:{c:['voeding']},bonen:{c:['voeding','markt']},noten:{c:['voeding']},honing:{c:['voeding','markt']},chocolade:{c:['voeding']},koffie:{c:['voeding','horeca']},thee:{c:['voeding']},wijn:{c:['voeding','horeca']},bier:{c:['voeding','horeca']},supermarkt:{c:['voeding']},boodschappen:{c:['voeding','markt']},biologisch:{c:['voeding','markt','horeca']},boerenmarkt:{c:['markt']},restaurant:{c:['horeca']},eten:{c:['horeca','voeding']},diner:{c:['horeca']},lunch:{c:['horeca']},cafe:{c:['horeca']},vegan:{c:['horeca']},horeca:{c:['horeca']}};
 const OSC=[
