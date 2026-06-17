@@ -260,7 +260,7 @@ const CERT_BADGES={bcorp:{l:'B Corp',e:'B',c:'#2d5a27'},steward:{l:'Steward-owne
 
 const QD={invest:{c:'#2d5a27',l:'Investeren',d:'Renteloos le.',di:['Initiatief starten','Renteloze lening','Deelnemen'],fi:['Geld vloeit terug','Geen rente, wel verantwoordelijkheid']},support:{c:'#1a7a6e',l:'Ondersteunen',d:'Persoonlijke.',di:['Persoonlijke voordracht','Groei ondersteunen','Geen criteria'],fi:['Gift, geen lening','Vertrouwen als basis']},crowd:{c:'#5b4fa8',l:'Crowdfunding',d:'Initiatieven.',di:['Criteria-selectie','Gelijke stem','Consent-besluitvorming'],fi:['Geld vrij bij haalbaarheid','Collectief beheer']},give:{c:'#c17f24',l:'Weggeven',d:'Zuivere gift.',di:['Geen verwachtingen','Onpersoonlijk','Trickledown'],fi:['Pure gift','Versterkt het systeem']}};
 const PS=['Idee','Actief','Afgerond'],STC={Idee:'#c17f24',Actief:'#2d5a27',Afgerond:'#6b7260'};
-var currentUser=null;var projs=[];var supporters=[];var fundpot=0;var fund=[];var realMembers=[];var savedPct=0.10;var savedInc=0;let mbrs=[...M],shops=[...SH_DATA];
+var currentUser=null;var projs=[];var supporters=[];var fundpot=0;var fund=[];var realMembers=[];var savedPct=0.10;var savedInc=0;var _editSuppId=null;let mbrs=[...M],shops=[...SH_DATA];
 var hf='Alle';let fx=false,nid=200,cws=0,cwa={},cwr=null,ks=0,ka={},km=[];
 
 function G(p){
@@ -391,6 +391,8 @@ function DELSUPP(id){
   if(_DB)Promise.resolve(_DB.from('supporters').delete().eq('id',id)).catch(()=>{});
   ROS();
 }
+
+function _notify(msg,ok2){const d=document.getElementById('ads-msg');if(!d)return;d.textContent=msg;d.style.cssText='display:block;padding:6px 10px;border-radius:7px;font-size:12px;font-weight:600;margin-top:4px;background:'+(ok2?'#2d5a2718':'#b8545018')+';color:'+(ok2?'#2d5a27':'#b85450')+';';if(ok2)setTimeout(()=>{d.style.display='none';},3000);}
 
 async function ADS(){
   const n=document.getElementById('sn');
