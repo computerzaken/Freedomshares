@@ -63,7 +63,7 @@
 <div class="card" style="margin-bottom:10px;">
 <div style="display:flex;gap:7px;margin-bottom:11px;flex-wrap:wrap;align-items:center;">
 <span style="font-size:12px;color:var(--mu);min-width:80px;">Inkomen:</span>
-<div style="position:relative;flex:1;min-width:100px;"><div style="display:flex;gap:6px;align-items:center;"><input type="number" id="mI" placeholder="Vul hier je netto inkomen in" oninput="CS()" onkeydown="if(event.key==='Enter'){CS();ST(1);}" style="flex:1;border:1px solid var(--br);border-radius:8px;padding:6px 10px;font-size:14px;font-weight:700;background:var(--w);color:var(--tx);"><button onclick="CS();ST(1);" style="background:var(--g);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;">Toepassen →</button></div></div>
+<div style="position:relative;flex:1;min-width:100px;"><div style="display:flex;gap:6px;align-items:center;"><input type="number" id="mI" placeholder="Vul hier je netto inkomen in" oninput="CS()" onkeydown="if(event.key==='Enter'){CS();ST(1);}" style="flex:1;border:1px solid var(--br);border-radius:8px;padding:6px 10px;font-size:14px;font-weight:700;background:var(--w);color:var(--tx);"><button onclick="CS();ST(1);if(currentUser)saveMember(currentUser,+(mI&&mI.value)||0,(+(document.getElementById('ps')||{value:10}).value||10)/100);" style="background:var(--g);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;">Toepassen →</button></div></div>
 </div>
 <div class="tr" style="max-width:200px;margin-bottom:10px;">
 <button class="tb on" id="pb1" onclick="SF(false)">Mijn bijdrage %</button>
