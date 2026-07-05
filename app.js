@@ -512,6 +512,9 @@ function EDSUPP(id){
   OSC.forEach(([v])=>{const inp=document.getElementById('osc-'+v);if(inp){const cat=(s.cats||[]).find(c=>c.v===v);inp.value=cat?cat.note:'';}});
   const stEl=document.getElementById('st');if(stEl)stEl.value=s.note||'';
   const btn=document.querySelector('#ck2 button');if(btn)btn.textContent='Opslaan';
+  // Scroll naar het formulier zodat gebruiker het ziet
+  const form=document.querySelector('#ck2 .card');
+  if(form){form.scrollIntoView({behavior:'smooth',block:'start'});form.style.border='2px solid var(--g)';setTimeout(()=>{form.style.border='';},2000);}
 }
 function DELSUPP(id){
   supporters=supporters.filter(x=>String(x.id)!==String(id));
