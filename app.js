@@ -1081,4 +1081,3 @@ window.addEventListener('load',function(){
   _DB=supabase.createClient(SURL,SKEY);
   try{const saved=localStorage.getItem('fs_user');if(saved){currentUser=saved;OPEN_APP(false);}}catch(e){}
 });
-   
