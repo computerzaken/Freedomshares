@@ -487,4 +487,4 @@ function JOIN(){const n=document.getElementById('uname');if(!n||!n.value.trim())
 function DEMO_START(){currentUser='Demo';OPEN_APP(true);}
 function RELOAD_MBRS(){try{localStorage.removeItem('fs_removed');}catch(e){}mbrs=[...M];CS();}
 function LOGOUT(){currentUser=null;savedInc=0;savedPct=0.10;mbrs=[...M];projs=[];supporters=[];fund=[];fundpot=0;realMembers=[];if(mI)mI.value='';try{localStorage.removeItem('fs_user');}catch(e){}const wl=document.getElementById('wl');if(wl)wl.style.display='flex';const ub=document.getElementById('ubar');if(ub)ub.style.display='none';}
-window.addEventListener('load',function(){_DB=supabase.createClient(SURL,SKEY);try{const s=localStorage.getItem('fs_user');if(s){currentUser=s;OPEN_APP(false);}}catch(e){}});
+window.addEventListener('load',function(){_DB=supabase.createClient(SURL,SKEY);try{var el=$('st-s');if(el)el.textContent=shops.length;}catch(e){};try{const s=localStorage.getItem('fs_user');if(s){currentUser=s;OPEN_APP(false);}}catch(e){}});
