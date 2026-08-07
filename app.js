@@ -305,7 +305,7 @@ function G(p){
  const s=$('p-'+p);if(s)s.classList.add('show');
   const C={sharing:'#2d5a27',caring:'#1a7a6e',shopping:'#c17f24',helping:'#b85450'};
   if(C[p]){const n=$('nb-'+p);if(n){n.classList.add('on');n.style.background=C[p];}}
-  if(p==='sharing')CS();if(p==='helping')RH();if(p==='shopping')SH();
+  if(p==='sharing')CS();if(p==='helping'){RH();if(_DB)LD();}if(p==='shopping')SH();
   $('st-s').textContent=shops.length;
 }
 
@@ -416,7 +416,26 @@ async function SAVPROJ(id){
   document.getElementById('hf').style.display='none';RH();
 }
 
-async function SAV(){const n=document.getElementById('pn');if(!n||!n.value.trim()){alert('Naam vereist');return;}const needs=OSC.map(([v])=>{const inp=document.getElementById('hn-'+v);const note=inp?inp.value.trim():'';return note?{v,note}:null;}).filter(Boolean);await _DB.from('projects').insert([{name:n.value.trim(),ind:(document.getElementById('pi')||{value:''}).value,status:(document.getElementById('pp')||{value:'Idee'}).value,description:(document.getElementById('pd')||{value:''}).value.trim(),needs}]);document.getElementById('hf').style.display='none';await LD();}
+async function SAV(){
+  const n=document.getElementById('pn');
+  if(!n||!n.value.trim()){
+    const pnEl=document.getElementById('pn');
+    if(pnEl){pnEl.style.border='1px solid #b85450';setTimeout(()=>{pnEl.style.border='';},2000);}
+    return;
+  }
+  const needs=OSC.map(([v])=>{const inp=document.getElementById('hn-'+v);const note=inp?inp.value.trim():'';return note?{v,note}:null;}).filter(Boolean);
+  const btn=document.querySelector('#hf button');
+  if(btn){btn.textContent='Opslaan...';btn.disabled=true;}
+  try{
+    const{error}=await Promise.race([
+      _DB.from('projects').insert([{name:n.value.trim(),ind:(document.getElementById('pi')||{value:''}).value,status:(document.getElementById('pp')||{value:'Idee'}).value,description:(document.getElementById('pd')||{value:''}).value.trim(),needs}]),
+      new Promise((_,r)=>setTimeout(()=>r(new Error('timeout')),8000))
+    ]);
+    if(error){console.error('Project opslaan mislukt:',error.message);if(btn){btn.textContent='Opslaan';btn.disabled=false;}return;}
+  }catch(e){console.error('Project fout:',e.message);if(btn){btn.textContent='Opslaan';btn.disabled=false;}return;}
+  document.getElementById('hf').style.display='none';
+  await LD();
+}
 function RHN(){const b=document.getElementById('hn-btns');if(!b)return;b.innerHTML=OSC.map(([v,l,cl,q1,q2])=>{const ico=l.split(' ')[0];const lbl=l.split(' ').slice(1).join(' ');return'<div style="margin-bottom:8px;"><label style="display:flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:'+cl+';margin-bottom:3px;"><span style="font-size:15px;">'+ico+'</span>'+lbl+'</label><input id="hn-'+v+'" placeholder="'+q2+'" style="width:100%;padding:6px 10px;border:1px solid var(--br);border-radius:7px;font-size:12px;background:var(--w);color:var(--tx);box-sizing:border-box;" onfocus="this.style.borderColor=\''+cl+'\'" onblur="this.style.borderColor=\'var(--br)\'"></div>';}).join('');}
 function ROS(){
   const b=document.getElementById('sc-btns');
