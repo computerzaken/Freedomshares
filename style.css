@@ -15,7 +15,7 @@ nav div{display:flex;align-items:center;height:48px;gap:4px;overflow-x:auto;}
 .card{background:var(--w);border-radius:14px;border:1px solid var(--br);padding:16px;}
 .pl{cursor:pointer;border-radius:14px;padding:18px;border:1px solid var(--br);background:var(--w);transition:transform .2s;}
 .pl:hover{transform:translateY(-2px);}
-.pb{padding:4px 10px;border-radius:20px;font-size:11px;border:1px solid var(--br);background:transparent;color:var(--mu);cursor:pointer;}
+.pb{padding:4px 10px;border-radius:20px;font-size:11px;border:1px solid var(--br);background:transparent;color:var(--tx);cursor:pointer;}
 .tr{display:flex;background:#f3f0eb;border-radius:20px;padding:3px;}
 .tb{flex:1;padding:5px 6px;border-radius:17px;font-size:11px;border:none;background:transparent;color:var(--mu);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:3px;}
 .tb.on{background:var(--w);color:var(--tx);box-shadow:0 1px 3px rgba(0,0,0,.08);}
