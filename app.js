@@ -304,7 +304,7 @@ function CS(){
   const pp=totpct>0?pool/(totpct*100):0;
   const comp=all.map(m=>{const mpct=m.me?myPct:(m.p!==undefined?m.p/100:0.10);const cn=m.i*mpct;const rc=totpct>0?mpct/totpct*pool:0;return{...m,cn,rc,nt:rc-cn};});
   const me=comp.find(m=>m.me)||{cn:0,rc:0,nt:0};if(!myInc){if($('tab0'))$('tab0').innerHTML='<div class="card" style="text-align:center;padding:20px;color:var(--mu);"><div style="font-size:28px;margin-bottom:8px;">💰</div><p style="font-size:13px;">Vul je inkomen in om te zien wat jij bijdraagt en ontvangt.</p><p style="font-size:12px;margin-top:6px;">Bij €0 inkomen wordt €0 ingevuld.</p></div>';return;}
-  const avg=mbrs.length?Math.round(mbrs.reduce((s,m)=>s+m.i,0)/mbrs.length):0;
+  const avg=all.length?Math.round(all.reduce((s,m)=>s+m.i,0)/all.length):0;
   $('st-l').textContent=mbrs.length+1;
   $('pst').innerHTML=[{l:'Leden',v:comp.length,c:'#5b4fa8'},{l:'Totale inleg',v:'€'+pool.toLocaleString('nl-NL'),c:'#1a7a6e'},{l:'Waarde per share',v:'€'+pp.toLocaleString('nl-NL',{minimumFractionDigits:2,maximumFractionDigits:2}),c:'#2d5a27'},{l:'Gemiddeld inkomen',v:'€'+avg.toLocaleString('nl-NL'),c:'#c17f24'}].map(s=>`<div class="card" style="text-align:center;padding:8px 5px;"><div style="font-family:'Lora',serif;font-size:14px;font-weight:700;color:${s.c};">${s.v}</div><div style="font-size:9px;color:var(--mu);">${s.l}</div></div>`).join('');
   if(!document.getElementById('fs-uitleg')){$('pst').insertAdjacentHTML('afterend','<div id="fs-uitleg" style="font-size:11px;color:var(--mu);text-align:center;margin-top:4px;">Jouw FreedomShares × waarde per share = wat jij ontvangt</div>');}  
