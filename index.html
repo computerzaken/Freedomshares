@@ -51,7 +51,7 @@
 <div class="card" style="margin-bottom:10px;">
 <div style="display:flex;gap:7px;margin-bottom:11px;flex-wrap:wrap;align-items:center;">
 <span style="font-size:12px;color:var(--mu);min-width:80px;">Inkomen:</span>
-<div style="position:relative;flex:1;min-width:100px;"><div style="display:flex;gap:6px;align-items:center;"><input type="number" id="mI" placeholder="Vul hier je netto inkomen in" oninput="PREVIEW()" style="flex:1;border:1px solid var(--br);border-radius:8px;padding:6px 10px;font-size:14px;font-weight:700;background:var(--w);color:var(--tx);"><button onclick="savedInc=+(mI&&mI.value)||0;savedPct=fx?(savedInc>0?(+(fa&&fa.value)||0)/savedInc:0):(+(ps&&ps.value)||0)/100;if(currentUser){try{localStorage.setItem('fs_inc_'+currentUser,savedInc);localStorage.setItem('fs_pct_'+currentUser,savedPct);}catch(e){}}if(currentUser)saveMember(currentUser,savedInc,savedPct);CS();ST(1);" style="background:var(--g);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;">Toepassen</button></div></div>
+<div style="position:relative;flex:1;min-width:100px;"><div style="display:flex;gap:6px;align-items:center;"><input type="number" id="mI" placeholder="Vul hier je netto inkomen in" oninput="PREVIEW()" style="flex:1;border:1px solid var(--br);border-radius:8px;padding:6px 10px;font-size:14px;font-weight:700;background:var(--w);color:var(--tx);"><button onclick="savedInc=+(mI&&mI.value)||0;savedPct=fx?(savedInc>0?(+(fa&&fa.value)||0)/savedInc:0):(+(ps&&ps.value)||0)/100;if(currentUser){try{localStorage.setItem('fs_inc_'+currentUser,savedInc);localStorage.setItem('fs_pct_'+currentUser,savedPct);}catch(e){}}if(currentUser)saveMember(currentUser,savedInc,savedPct);CS();ST(0);" style="background:var(--g);color:#fff;border:none;border-radius:8px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;">Toepassen</button></div></div>
 </div>
 <div class="tr" style="max-width:200px;margin-bottom:10px;">
 <button class="tb on" id="pb1" onclick="SF(false)">Mijn bijdrage %</button>
@@ -110,6 +110,6 @@
 <div id="h-debug" style="font-size:11px;"></div><div id="hl"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="app.js?v=1792251935"></script>
+<script src="app.js?v=1792665146"></script>
 <div id="fm" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:999;"></div></body>
 </html>
