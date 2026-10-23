@@ -299,7 +299,7 @@ function CS(){
   const inc=+(mI&&mI.value)||0,pct=fx?(inc>0?(+(fa&&fa.value)||0)/inc:0):(+(ps&&ps.value)||0)/100;
   const mc=fx?(+(fa.value)||0):Math.round(inc*pct);
   if(!fx&&$('pl'))$('pl').textContent=(ps?ps.value:10)+'% = €'+mc.toLocaleString('nl-NL')+'/mnd';
-    const myInc=savedInc!==null?savedInc:inc;const myPct=savedPct!==null?savedPct:pct;const realMbrs=realMembers.filter(function(m){return m.name&&m.name.toLowerCase()!==currentUser.toLowerCase();}).map(function(m,i){return{id:1000+i,n:m.name,i:m.income||0,p:m.pct||10};});const demoMbrs=mbrs.filter(function(d){return !realMbrs.find(function(r){return r.n===d.n;});});const all=[...demoMbrs,...realMbrs,{id:0,n:currentUser||'Jij',i:myInc,p:Math.round(myPct*100),me:true}];const pool=all.reduce((s,m)=>s+(m.i*(m.me?myPct:(m.p!==undefined?m.p/100:0.10))),0);
+    const myInc=savedInc!==null?savedInc:inc;const myPct=savedPct!==null?savedPct:pct;const realMbrs=realMembers.filter(function(m){return m.name&&m.name.toLowerCase()!==currentUser.toLowerCase();}).map(function(m,i){return{id:1000+i,n:m.name,i:m.income||0,p:m.pct||10};});const demoMbrs=realMbrs.length>0?[]:mbrs;const all=[...demoMbrs,...realMbrs,{id:0,n:currentUser||'Jij',i:myInc,p:Math.round(myPct*100),me:true}];const pool=all.reduce((s,m)=>s+(m.i*(m.me?myPct:(m.p!==undefined?m.p/100:0.10))),0);
   const totpct=all.reduce((s,m)=>s+(m.me?myPct:(m.p!==undefined?m.p/100:0.10)),0);
   const pp=totpct>0?pool/(totpct*100):0;
   const comp=all.map(m=>{const mpct=m.me?myPct:(m.p!==undefined?m.p/100:0.10);const cn=m.i*mpct;const rc=totpct>0?mpct/totpct*pool:0;return{...m,cn,rc,nt:rc-cn};});
