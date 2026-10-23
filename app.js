@@ -399,7 +399,8 @@ async function LD(){if(!_DB)return;const{data:pd}=await _DB.from('projects').sel
   try{const{data:fd}=await _DB.from('fund').select('*');if(fd)fund=fd;}catch(e){}
   try{const{data:fp}=await _DB.from('fund_pot').select('*').limit(1);if(fp&&fp[0])fundpot=+fp[0].startbedrag;}catch(e){}
   RH();ROS();
-  try{const ls=localStorage.getItem('fs_members');if(ls)realMembers=JSON.parse(ls);}catch(e){}
+  await loadRealMembers();
+  CS();
   let d=document.getElementById('h-debug');if(d&&pd)d.innerHTML='OK '+pd.length+' projecten';}
 function MATCH(p){const pv=(p.needs||[]).map(x=>x&&x.v?x.v:x);return(supporters||[]).filter(s=>{const sv=(s.cats||[]).map(x=>x&&x.v?x.v:x);return pv.some(n=>sv.includes(n));});}
 async function SAV(){
